@@ -1,36 +1,45 @@
+import '../styles/HeroSection.css';
+import ProjectsScroll from './ProjectsScroll';
+
 export default function HeroSection() {
-    return (
-      <section>
-        {/* Top nav */}
-        <nav className="flex gap-8 mb-12 text-sm font-light text-white">
-          <a href="#">Work</a>
-          <a href="#">Resume</a>
-          <a href="#">Projects</a>
-          <a href="#">About</a>
-        </nav>
-  
-        {/* Hero content */}
-        <div className="mb-16">
-          <h1 className="text-6xl font-bold leading-tight">
-            Hello, I’m Felix<br />Moronge
-          </h1>
-          <h2 className="text-lg text-gray-500 mt-2">DevOps Engineer</h2>
-  
-          <p className="mt-6 text-sm max-w-md leading-relaxed text-white/80">
-            I design and automate scalable infrastructure using AWS, Docker, Kubernetes, and Terraform. 
-            From building CI/CD pipelines to deploying cloud-native apps, I’ve delivered production-grade 
-            systems for startups and AI-driven platforms. Whether it’s zero-downtime deploys, real-time 
-            observability, or seamless automation—I ship fast, reliable code that powers real users.
-          </p>
-        </div>
-  
-        {/* Footer contact */}
-        <footer className="flex gap-8 text-sm text-white/60">
-          <a href="#">contact</a>
-          <a href="#">github</a>
-          <a href="#">linkedin</a>
-        </footer>
-      </section>
-    );
-  }
-  
+  return (
+    <section className="hero-text">
+      <nav className="hero-nav fade-in-up" style={{ animationDelay: '0s' }}>
+        <a href="#">Work</a>
+        <a href="#">Resume</a>
+        <a href="#">Projects</a>
+        <a href="#">About</a>
+      </nav>
+
+      <div className="hero-content">
+      <h1 className="hero-heading">
+          <span style={{ animationDelay: '0.2s' }}>Hello,</span>{' '}
+          <span style={{ animationDelay: '0.3s' }}>I’m</span>{' '}
+          <span style={{ animationDelay: '0.4s' }}>Felix</span><br />
+          <span style={{ animationDelay: '0.5s' }}>Moronge</span>
+        </h1>
+        
+        <h2 className="fade-in-up" style={{ animationDelay: '0.6s' , opacity: 0,fontWeight: 400,'--final-opacity': '0.7' } as React.CSSProperties}>
+          DevOps Engineer
+        </h2>
+        
+        <p className="fade-in-up"  style={{ animationDelay: '0.8s' }}>
+          I design and automate scalable infrastructure using AWS, Docker, Kubernetes, and Terraform. 
+          From building CI/CD pipelines to deploying cloud-native apps, I’ve delivered production-grade 
+          systems for startups and AI-driven platforms. Whether it’s zero-downtime deploys, real-time 
+          observability, or seamless automation—I ship fast, reliable code that powers real users.
+        </p>
+      </div>
+
+      <div className="fade-in-up" style={{ animationDelay: '0.9s' }}>
+       <ProjectsScroll/>
+      </div>
+
+      <footer className= "hero-footer fade-in-up" style={{ animationDelay: '1s' }} >
+        <a href="tel:2674689116">contact</a>
+        <a href="https://github.com/NeverEverFelix" target="_blank" rel="noopener noreferrer">github</a>
+        <a href="https://www.linkedin.com/in/felixmoronge" target="_blank" rel="noopener noreferrer">linkedin</a>
+      </footer>
+    </section>
+  );
+}
