@@ -43,4 +43,21 @@
     color: white;
     opacity: 50%;
   }
+  .resume-card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.9375rem;
+    display: block;
+  }
+  
+  .resume-card-image:hover {
+    transform: scale(1.02);
+  }
+
+  .resume-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
   
