@@ -42,15 +42,32 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
 
     return () => observer.current?.disconnect();
   }, [setActiveSection, sectionRefs]);
+
   return (
     <div className="scroll-sections">
       {sections.map(({ id, title }, index) => (
         <section key={id} id={id} className="scroll-section">
           <h2 className="section-header fade-in-up" style={{ animationDelay: `${1 + index * 0.1}s` }}>{title}</h2>
           <div className="card-stack">
-            <div className="fade-in-up" style={{ animationDelay: '0.2s' }}><ContentCard /></div>
-            <div className="fade-in-up" style={{ animationDelay: '0.4s' }}><ContentCard /></div>
-            <div className="fade-in-up" style={{ animationDelay: '0.6s' }}><ContentCard /></div>
+          { id === 'resume' ? (
+                  <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
+                    <ContentCard variant="plain">
+                      <a href="/resume.pdf" download className="resume-link" style={{ textDecoration: 'none' }}>
+                        <img
+                          src="/resume-thumbnail.png"
+                          alt="Download Resume"
+                          className="resume-card-image"
+                        />
+                      </a>
+                    </ContentCard>
+                  </div>
+                ) : (
+              <>
+                <div className="fade-in-up" style={{ animationDelay: '0.2s' }}><ContentCard /></div>
+                <div className="fade-in-up" style={{ animationDelay: '0.4s' }}><ContentCard /></div>
+                <div className="fade-in-up" style={{ animationDelay: '0.6s' }}><ContentCard /></div>
+              </>
+            )}
           </div>
         </section>
       ))}
