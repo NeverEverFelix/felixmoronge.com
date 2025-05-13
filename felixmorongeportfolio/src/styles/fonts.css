@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'NHaasGrotesk';
+    src: url('/fonts/NHaasGroteskDSPro-55Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .hero-text {
+    font-family: 'NHaasGrotesk', sans-serif;
+  }
+  

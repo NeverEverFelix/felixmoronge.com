@@ -1,4 +1,5 @@
-import SectionBlock from './SectionBlock';
+import '../styles/ProjectsScroll.css';
+import { useState } from 'react';
 
 const sections = [
   { id: 'projects', title: 'Projects' },
@@ -8,16 +9,18 @@ const sections = [
 ];
 
 export default function ProjectsScroll() {
+  const [activeSection, setActiveSection] = useState('projects');
   return (
-    <div className="relative space-y-0 snap-y snap-mandatory h-full overflow-y-scroll">
+    <div className="projects-scroll">
       {sections.map((section) => (
-        <section
+        <div
           key={section.id}
-          id={section.id}
-          className="h-screen snap-start flex flex-col justify-center items-center"
+          className={`scroll-item ${activeSection === section.id ? 'active' : ''}`}
+          onClick={() => setActiveSection(section.id)}
         >
-          <SectionBlock title={section.title} />
-        </section>
+          <div className="divider" />
+          <span className="label">{section.title}</span>
+        </div>
       ))}
     </div>
   );
