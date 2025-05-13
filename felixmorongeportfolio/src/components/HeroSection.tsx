@@ -1,7 +1,12 @@
 import '../styles/HeroSection.css';
 import ProjectsScroll from './ProjectsScroll';
 
-export default function HeroSection() {
+type Props = {
+  activeSection: string;
+  onSectionClick: (id: string) => void;
+};
+
+export default function HeroSection({ activeSection, onSectionClick }: Props) {
   return (
     <section className="hero-text">
       <nav className="hero-nav fade-in-up" style={{ animationDelay: '0s' }}>
@@ -32,7 +37,10 @@ export default function HeroSection() {
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.9s' }}>
-       <ProjectsScroll/>
+       <ProjectsScroll
+        activeSection={activeSection}
+        onSectionClick={onSectionClick}
+       />
       </div>
 
       <footer className= "hero-footer fade-in-up" style={{ animationDelay: '1s' }} >
