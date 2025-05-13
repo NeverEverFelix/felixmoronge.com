@@ -1,5 +1,11 @@
 import '../styles/ProjectsScroll.css';
-import { useState } from 'react';
+
+
+
+type Props = {
+  activeSection: string;
+  onSectionClick: (id: string) => void;
+};
 
 const sections = [
   { id: 'projects', title: 'Projects' },
@@ -8,15 +14,14 @@ const sections = [
   { id: 'skills', title: 'Skills & Tools' },
 ];
 
-export default function ProjectsScroll() {
-  const [activeSection, setActiveSection] = useState('projects');
+export default function ProjectsScroll({ activeSection, onSectionClick }: Props) {
   return (
     <div className="projects-scroll">
       {sections.map((section) => (
         <div
           key={section.id}
           className={`scroll-item ${activeSection === section.id ? 'active' : ''}`}
-          onClick={() => setActiveSection(section.id)}
+          onClick={() => onSectionClick(section.id)}
         >
           <div className="divider" />
           <span className="label">{section.title}</span>
