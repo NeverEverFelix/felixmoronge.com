@@ -3,6 +3,7 @@ import ContentCard from './ContentCard';
 import '../styles/ContentCard.css';
 import { useEffect, useRef, useState } from 'react';
 import Modal from 'react-modal';
+import WorkModal from './WorkModal';
 
 type Props = {
   setActiveSection: (id: string) => void;
@@ -107,10 +108,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                   <ContentCard
                     title="Wavform"
                     imageUrl="/wavform.png"
-                    onClick={() => {setSelectedCompany('wavform')
-                      console.log('Clicked wavform');
-                    }}
-
+                    onClick={() => setSelectedCompany('wavform')}
                   />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -135,30 +133,34 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                   className="custom-modal"
                   overlayClassName="modal-overlay"
                 >
-                  <button onClick={closeModal}>Close</button>
                   {selectedCompany === 'wavform' && (
-                    <div>
-                      <h2>Wavform</h2>
-                      <p>
-                        Worked as a DevOps Intern building CI/CD pipelines, automating deployments, and maintaining AWS infrastructure for a social music platform.
-                      </p>
-                    </div>
+                    <WorkModal
+                      logo="/wavform.png"
+                      company="Wavform, LLC"
+                      role="DevOps Engineer Intern"
+                      description="Sole DevOps Engineer responsible for the end-to-end design and implementation of Wavform’s cloud infrastructure. Built a hybrid CI/CD pipeline using GitHub Actions and Jenkins, cutting deployment time by 40%. Deployed services to Kubernetes clusters using blue-green deployment strategies, service mesh, and auto-scaling. Provisioned AWS EC2, ALB, and EKS via Terraform and Helm, establishing repeatable IaC patterns. Integrated PostHog-based telemetry into deployment gates for analytics-driven rollbacks and phased releases. Secured infrastructure with AWS Secrets Manager, and authored full onboarding docs—reducing infra ramp-up time by 60%."
+                      onClose={closeModal}
+                    />
                   )}
+
                   {selectedCompany === 'temple' && (
-                    <div>
-                      <h2>Temple University</h2>
-                      <p>
-                        Assisted faculty and staff with technical support, resolved issues related to campus systems, and helped maintain internal documentation.
-                      </p>
-                    </div>
+                    <WorkModal
+                      logo="/temple.png"
+                      company="Temple University"
+                      role="Technical Support Specialist"
+                      description="Delivered technical support across a university-wide environment. Resolved system and software issues on over 100 endpoints, improved workflows by 20% through automated maintenance, and supported essential productivity tools such as Adobe Creative Suite, Office 365, and Zoom."
+                      onClose={closeModal}
+                    />
                   )}
+
                   {selectedCompany === 'temple-surgery' && (
-                    <div>
-                      <h2>Temple University Department of Surgery</h2>
-                      <p>
-                        Worked alongside surgical staff and administration to digitize records, manage system permissions, and ensure HIPAA-compliant practices.
-                      </p>
-                    </div>
+                    <WorkModal
+                      logo="/surgery.jpeg"
+                      company="Temple University Department of Surgery"
+                      role="Technical Assistant"
+                      description="Maintained HIPAA-compliant systems, helped digitize medical records securely, and managed credential configurations for sensitive medical software systems."
+                      onClose={closeModal}
+                    />
                   )}
                 </Modal>
               </>
@@ -181,4 +183,3 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
     </div>
   );
 }
-
