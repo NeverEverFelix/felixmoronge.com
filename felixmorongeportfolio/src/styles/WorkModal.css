@@ -1,0 +1,59 @@
+.work-modal {
+    background-color: #000; /* Black modal background */
+    color: white;
+    width: 65.4375rem; /* 1047px / 16 */
+    height: 38.75rem;   /* 620px / 16 */
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+  
+  /* EXIT button */
+  .modal-exit-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    color: #ff4c4c;
+    font-weight: bold;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    font-size: 2.28125rem; /* 36.5px */
+  }
+  
+  /* Logo */
+  .modal-logo {
+    width: 30.955rem;   /* 495.28px / 16 */
+    height: 14.3125rem; /* 229px / 16 */
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+  
+  /* Company name */
+  .modal-company {
+    font-size: 2.68625rem; /* 42.98px / 16 */
+    color: #a3a3a3; /* Gray */
+    margin: 0;
+  }
+  
+  /* Role title */
+  .modal-role {
+    font-size: 1.913125rem; /* 30.61px / 16 */
+    font-weight: 700;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Description */
+  .modal-description {
+    font-size: 1.5rem; /* 24px / 16 */
+    line-height: 1.8;
+    max-width: 100%;
+  }
+  
