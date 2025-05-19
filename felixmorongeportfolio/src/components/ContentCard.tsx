@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 type Props = {
   children?: React.ReactNode;
   imageUrl?: string;
-  variant?: 'default' | 'plain';
+  variant?: 'default' | 'plain' | 'image-only';
   title?: string;
   onClick?: () => void;
 };
@@ -28,7 +28,10 @@ export default function ContentCard({ title, onClick, children, imageUrl, varian
       {children ? (
         children
       ) : (
-        imageUrl && <img src={imageUrl} alt={title || 'card'} className="card-image" />
+        <>
+        {imageUrl && <img src={imageUrl} alt={title || 'card'} className="card-image" />}
+        {variant !== 'image-only' && title && <h3>{title}</h3>}
+        </>
       )}
       {title && <h3>{title}</h3>}
     </div>

@@ -22,5 +22,6 @@ export default function WorkModal({ logo, company, role, description, onClose }:
       <h3 className="modal-role">{role}</h3>
       <p className="modal-description">{description}</p>
     </div>
+    
   );
 }
