@@ -104,11 +104,13 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
               </>
             ) : id === 'work' ? (
               <>
+              
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <ContentCard
                     title="Wavform"
                     imageUrl="/wavform.png"
                     onClick={() => setSelectedCompany('wavform')}
+                    variant="image-only"
                   />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
@@ -116,6 +118,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                     title="Temple"
                     imageUrl="/temple.png"
                     onClick={() => setSelectedCompany('temple')}
+                    variant="image-only"
                   />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
@@ -123,6 +126,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                     title="Temple Hospital"
                     imageUrl="/surgery.jpeg"
                     onClick={() => setSelectedCompany('temple-surgery')}
+                    variant="image-only"
                   />
                 </div>
 
@@ -135,7 +139,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                 >
                   {selectedCompany === 'wavform' && (
                     <WorkModal
-                      logo="/wavform.png"
+                      logo="/wavformLogo.png"
                       company="Wavform, LLC"
                       role="DevOps Engineer Intern"
                       description="Sole DevOps Engineer responsible for the end-to-end design and implementation of Wavform’s cloud infrastructure. Built a hybrid CI/CD pipeline using GitHub Actions and Jenkins, cutting deployment time by 40%. Deployed services to Kubernetes clusters using blue-green deployment strategies, service mesh, and auto-scaling. Provisioned AWS EC2, ALB, and EKS via Terraform and Helm, establishing repeatable IaC patterns. Integrated PostHog-based telemetry into deployment gates for analytics-driven rollbacks and phased releases. Secured infrastructure with AWS Secrets Manager, and authored full onboarding docs—reducing infra ramp-up time by 60%."
@@ -145,7 +149,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
 
                   {selectedCompany === 'temple' && (
                     <WorkModal
-                      logo="/temple.png"
+                      logo="/templeLogo.png"
                       company="Temple University"
                       role="Technical Support Specialist"
                       description="Delivered technical support across a university-wide environment. Resolved system and software issues on over 100 endpoints, improved workflows by 20% through automated maintenance, and supported essential productivity tools such as Adobe Creative Suite, Office 365, and Zoom."
@@ -155,7 +159,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
 
                   {selectedCompany === 'temple-surgery' && (
                     <WorkModal
-                      logo="/surgery.jpeg"
+                      logo="/templeLogo.png"
                       company="Temple University Department of Surgery"
                       role="Technical Assistant"
                       description="Maintained HIPAA-compliant systems, helped digitize medical records securely, and managed credential configurations for sensitive medical software systems."
