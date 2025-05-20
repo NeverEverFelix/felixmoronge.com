@@ -107,7 +107,6 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
               
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <ContentCard
-                    title="Wavform"
                     imageUrl="/wavform.png"
                     onClick={() => setSelectedCompany('wavform')}
                     variant="image-only"
@@ -115,7 +114,6 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
                   <ContentCard
-                    title="Temple"
                     imageUrl="/temple.png"
                     onClick={() => setSelectedCompany('temple')}
                     variant="image-only"
@@ -123,7 +121,6 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
                   <ContentCard
-                    title="Temple Hospital"
                     imageUrl="/surgery.jpeg"
                     onClick={() => setSelectedCompany('temple-surgery')}
                     variant="image-only"
@@ -161,7 +158,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                     <WorkModal
                       logo="/templeLogo.png"
                       company="Temple University Department of Surgery"
-                      role="Technical Assistant"
+                      role="Adminstrative Assistant"
                       description="Maintained HIPAA-compliant systems, helped digitize medical records securely, and managed credential configurations for sensitive medical software systems."
                       onClose={closeModal}
                     />
@@ -171,13 +168,13 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
             ) : id === 'skills' ? (
               <>
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  <ContentCard title="Docker" imageUrl="/docker.png" />
+                  <ContentCard  imageUrl="/docker.png" />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  <ContentCard title="GitHub Actions" imageUrl="/github-actions.png" />
+                  <ContentCard  imageUrl="/github-actions.png" />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
-                  <ContentCard title="AWS" imageUrl="/aws.png" />
+                  <ContentCard  imageUrl="/aws.png" />
                 </div>
               </>
             ) : null}
