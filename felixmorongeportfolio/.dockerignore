@@ -1,0 +1,32 @@
+# Ignore node modules and local dependencies
+node_modules
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+pnpm-debug.log
+dist
+dist-ssr
+
+# Ignore Terraform build state
+terraform/.terraform
+terraform/*.tfstate
+terraform/*.tfstate.backup
+terraform/private_key.pem
+terraform/*.lock.hcl
+
+# Ignore Helm charts if any
+helm/
+
+# Ignore system or editor-specific files
+.DS_Store
+.vscode
+.idea
+
+# Ignore Git metadata
+.git
+.gitignore
+
+# Ignore lockfiles if not needed
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
