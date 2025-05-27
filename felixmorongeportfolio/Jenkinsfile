@@ -44,7 +44,7 @@ spec:
     IMAGE_NAME = 'nevereverfelix/felixmoronge.com'
     DOCKER_CREDENTIALS_ID = 'docker'
     GIT_CREDENTIALS_ID = 'githubPAT'
-    IMAGE_TAG = 'dev' // fallback in case git rev-parse fails
+    IMAGE_TAG = 'dev' // fallback tag
   }
 
   options {
@@ -72,6 +72,7 @@ spec:
             env.IMAGE_TAG = tag
             echo "✅ Set IMAGE_TAG = ${env.IMAGE_TAG}"
           }
+          stash name: 'workspace', includes: '**/*'
         }
       }
     }
@@ -79,6 +80,7 @@ spec:
     stage('Docker Build & Push') {
       steps {
         container('docker') {
+          unstash 'workspace'
           withCredentials([usernamePassword(
             credentialsId: "${DOCKER_CREDENTIALS_ID}",
             usernameVariable: 'DOCKER_USER',
@@ -97,6 +99,7 @@ spec:
     stage('Deploy to Kubernetes') {
       steps {
         container('kubectl') {
+          unstash 'workspace'
           sh "kubectl apply -f k8s-deployment.yaml"
         }
       }
