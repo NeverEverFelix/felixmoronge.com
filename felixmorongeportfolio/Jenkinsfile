@@ -104,8 +104,10 @@ spec:
 
             cd felixmorongeportfolio
 
-            # Use kubectl replace to handle nodePort conflicts safely
-            kubectl replace --force -f k8s-deployment.yaml
+            # Avoid nodePort conflict by delete → sleep → apply
+            kubectl delete -f k8s-deployment.yaml || true
+            sleep 3
+            kubectl apply -f k8s-deployment.yaml
           """
         }
       }
