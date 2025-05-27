@@ -44,7 +44,7 @@ spec:
     IMAGE_NAME = 'nevereverfelix/felixmoronge.com'
     DOCKER_CREDENTIALS_ID = 'docker'
     GIT_CREDENTIALS_ID = 'githubPAT'
-    IMAGE_TAG = ''
+    IMAGE_TAG = 'dev' // fallback in case git rev-parse fails
   }
 
   options {
@@ -68,7 +68,9 @@ spec:
             ]]
           ])
           script {
-            env.IMAGE_TAG = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+            def tag = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+            env.IMAGE_TAG = tag
+            echo "✅ Set IMAGE_TAG = ${env.IMAGE_TAG}"
           }
         }
       }
@@ -82,11 +84,11 @@ spec:
             usernameVariable: 'DOCKER_USER',
             passwordVariable: 'DOCKER_PASS'
           )]) {
-            sh '''
+            sh """
               echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
               docker build -t "$IMAGE_NAME:$IMAGE_TAG" .
               docker push "$IMAGE_NAME:$IMAGE_TAG"
-            '''
+            """
           }
         }
       }
@@ -95,9 +97,7 @@ spec:
     stage('Deploy to Kubernetes') {
       steps {
         container('kubectl') {
-          sh '''
-            kubectl apply -f k8s-deployment.yaml
-          '''
+          sh "kubectl apply -f k8s-deployment.yaml"
         }
       }
     }
