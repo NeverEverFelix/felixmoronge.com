@@ -115,7 +115,7 @@ spec:
 
     stage('Deploy to Kubernetes') {
       steps {
-        container('shell') {
+        container('kubectl') {
           unstash 'workspace'
           sh "kubectl apply -f k8s-deployment.yaml"
         }
