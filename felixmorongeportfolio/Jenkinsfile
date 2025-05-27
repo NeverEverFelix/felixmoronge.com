@@ -1,0 +1,115 @@
+pipeline {
+  agent {
+    kubernetes {
+      label 'ci-agent'
+      defaultContainer 'jnlp'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    some-label: ci-agent
+spec:
+  containers:
+    - name: docker
+      image: docker:24.0.6-cli
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: docker-sock
+          mountPath: /var/run/docker.sock
+
+    - name: kubectl
+      image: bitnami/kubectl:1.29
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: kubeconfig
+          mountPath: /root/.kube
+
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+    - name: kubeconfig
+      secret:
+        secretName: jenkins-kubeconfig
+"""
+    }
+  }
+
+  environment {
+    IMAGE_NAME = 'nevereverfelix/felixmoronge.com'
+    DOCKER_CREDENTIALS_ID = 'docker'
+    GIT_CREDENTIALS_ID = 'githubPAT'
+    IMAGE_TAG = ''
+  }
+
+  options {
+    skipDefaultCheckout()
+    timestamps()
+  }
+
+  triggers {
+    githubPush()
+  }
+
+  stages {
+    stage('Checkout') {
+      steps {
+        container('jnlp') {
+          checkout([
+            $class: 'GitSCM',
+            branches: [[name: '*/main']],
+            userRemoteConfigs: [[
+              url: 'https://github.com/NeverEverFelix/felixmoronge.com',
+              credentialsId: "${GIT_CREDENTIALS_ID}"
+            ]]
+          ])
+          script {
+            env.IMAGE_TAG = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
+          }
+        }
+      }
+    }
+
+    stage('Docker Build & Push') {
+      steps {
+        container('docker') {
+          withCredentials([usernamePassword(
+            credentialsId: "${DOCKER_CREDENTIALS_ID}",
+            usernameVariable: 'DOCKER_USER',
+            passwordVariable: 'DOCKER_PASS'
+          )]) {
+            sh '''
+              echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+              docker build -t $IMAGE_NAME:$IMAGE_TAG .
+              docker push $IMAGE_NAME:$IMAGE_TAG
+            '''
+          }
+        }
+      }
+    }
+
+    stage('Deploy to Kubernetes') {
+      steps {
+        container('kubectl') {
+          sh '''
+            kubectl apply -f k8s-deployment.yaml
+          '''
+        }
+      }
+    }
+  }
+
+  post {
+    success {
+      echo "✅ Docker image $IMAGE_NAME:$IMAGE_TAG pushed and deployed."
+    }
+    failure {
+      echo "❌ Build failed."
+    }
+  }
+}
