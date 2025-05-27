@@ -23,11 +23,9 @@ spec:
           mountPath: /home/jenkins/agent
 
     - name: kubectl
-      image: bitnami/kubectl:1.29.4
+      image: lachlanevenson/k8s-kubectl:v1.29.4
       command:
-        - sleep
-      args:
-        - infinity
+        - cat
       tty: true
       volumeMounts:
         - name: kubeconfig
