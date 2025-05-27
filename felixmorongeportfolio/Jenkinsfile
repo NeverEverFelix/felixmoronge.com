@@ -23,7 +23,10 @@ spec:
     - name: kubectl
       image: bitnami/kubectl:1.29
       command:
-        - cat
+        - /bin/bash
+      args:
+        - -c
+        - "cat"
       tty: true
       volumeMounts:
         - name: kubeconfig
