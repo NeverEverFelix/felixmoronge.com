@@ -19,18 +19,30 @@ spec:
       volumeMounts:
         - name: docker-sock
           mountPath: /var/run/docker.sock
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
 
     - name: kubectl
       image: bitnami/kubectl:1.29.4
       command:
-        - sh
+        - sleep
       args:
-        - -c
-        - "cat"
+        - infinity
       tty: true
       volumeMounts:
         - name: kubeconfig
           mountPath: /root/.kube
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
+
+    - name: shell
+      image: busybox:1.35
+      command:
+        - cat
+      tty: true
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
 
   volumes:
     - name: docker-sock
@@ -39,6 +51,8 @@ spec:
     - name: kubeconfig
       secret:
         secretName: jenkins-kubeconfig
+    - name: workspace-volume
+      emptyDir: {}
 """
     }
   }
@@ -101,7 +115,7 @@ spec:
 
     stage('Deploy to Kubernetes') {
       steps {
-        container('kubectl') {
+        container('shell') {
           unstash 'workspace'
           sh "kubectl apply -f k8s-deployment.yaml"
         }
@@ -118,3 +132,4 @@ spec:
     }
   }
 }
+
