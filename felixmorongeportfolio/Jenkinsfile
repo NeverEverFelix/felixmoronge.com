@@ -101,6 +101,7 @@ spec:
             apk add --no-cache curl bash coreutils
             curl -LO https://dl.k8s.io/release/v1.29.4/bin/linux/amd64/kubectl
             install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+            cd felixmorongeportfolio
             kubectl apply -f k8s-deployment.yaml
           """
         }
