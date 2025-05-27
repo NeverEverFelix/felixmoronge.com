@@ -19,26 +19,8 @@ spec:
       volumeMounts:
         - name: docker-sock
           mountPath: /var/run/docker.sock
-        - name: workspace-volume
-          mountPath: /home/jenkins/agent
-
-    - name: kubectl
-      image: lachlanevenson/k8s-kubectl:v1.29.4
-      command:
-        - cat
-      tty: true
-      volumeMounts:
         - name: kubeconfig
           mountPath: /root/.kube
-        - name: workspace-volume
-          mountPath: /home/jenkins/agent
-
-    - name: shell
-      image: busybox:1.35
-      command:
-        - cat
-      tty: true
-      volumeMounts:
         - name: workspace-volume
           mountPath: /home/jenkins/agent
 
@@ -59,7 +41,7 @@ spec:
     IMAGE_NAME = 'nevereverfelix/felixmoronge.com'
     DOCKER_CREDENTIALS_ID = 'docker'
     GIT_CREDENTIALS_ID = 'githubPAT'
-    IMAGE_TAG = 'dev' // fallback tag
+    IMAGE_TAG = 'dev'
   }
 
   options {
@@ -113,7 +95,7 @@ spec:
 
     stage('Deploy to Kubernetes') {
       steps {
-        container('kubectl') {
+        container('docker') {
           unstash 'workspace'
           sh "kubectl apply -f k8s-deployment.yaml"
         }
