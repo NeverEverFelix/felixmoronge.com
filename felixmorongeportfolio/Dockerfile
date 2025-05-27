@@ -21,8 +21,8 @@ RUN rm -rf /usr/share/nginx/html/*
 # Copy built frontend from the previous stage
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# Copy custom Nginx config
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# ✅ FIX: Ensure context is respected
+COPY ./nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80 and start Nginx
 EXPOSE 80
