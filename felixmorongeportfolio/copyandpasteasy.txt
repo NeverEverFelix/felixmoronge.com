@@ -1,0 +1,23 @@
+since we got this : buntu@ip-172-31-89-125:~$ sudo systemctl status containerd
+● containerd.service - containerd container runtime
+     Loaded: loaded (/lib/systemd/system/containerd.service; enabled; vendor preset: enabled)
+     Active: active (running) since Mon 2025-05-26 00:16:28 UTC; 12min ago
+       Docs: https://containerd.io
+   Main PID: 3262 (containerd)
+      Tasks: 8
+     Memory: 13.7M
+        CPU: 876ms
+     CGroup: /system.slice/containerd.service
+             └─3262 /usr/bin/containerd
+
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869025842Z" level=info msg="Start subscribing containerd event"
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869074632Z" level=info msg="Start recovering state"
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869129955Z" level=info msg="Start event monitor"
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869140207Z" level=info msg="Start snapshots syncer"
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869151197Z" level=info msg="Start cni network conf syncer for default"
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869161284Z" level=info msg="Start streaming server"
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869277201Z" level=info msg=serving... address=/run/containerd/containerd.sock.ttrpc
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869326891Z" level=info msg=serving... address=/run/containerd/containerd.sock
+May 26 00:16:28 ip-172-31-89-125 containerd[3262]: time="2025-05-26T00:16:28.869376014Z" level=info msg="containerd successfully booted in 0.028658s"
+May 26 00:16:28 ip-172-31-89-125 systemd[1]: Started containerd container runtime.
+am I good for phase 2

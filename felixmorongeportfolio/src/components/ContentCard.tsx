@@ -1,7 +1,6 @@
 // src/components/ContentCard.tsx
 import '../styles/ContentCard.css';
-import { useEffect, useRef, useState } from 'react';
-import Modal from 'react-modal';
+
 
 type Props = {
   children?: React.ReactNode;
