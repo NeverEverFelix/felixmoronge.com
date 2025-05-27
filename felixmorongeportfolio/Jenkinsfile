@@ -2,7 +2,6 @@ pipeline {
   agent {
     kubernetes {
       label 'ci-agent'
-      defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
 kind: Pod
@@ -23,7 +22,11 @@ spec:
           mountPath: /root/.kube
         - name: workspace-volume
           mountPath: /home/jenkins/agent
-
+    - name: jnlp
+      image: jenkins/inbound-agent:3283.v92c105e0f819-4
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
   volumes:
     - name: docker-sock
       hostPath:
@@ -104,9 +107,11 @@ spec:
 
             cd felixmorongeportfolio
 
-            # Avoid nodePort conflict by delete → sleep → apply
+            echo "🧹 Cleaning up old deployment..."
             kubectl delete -f k8s-deployment.yaml || true
-            sleep 3
+            sleep 4
+
+            echo "🚀 Applying new Kubernetes deployment..."
             kubectl apply -f k8s-deployment.yaml
           """
         }
