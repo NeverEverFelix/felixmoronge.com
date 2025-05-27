@@ -49,7 +49,6 @@ spec:
 
   options {
     skipDefaultCheckout()
-    timestamps()
   }
 
   triggers {
