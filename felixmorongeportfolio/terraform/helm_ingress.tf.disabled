@@ -1,0 +1,17 @@
+resource "helm_release" "nginx_ingress" {
+  name       = "nginx-ingress"
+  namespace  = "ingress-nginx"
+  repository = "https://kubernetes.github.io/ingress-nginx"
+  chart      = "ingress-nginx"
+  version    = "4.10.1"
+
+  create_namespace = true
+
+  wait    = false         # ← Don't block on readiness probe
+  timeout = 600           # ← Optional: allow more time in CI/CD
+
+  set {
+    name  = "controller.publishService.enabled"
+    value = "true"
+  }
+}
