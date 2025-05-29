@@ -113,6 +113,9 @@ spec:
 
             echo "🚀 Applying new Kubernetes deployment..."
             kubectl apply -f k8s-deployment.yaml
+
+            echo "🌐 Applying Ingress configuration..."
+            kubectl apply -f ingress.yaml
           """
         }
       }
@@ -121,7 +124,7 @@ spec:
 
   post {
     success {
-      echo "✅ Docker image $IMAGE_NAME:$IMAGE_TAG pushed and deployed."
+      echo "✅ Docker image $IMAGE_NAME:$IMAGE_TAG pushed and deployed with Ingress."
     }
     failure {
       echo "❌ Build failed."
