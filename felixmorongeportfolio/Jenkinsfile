@@ -1,39 +1,24 @@
 pipeline {
   agent {
     kubernetes {
-      label 'ci-agent'
+      label 'kaniko-deploy'
+      defaultContainer 'kaniko'
       yaml """
 apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    some-label: ci-agent
+    jenkins: kaniko-deploy
 spec:
+  serviceAccountName: jenkins-irsa-sa
   containers:
-    - name: docker
-      image: docker:24.0.6-cli
-      command:
-        - cat
-      tty: true
-      volumeMounts:
-        - name: docker-sock
-          mountPath: /var/run/docker.sock
-        - name: kubeconfig
-          mountPath: /root/.kube
-        - name: workspace-volume
-          mountPath: /home/jenkins/agent
-    - name: jnlp
-      image: jenkins/inbound-agent:3283.v92c105e0f819-4
+    - name: kaniko
+      image: gcr.io/kaniko-project/executor:latest
+      imagePullPolicy: Always
       volumeMounts:
         - name: workspace-volume
-          mountPath: /home/jenkins/agent
+          mountPath: /workspace
   volumes:
-    - name: docker-sock
-      hostPath:
-        path: /var/run/docker.sock
-    - name: kubeconfig
-      secret:
-        secretName: jenkins-kubeconfig
     - name: workspace-volume
       emptyDir: {}
 """
@@ -41,93 +26,32 @@ spec:
   }
 
   environment {
-    IMAGE_NAME = 'nevereverfelix/felixmoronge.com'
-    DOCKER_CREDENTIALS_ID = 'docker'
-    GIT_CREDENTIALS_ID = 'githubPAT'
-    IMAGE_TAG = 'dev'
-  }
-
-  options {
-    skipDefaultCheckout()
-  }
-
-  triggers {
-    githubPush()
+    ECR_REGISTRY = "137068221475.dkr.ecr.us-east-1.amazonaws.com"
+    IMAGE_NAME = "felixmoronge-portfolio"
+    IMAGE_TAG = "latest"
   }
 
   stages {
-    stage('Checkout') {
+    stage('Prep') {
       steps {
-        container('jnlp') {
-          checkout([
-            $class: 'GitSCM',
-            branches: [[name: '*/main']],
-            userRemoteConfigs: [[
-              url: 'https://github.com/NeverEverFelix/felixmoronge.com',
-              credentialsId: "${GIT_CREDENTIALS_ID}"
-            ]]
-          ])
-          script {
-            def tag = sh(script: "git rev-parse --short HEAD", returnStdout: true).trim()
-            env.IMAGE_TAG = tag
-            echo "✅ Set IMAGE_TAG = ${env.IMAGE_TAG}"
-          }
-          stash name: 'workspace', includes: '**/*'
+        container('kaniko') {
+          sh 'aws sts get-caller-identity || true'
         }
       }
     }
 
-    stage('Docker Build & Push') {
+    stage('Build and Push') {
       steps {
-        container('docker') {
-          unstash 'workspace'
-          withCredentials([usernamePassword(
-            credentialsId: "${DOCKER_CREDENTIALS_ID}",
-            usernameVariable: 'DOCKER_USER',
-            passwordVariable: 'DOCKER_PASS'
-          )]) {
-            sh """
-              echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-              docker build -t "$IMAGE_NAME:$IMAGE_TAG" -f felixmorongeportfolio/Dockerfile felixmorongeportfolio
-              docker push "$IMAGE_NAME:$IMAGE_TAG"
-            """
-          }
+        container('kaniko') {
+          sh '''
+            /kaniko/executor \
+              --context=/workspace \
+              --dockerfile=/workspace/Dockerfile \
+              --destination=$ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
+              --verbosity=debug
+          '''
         }
       }
-    }
-
-    stage('Deploy to Kubernetes') {
-      steps {
-        container('docker') {
-          unstash 'workspace'
-          sh """
-            apk add --no-cache curl bash coreutils
-            curl -LO https://dl.k8s.io/release/v1.29.4/bin/linux/amd64/kubectl
-            install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
-
-            cd felixmorongeportfolio
-
-            echo "🧹 Cleaning up old deployment..."
-            kubectl delete -f k8s-deployment.yaml || true
-            sleep 4
-
-            echo "🚀 Applying new Kubernetes deployment..."
-            kubectl apply -f k8s-deployment.yaml
-
-            echo "🌐 Applying Ingress configuration..."
-            kubectl apply -f ingress.yaml
-          """
-        }
-      }
-    }
-  }
-
-  post {
-    success {
-      echo "✅ Docker image $IMAGE_NAME:$IMAGE_TAG pushed and deployed with Ingress."
-    }
-    failure {
-      echo "❌ Build failed."
     }
   }
 }
