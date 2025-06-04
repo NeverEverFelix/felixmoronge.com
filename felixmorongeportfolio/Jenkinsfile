@@ -52,7 +52,7 @@ spec:
     stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          sh 'echo 🚀 Building and pushing Docker image to ECR...'
+          echo '✅ Kaniko will run automatically in container args'
         }
       }
     }
