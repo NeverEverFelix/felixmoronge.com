@@ -33,7 +33,6 @@ controller:
       kubernetes.io/tls-acme: "true"
       cert-manager.io/cluster-issuer: "letsencrypt-prod"
       nginx.ingress.kubernetes.io/proxy-body-size: "50m"
-      nginx.ingress.kubernetes.io/rewrite-target: /
     tls:
       - hosts:
           - jenkins.felixmoronge.com
@@ -41,7 +40,7 @@ controller:
 
   persistence:
     enabled: true
-    existingClaim: ""
+    existingClaim: jenkins         # ← ✅ CRITICAL FIX
     size: 8Gi
     storageClass: "ebs-sc"
     accessMode: ReadWriteOnce
@@ -65,16 +64,3 @@ EOF
     helm_release.nginx_ingress
   ]
 }
-
-resource "kubernetes_service_account" "ebs_csi_sa" {
-  metadata {
-    name      = "ebs-csi-controller-sa"
-    namespace = "kube-system"
-    annotations = {
-      "eks.amazonaws.com/role-arn" = aws_iam_role.ebs_csi_role.arn
-    }
-  }
-
-  depends_on = [module.eks]
-}
-

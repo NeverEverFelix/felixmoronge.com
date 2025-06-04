@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.8.1"
 
-  name = "felix-eks-vpc"
+  name = "felix-eks-vpc-v2"
   cidr = "10.0.0.0/16"
 
   azs             = ["us-east-1a", "us-east-1b"]
@@ -16,17 +16,17 @@ module "vpc" {
   enable_dns_support   = true
 
   tags = {
-    Name                                    = "felix-eks-vpc"
-    "kubernetes.io/cluster/felix-eks-cluster" = "shared"
+    Name                                    = "felix-eks-vpc-v2"
+    "kubernetes.io/cluster/felix-eks-cluster-v2" = "shared"
   }
 
   public_subnet_tags = {
     "kubernetes.io/role/elb" = "1"
-    "kubernetes.io/cluster/felix-eks-cluster" = "shared"
+    "kubernetes.io/cluster/felix-eks-cluster-v2" = "shared"
   }
 
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb" = "1"
-    "kubernetes.io/cluster/felix-eks-cluster" = "shared"
+    "kubernetes.io/cluster/felix-eks-cluster-v2" = "shared"
   }
 }

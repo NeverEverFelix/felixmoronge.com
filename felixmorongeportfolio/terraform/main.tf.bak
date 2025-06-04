@@ -1,0 +1,13 @@
+# -- REMOVED: aws_iam_user "eks_admin"
+# -- REMOVED: aws_iam_access_key "eks_admin_key"
+# -- REMOVED: aws_iam_user_policy_attachment "eks_cluster_policy"
+
+# -- REMOVED: Output for obsolete eks_admin access keys
+
+# ✅ If you still want to verify who the current authenticated user is
+
+
+# ✅ Optional output to confirm terraform-admin is being used
+output "caller_identity" {
+  value = data.aws_caller_identity.current.arn
+}

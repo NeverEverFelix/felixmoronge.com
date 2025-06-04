@@ -12,9 +12,3 @@ output "private_subnets" {
   description = "List of private subnet IDs"
   value       = module.vpc.private_subnets
 }
-
-output "ingress_sg_id" {
-  description = "Security Group ID for the Ingress controller"
-  value       = aws_security_group.k8s_ingress.id
-}
-
