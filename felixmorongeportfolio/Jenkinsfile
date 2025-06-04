@@ -17,7 +17,12 @@ spec:
       command:
         - /kaniko/executor
       args:
-        - --help
+        - --context=/workspace
+        - --dockerfile=/workspace/Dockerfile
+        - --destination=137068221475.dkr.ecr.us-east-1.amazonaws.com/felixmoronge-portfolio:latest
+        - --verbosity=debug
+        - --cache=true
+        - --cache-repo=137068221475.dkr.ecr.us-east-1.amazonaws.com/felixmoronge-portfolio
       env:
         - name: AWS_REGION
           value: us-east-1
@@ -44,10 +49,10 @@ spec:
   }
 
   stages {
-    stage('Verify Pod Starts') {
+    stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          sh 'echo ✅ Kaniko pod launched successfully'
+          sh 'echo 🚀 Building and pushing Docker image to ECR...'
         }
       }
     }
