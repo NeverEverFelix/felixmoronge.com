@@ -12,11 +12,18 @@ spec:
   serviceAccountName: jenkins-irsa-sa
   containers:
     - name: kaniko
-      image: gcr.io/kaniko-project/executor:latest
+      image: gcr.io/kaniko-project/executor:debug
       imagePullPolicy: Always
       command:
         - /busybox/cat
       tty: true
+      resources:
+        limits:
+          memory: "2Gi"
+          cpu: "1"
+        requests:
+          memory: "1Gi"
+          cpu: "500m"
       env:
         - name: AWS_REGION
           value: us-east-1
