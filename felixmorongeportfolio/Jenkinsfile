@@ -55,9 +55,9 @@ spec:
     stage('Verify Dockerfile Presence') {
       steps {
         container('kaniko') {
-          dir("${env.WORKSPACE}") {
+          dir("${env.WORKSPACE}/felixmorongeportfolio") {
             sh '''
-              echo "📂 Listing workspace contents:"
+              echo "📂 Listing felixmorongeportfolio contents:"
               ls -la
               echo "📄 Previewing Dockerfile:"
               head -n 20 Dockerfile || echo "⚠️ Dockerfile not found"
@@ -70,7 +70,7 @@ spec:
     stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          dir("${env.WORKSPACE}") {
+          dir("${env.WORKSPACE}/felixmorongeportfolio") {
             sh '''
               echo "🚀 Starting Kaniko build..."
               /kaniko/executor \
@@ -80,7 +80,6 @@ spec:
                 --verbosity=debug \
                 --log-format=text \
                 --log-timestamp \
-                --log-file=.kaniko.log \
                 --cache=true \
                 --cache-repo=$ECR_REGISTRY/$IMAGE_NAME
             '''
@@ -93,12 +92,7 @@ spec:
   post {
     failure {
       container('kaniko') {
-        dir("${env.WORKSPACE}") {
-          sh '''
-            echo "🧨 Kaniko failed. Dumping logs:"
-            tail -n 100 .kaniko.log || echo "❌ No Kaniko log found."
-          '''
-        }
+        echo "🧨 Kaniko failed. Check Jenkins console and pod logs for full output."
       }
     }
   }
