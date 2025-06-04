@@ -19,10 +19,10 @@ spec:
       args:
         - -c
         - sleep infinity
-      workingDir: /workspace
+      workingDir: /home/jenkins/agent
       volumeMounts:
         - name: workspace-volume
-          mountPath: /workspace
+          mountPath: /home/jenkins/agent
       env:
         - name: AWS_REGION
           value: us-east-1
@@ -55,7 +55,7 @@ spec:
     stage('Verify Dockerfile Presence') {
       steps {
         container('kaniko') {
-          dir("/workspace") {
+          dir("${env.WORKSPACE}") {
             sh '''
               echo "📂 Listing workspace contents:"
               ls -la
@@ -70,7 +70,7 @@ spec:
     stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          dir("/workspace") {
+          dir("${env.WORKSPACE}") {
             sh '''
               echo "🚀 Starting Kaniko build..."
               /kaniko/executor \
@@ -93,7 +93,7 @@ spec:
   post {
     failure {
       container('kaniko') {
-        dir("/workspace") {
+        dir("${env.WORKSPACE}") {
           sh '''
             echo "🧨 Kaniko failed. Dumping logs:"
             tail -n 100 .kaniko.log || echo "❌ No Kaniko log found."
