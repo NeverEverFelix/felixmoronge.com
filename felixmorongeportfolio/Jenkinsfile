@@ -37,11 +37,6 @@ spec:
         - name: AWS_WEB_IDENTITY_TOKEN_FILE
           value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
 """
-
-      containerTemplate {
-        name 'kaniko'
-        shell '/busybox/sh'
-      }
     }
   }
 
@@ -61,7 +56,7 @@ spec:
     stage('Verify Dockerfile Presence') {
       steps {
         container('kaniko') {
-          dir('/home/jenkins/agent') {
+          dir("${env.WORKSPACE}") {
             sh '''
               echo "📂 Listing workspace contents:"
               ls -la
@@ -76,7 +71,7 @@ spec:
     stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          dir('/home/jenkins/agent') {
+          dir("${env.WORKSPACE}") {
             sh '''
               echo "🚀 Starting Kaniko build..."
               /kaniko/executor \
@@ -86,7 +81,7 @@ spec:
                 --verbosity=debug \
                 --log-format=text \
                 --log-timestamp \
-                --log-file=/home/jenkins/agent/.kaniko.log \
+                --log-file=.kaniko.log \
                 --cache=true \
                 --cache-repo=$ECR_REGISTRY/$IMAGE_NAME
             '''
@@ -99,10 +94,10 @@ spec:
   post {
     failure {
       container('kaniko') {
-        dir('/home/jenkins/agent') {
+        dir("${env.WORKSPACE}") {
           sh '''
             echo "🧨 Kaniko failed. Dumping logs:"
-            tail -n 100 /home/jenkins/agent/.kaniko.log || echo "❌ No Kaniko log found."
+            tail -n 100 .kaniko.log || echo "❌ No Kaniko log found."
           '''
         }
       }
