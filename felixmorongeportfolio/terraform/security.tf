@@ -4,7 +4,7 @@ resource "aws_security_group" "k8s_ingress" {
   vpc_id      = module.vpc.vpc_id
 
   ingress {
-    description = "Allow HTTP"
+    description = "Allow HTTP (port 80)"
     from_port   = 80
     to_port     = 80
     protocol    = "tcp"
@@ -12,15 +12,24 @@ resource "aws_security_group" "k8s_ingress" {
   }
 
   ingress {
-    description = "Allow HTTPS"
+    description = "Allow HTTPS (port 443)"
     from_port   = 443
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
+  # Optional: If cert-manager or other webhook services needed
+  ingress {
+    description = "Allow Webhook Health Checks (port 9443)"
+    from_port   = 9443
+    to_port     = 9443
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
-    description = "Allow all outbound"
+    description = "Allow all outbound traffic"
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
@@ -28,7 +37,7 @@ resource "aws_security_group" "k8s_ingress" {
   }
 
   tags = {
-    Name = "k8s-ingress-sg"
+    Name    = "k8s-ingress-sg"
     Project = "felix-devops"
   }
 }

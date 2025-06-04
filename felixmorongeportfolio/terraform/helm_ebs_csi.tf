@@ -7,7 +7,6 @@ resource "kubernetes_service_account" "ebs_csi_sa" {
     }
   }
 
-  # ✅ Ensure EKS API is up and IRSA role is available
   depends_on = [
     data.aws_eks_cluster.cluster,
     aws_iam_role.ebs_csi_role,
@@ -54,11 +53,31 @@ resource "helm_release" "ebs_csi_driver" {
     value = "true"
   }
 
+  # 🛡️ Prevent controller from going into Pending state
+  set {
+    name  = "controller.nodeSelector.eks\\.amazonaws\\.com/nodegroup"
+    value = "devops-node-group-20250529212344454300000014"
+  }
+
+  set {
+    name  = "controller.tolerations[0].key"
+    value = "CriticalAddonsOnly"
+  }
+
+  set {
+    name  = "controller.tolerations[0].operator"
+    value = "Exists"
+  }
+  set {
+  name  = "controller.serviceAccount.name"
+  value = "jenkins-irsa-sa"
+}
+
+
   timeout         = 600
   wait            = true
   wait_for_jobs   = true
 
-  # ✅ Wait for EKS, IAM role, policy attachment, and SA
   depends_on = [
     data.aws_eks_cluster.cluster,
     aws_iam_role.ebs_csi_role,

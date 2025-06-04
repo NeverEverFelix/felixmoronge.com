@@ -1,4 +1,10 @@
-data "aws_caller_identity" "current" {}
+data "aws_eks_cluster" "cluster" {
+  name = module.eks.cluster_name
+}
+
+data "aws_eks_cluster_auth" "cluster" {
+  name = module.eks.cluster_name
+}
 
 resource "kubernetes_config_map" "aws_auth" {
   metadata {
@@ -20,14 +26,14 @@ resource "kubernetes_config_map" "aws_auth" {
 
     mapUsers = yamlencode([
       {
-        userarn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/eks_admin"
-        username = "eks_admin"
+        userarn  = "arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/terraform-admin"
+        username = "terraform-admin"
         groups   = ["system:masters"]
       }
     ])
   }
 
   depends_on = [
-    data.aws_eks_cluster.cluster
+    module.eks
   ]
 }
