@@ -15,14 +15,8 @@ spec:
       image: gcr.io/kaniko-project/executor:latest
       imagePullPolicy: Always
       command:
-        - /kaniko/executor
-      args:
-        - --context=/workspace
-        - --dockerfile=/workspace/Dockerfile
-        - --destination=137068221475.dkr.ecr.us-east-1.amazonaws.com/felixmoronge-portfolio:latest
-        - --verbosity=debug
-        - --cache=true
-        - --cache-repo=137068221475.dkr.ecr.us-east-1.amazonaws.com/felixmoronge-portfolio
+        - /busybox/cat
+      tty: true
       env:
         - name: AWS_REGION
           value: us-east-1
@@ -32,12 +26,6 @@ spec:
           value: arn:aws:iam::137068221475:role/jenkins-irsa-role
         - name: AWS_WEB_IDENTITY_TOKEN_FILE
           value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
-      volumeMounts:
-        - name: workspace-volume
-          mountPath: /workspace
-  volumes:
-    - name: workspace-volume
-      emptyDir: {}
 """
     }
   }
@@ -49,10 +37,58 @@ spec:
   }
 
   stages {
+    stage('Checkout Code') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Verify Dockerfile Presence') {
+      steps {
+        container('kaniko') {
+          dir('/home/jenkins/agent') {
+            sh '''
+              echo "📂 Listing workspace contents:"
+              ls -la
+              echo "📄 Previewing Dockerfile:"
+              head -n 20 Dockerfile || echo "⚠️ Dockerfile not found"
+            '''
+          }
+        }
+      }
+    }
+
     stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          echo '✅ Kaniko will run automatically in container args'
+          dir('/home/jenkins/agent') {
+            sh '''
+              echo "🚀 Starting Kaniko build..."
+              /kaniko/executor \
+                --context=. \
+                --dockerfile=Dockerfile \
+                --destination=$ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
+                --verbosity=debug \
+                --log-format=text \
+                --log-timestamp \
+                --log-file=/home/jenkins/agent/.kaniko.log \
+                --cache=true \
+                --cache-repo=$ECR_REGISTRY/$IMAGE_NAME
+            '''
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    failure {
+      container('kaniko') {
+        dir('/home/jenkins/agent') {
+          sh '''
+            echo "🧨 Kaniko failed. Dumping logs:"
+            tail -n 100 /home/jenkins/agent/.kaniko.log || echo "❌ No Kaniko log found."
+          '''
         }
       }
     }
