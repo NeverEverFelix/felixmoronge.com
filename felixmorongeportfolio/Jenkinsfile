@@ -10,22 +10,20 @@ metadata:
     jenkins: kaniko-deploy
 spec:
   serviceAccountName: jenkins-irsa-sa
-  initContainers:
-    - name: busybox-init
-      image: busybox:musl
-      command: ['sh', '-c', 'cp -a /bin/* /busybox']
-      volumeMounts:
-        - name: busybox
-          mountPath: /busybox
   containers:
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       imagePullPolicy: Always
-      command: ['/busybox/sh']
-      args: ['-c', 'cat']
+      command:
+        - /bin/sh
+      args:
+        - -c
+        - cat
+      workingDir: /workspace
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /workspace
       env:
-        - name: PATH
-          value: /busybox:/kaniko:/usr/local/bin:/usr/bin:/bin
         - name: AWS_REGION
           value: us-east-1
         - name: AWS_DEFAULT_REGION
@@ -34,15 +32,7 @@ spec:
           value: arn:aws:iam::137068221475:role/jenkins-irsa-role
         - name: AWS_WEB_IDENTITY_TOKEN_FILE
           value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
-      workingDir: /workspace
-      volumeMounts:
-        - name: busybox
-          mountPath: /busybox
-        - name: workspace-volume
-          mountPath: /workspace
   volumes:
-    - name: busybox
-      emptyDir: {}
     - name: workspace-volume
       emptyDir: {}
 """
@@ -65,7 +55,7 @@ spec:
     stage('Verify Dockerfile Presence') {
       steps {
         container('kaniko') {
-          dir('/workspace') {
+          dir("/workspace") {
             sh '''
               echo "📂 Listing workspace contents:"
               ls -la
@@ -80,7 +70,7 @@ spec:
     stage('Build and Push with Kaniko') {
       steps {
         container('kaniko') {
-          dir('/workspace') {
+          dir("/workspace") {
             sh '''
               echo "🚀 Starting Kaniko build..."
               /kaniko/executor \
@@ -92,7 +82,6 @@ spec:
                 --log-timestamp \
                 --log-file=.kaniko.log \
                 --cache=true \
-                --cache-dir=/cache \
                 --cache-repo=$ECR_REGISTRY/$IMAGE_NAME
             '''
           }
@@ -104,7 +93,7 @@ spec:
   post {
     failure {
       container('kaniko') {
-        dir('/workspace') {
+        dir("/workspace") {
           sh '''
             echo "🧨 Kaniko failed. Dumping logs:"
             tail -n 100 .kaniko.log || echo "❌ No Kaniko log found."
