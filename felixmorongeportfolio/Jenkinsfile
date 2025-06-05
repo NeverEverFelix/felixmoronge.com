@@ -14,11 +14,8 @@ spec:
     - name: kaniko
       image: gcr.io/kaniko-project/executor:debug
       imagePullPolicy: Always
-      command:
-        - /bin/sh
-      args:
-        - -c
-        - sleep infinity
+      command: ["/bin/sh"]
+      args: ["-c", "sleep infinity"]
       workingDir: /home/jenkins/agent
       volumeMounts:
         - name: workspace-volume
@@ -32,6 +29,17 @@ spec:
           value: arn:aws:iam::137068221475:role/jenkins-irsa-role
         - name: AWS_WEB_IDENTITY_TOKEN_FILE
           value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+
+    - name: kubectl
+      image: bitnami/kubectl:latest
+      imagePullPolicy: Always
+      command: ["/bin/sh"]
+      args: ["-c", "sleep infinity"]
+      workingDir: /home/jenkins/agent
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
+
   volumes:
     - name: workspace-volume
       emptyDir: {}
