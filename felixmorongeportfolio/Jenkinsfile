@@ -31,7 +31,7 @@ spec:
           value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
 
     - name: kubectl
-      image: lachlanevenson/k8s-kubectl:v1.27.1
+      image: lachlanevenson/k8s-kubectl:v1.27.4
       command: ["cat"]
       tty: true
       workingDir: /home/jenkins/agent
