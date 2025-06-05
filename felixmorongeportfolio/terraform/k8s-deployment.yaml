@@ -18,7 +18,7 @@ spec:
         - name: regcred
       containers:
         - name: felix-portfolio
-          image: nevereverfelix/felixmoronge.com:latest
+          image: 137068221475.dkr.ecr.us-east-1.amazonaws.com/felixmoronge-portfolio:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80
