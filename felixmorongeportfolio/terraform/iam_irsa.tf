@@ -18,7 +18,7 @@ resource "aws_iam_role" "jenkins_irsa_role" {
       Action = "sts:AssumeRoleWithWebIdentity",
       Condition = {
         StringEquals = {
-          "${local.oidc_issuer_clean}:sub" = "system:serviceaccount:jenkins:jenkins"
+          "${local.oidc_issuer_clean}:sub" = "system:serviceaccount:jenkins:jenkins-irsa-sa"
         }
       }
     }]
