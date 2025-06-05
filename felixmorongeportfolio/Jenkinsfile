@@ -32,7 +32,7 @@ spec:
 
     - name: kubectl
       image: bitnami/kubectl:1.28
-      command: ["/bin/bash"]
+      command: ["/bin/sh"]
       args: ["-c", "cat"]
       workingDir: /home/jenkins/agent
       tty: true
