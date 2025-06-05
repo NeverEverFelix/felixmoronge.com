@@ -95,6 +95,18 @@ spec:
         }
       }
     }
+
+    stage('Deploy to EKS') {
+      steps {
+        container('kubectl') {
+          sh '''
+            echo "♻️ Restarting deployment to pull new image..."
+            kubectl rollout restart deployment/felix-portfolio -n default
+            echo "✅ Deployment restarted successfully!"
+          '''
+        }
+      }
+    }
   }
 
   post {
