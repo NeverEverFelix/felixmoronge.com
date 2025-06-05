@@ -102,7 +102,20 @@ spec:
           sh '''
             echo "♻️ Restarting deployment to pull new image..."
             kubectl rollout restart deployment/felix-portfolio -n default
-            echo "✅ Deployment restarted successfully!"
+            kubectl rollout status deployment/felix-portfolio -n default
+            echo "✅ Deployment restarted and completed!"
+          '''
+        }
+      }
+    }
+
+    stage('Debug IRSA + kubectl') {
+      steps {
+        container('kubectl') {
+          sh '''
+            echo "🔍 Verifying kubectl access and IRSA:"
+            kubectl get nodes
+            kubectl get pods -n default
           '''
         }
       }
