@@ -4,15 +4,22 @@ metadata:
   name: portfolio-ingress
   namespace: default
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   ingressClassName: nginx
   rules:
-    - host: felixmoronge.com
+    - host: www.felixmoronge.com
       http:
         paths:
+          - path: /.well-known/acme-challenge/
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-ingress-ingress-nginx-controller
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:
@@ -20,3 +27,7 @@ spec:
                 name: portfolio-service
                 port:
                   number: 80
+  tls:
+    - hosts:
+        - www.felixmoronge.com
+      secretName: portfolio-tls
