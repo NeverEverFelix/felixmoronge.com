@@ -33,7 +33,7 @@ spec:
     - name: kubectl
       image: bitnami/kubectl:1.28
       command: ["/bin/sh"]
-      args: ["-c", "cat"]
+      args: ["-c", "sleep infinity"]
       workingDir: /home/jenkins/agent
       tty: true
       volumeMounts:
@@ -100,9 +100,21 @@ spec:
       steps {
         container('kubectl') {
           sh '''
+            set -e
             echo "♻️ Restarting deployment to pull new image..."
-            kubectl rollout restart deployment/felix-portfolio -n default
-            kubectl rollout status deployment/felix-portfolio -n default
+
+            if ! kubectl rollout restart deployment/felix-portfolio -n default; then
+              echo "❌ Failed to restart deployment. Check if the deployment name or namespace is correct."
+              exit 1
+            fi
+
+            if ! kubectl rollout status deployment/felix-portfolio -n default; then
+              echo "❌ Rollout status check failed. Pods may be stuck or crashing."
+              kubectl get pods -n default
+              kubectl describe deployment felix-portfolio -n default
+              exit 1
+            fi
+
             echo "✅ Deployment restarted and completed!"
           '''
         }
@@ -124,10 +136,9 @@ spec:
 
   post {
     failure {
-      container('kaniko') {
-        echo "🧨 Kaniko failed. Check Jenkins console and pod logs for full output."
+      script {
+        echo "🛑 Pipeline failed. Check logs above to identify which stage caused it."
       }
     }
   }
-} 
-
+}
