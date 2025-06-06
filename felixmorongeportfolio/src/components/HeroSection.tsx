@@ -29,7 +29,7 @@ export default function HeroSection({ activeSection, onSectionClick }: Props) {
         </h2>
         
         <p className="fade-in-up"  style={{ animationDelay: '0.8s' }}>
-          I design dildos and automate scalable infrastructure using AWS, Docker, Kubernetes, and Terraform. 
+          I design and automate scalable infrastructure using AWS, Docker, Kubernetes, and Terraform. 
           From building CI/CD pipelines to deploying cloud-native apps, I’ve delivered production-grade 
           systems for startups and AI-driven platforms. Whether it’s zero-downtime deploys, real-time 
           observability, or seamless automation—I ship fast, reliable code that powers real users.
