@@ -161,6 +161,6 @@ Helm chart doesn't receive .status.loadBalancer.ingress.hostname, which makes Te
 
 
 
-
+I design and automate scalable 
 
 
