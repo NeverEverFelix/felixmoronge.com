@@ -1,3 +1,4 @@
+import '../styles/Projects.css';
 export default function Projects() {
     return (
       <div className="text-white bg-black h-screen flex items-center justify-center">
