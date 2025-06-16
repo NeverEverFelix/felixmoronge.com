@@ -10,8 +10,8 @@ export default function HeroSection({ activeSection, onSectionClick }: Props) {
   return (
     <section className="hero-text">
       <nav className="hero-nav fade-in-up" style={{ animationDelay: '0s' }}>
-        <a href="#">Projects</a>
-        <a href="#">About</a>
+        <a href="/Projects">Projects</a>
+        <a href="/About">About</a>
       </nav>
 
       <div className="hero-content">
