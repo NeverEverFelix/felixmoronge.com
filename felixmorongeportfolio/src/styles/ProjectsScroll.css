@@ -1,43 +1,43 @@
 .projects-scroll {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    padding-left: 1rem; /* or whatever aligns with your layout */
-  }
-  
-  .scroll-item {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
-  }
-  .scroll-item.active .label {
-    font-size: 1.5rem;       /* 24px */
-    font-weight: 600;        /* semi-bold */
-    opacity: 1;
-    text-transform: uppercase;
-  }
-  .scroll-item .divider {
-    height: 0.125rem;         /* 2px */
-    width: 2.875rem;          /* 46px */
-    background-color: white;
-    opacity: 0.5;
-    transition: width 0.3s ease, opacity 0.3s ease;
-  }
-  
-  .scroll-item .label {
-    font-size: 1.25rem;
-    opacity: 0.5;
-    transition: opacity 0.3s ease;
-  }
-  
-  .scroll-item.active .divider {
-    width: 4.75rem;           /* 76px */
-    opacity: 1;
-  }
-  
-  .scroll-item.active .label {
-    opacity: 1;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding-left: 1rem;
+}
+
+.scroll-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;         /* reduced gap */
+  margin-bottom: 1rem;  /* reduced spacing */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scroll-item .divider {
+  height: 2px;
+  width: 30px;
+  background-color: white;
+  opacity: 0.3;
+  transition: width 0.3s ease, opacity 0.3s ease;
+}
+
+.scroll-item .label {
+  font-size: 0.9rem;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+}
+
+.scroll-item.active .label {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 1;
+  text-transform: uppercase;
+}
+
+.scroll-item.active .divider {
+  width: 60px;
+  opacity: 1;
+}
