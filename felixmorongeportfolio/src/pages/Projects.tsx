@@ -14,7 +14,7 @@ export default function Projects() {
       
 
       <div className="image">
-
+      <img src="/DevOpsPortfolioSite.png" alt="Case Study Screenshot" />
       </div>
 
       <div className="divider"></div>
