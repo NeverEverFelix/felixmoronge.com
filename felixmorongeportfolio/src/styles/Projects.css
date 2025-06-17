@@ -2,16 +2,35 @@
 background-color: black;
 }
 .section-header{
-    
+  padding: 4vh 5vw;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: white;
 }
 .development-pill{
-
+    background-color: #444;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 .title{
-
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: bold;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
 }
 .title-subtext{
-
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
 }
 .image{
 
