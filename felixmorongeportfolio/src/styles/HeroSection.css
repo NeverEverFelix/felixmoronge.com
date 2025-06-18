@@ -1,69 +1,137 @@
 .hero-text {
-    font-family: 'NHaasGrotesk', sans-serif;
-    color: white;
-    padding: 2rem;
-    width: 100%;
-    max-width: 100%;  /* Optional: keeps content from hugging edges */
-    margin: 0 auto; 
+  font-family: 'NHaasGrotesk', sans-serif;
+  color: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hero-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 4.25rem;
+  font-size: 1.5rem;
+  font-weight: normal;
+  color: white;
+}
+
+.hero-nav a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero-nav a:hover,
+.hero-nav a:active {
+  color: #EB28DE;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+  opacity: 0.5;
+  font-size: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+.hero-content p {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 800px;
+}
+
+.hero-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-top: 2rem;
+  font-size: 1.125rem;
+  font-weight: normal;
+  color: white;
+}
+
+.hero-footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.hero-footer a:hover,
+.hero-footer a:active {
+  color: #EB28DE;
+}
+
+.hero-heading span {
+  display: inline-block;
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+  filter: blur(4px);
+}
+
+.fade-in-up {
+  animation: fadeInUp50 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+/* ✅ Responsive Tweaks */
+@media (max-width: 1024px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
   }
-  .hero-nav a {
-    color: white;
-    text-decoration: none;
-  }
-  .hero-nav a:hover,
-  .hero-nav a:active {
-  color: #EB28DE; /* or use a specific hex like #9b59b6 */
-  }
- .hero-nav  {
-    display: flex;
-    gap: 1.875rem;
-    margin-bottom: 4.25rem; /* 100px spacing below nav */
-    font-size: 1.5rem;
-    font-weight: normal;
-    color: white;
- }
- 
-  .hero-content h1{
-    font-size: 3.69625rem;
-    font-weight: normal;
-    line-height: 1.082;
-    margin-bottom: 1rem;
-  }
+
   .hero-content h2 {
-    opacity: 0.5;
-    font-size: 1.9775rem;
-    margin-top: 1.5625rem;
+    font-size: 1.5rem;
   }
+
   .hero-content p {
-    margin-top: 1.5rem;
-    font-size: 1.25rem; /* 24px */
-    line-height: 1.5;
-    color: rgba(255, 255, 255, 0.8);
-    max-width: 50rem;
+    font-size: 1rem;
+    max-width: 90%;
   }
-  .hero-footer a:hover,
-  .hero-footer a:active {
-    color: #EB28DE; 
-  }
-  .hero-footer a{
-    color: white;
-    text-decoration: none;
-  }
+
   .hero-footer {
-    display: flex;
+    font-size: 1rem;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-text {
+    padding: 1.25rem;
+  }
+
+  .hero-nav {
+    font-size: 1.125rem;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .hero-content h2 {
     font-size: 1.25rem;
-    font-weight: normal;
-    color: white;
-    gap: 4.125rem;
-    margin-top: 1rem;
+    text-align: center;
   }
-  .hero-heading span {
-    display: inline-block;
-    animation: fadeInUp 0.8s ease-out forwards;
-    opacity: 0;
-    filter: blur(4px);
+
+  .hero-content p {
+    font-size: 0.95rem;
+    text-align: center;
+    margin: 0 auto;
   }
-  .fade-in-up {
-    animation: fadeInUp50 0.8s ease-out forwards;
-    opacity: 0; /* starts hidden */
+
+  .hero-footer {
+    justify-content: center;
+    font-size: 1rem;
+    gap: 1rem;
   }
+}
