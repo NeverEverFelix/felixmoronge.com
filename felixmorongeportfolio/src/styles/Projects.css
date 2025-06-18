@@ -7,10 +7,12 @@
 .projects-main{
 background-color: black;
 overflow-y: scroll;            /* enables vertical scroll if needed */
-scrollbar-width: none;        /* hides default in Firefox */
+scrollbar-width: thin;       /* hides default in Firefox */
 -ms-overflow-style: none;
 }
-
+.projects-main::-webkit-scrollbar-thumb:hover {
+  opacity: 0.85;
+}
 .projects-main::-webkit-scrollbar {
     width: 10px;
   }
@@ -20,7 +22,7 @@ scrollbar-width: none;        /* hides default in Firefox */
 }
 .projects-main::-webkit-scrollbar-thumb {
     border-radius: 5px;
-    background: url('Scrollbar.png') no-repeat center;
+    background: url('/Scrollbar.png') no-repeat center;
     background-size: cover;
 }
 
