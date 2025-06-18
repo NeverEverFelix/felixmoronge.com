@@ -1,8 +1,10 @@
 .work-modal {
-  background-color: #000; /* Black modal background */
+  background-color: #000;
   color: white;
-  width: 65.4375rem; /* 1047px / 16 */
-  height: 38.75rem;   /* 620px / 16 */
+  width: 100%;
+  max-width: 1047px;
+  height: auto;
+  max-height: 90vh;
   border-radius: 1rem;
   padding: 2rem;
   position: relative;
@@ -11,6 +13,7 @@
   align-items: flex-start;
   box-sizing: border-box;
   overflow: hidden;
+  margin: 0 auto;
 }
 
 /* EXIT button */
@@ -22,7 +25,7 @@
   border: none;
   color: #ff4c4c;
   font-weight: bold;
-  font-size: 2.28125rem; /* 36.5px */
+  font-size: 2.25rem;
   letter-spacing: 0.05em;
   cursor: pointer;
 }
@@ -35,19 +38,19 @@
   object-fit: contain;
   margin-bottom: 0.5rem;
   align-self: flex-start;
-  margin-left: -4rem; 
+  margin-left: -4rem;
 }
 
 /* Company name */
 .modal-company {
-  font-size: 2.68625rem; /* 42.98px / 16 */
-  color: #a3a3a3; /* Gray */
+  font-size: 2.625rem;
+  color: #a3a3a3;
   margin: 0;
 }
 
 /* Role title */
 .modal-role {
-  font-size: 1.913125rem; /* 30.61px / 16 */
+  font-size: 1.875rem;
   font-weight: 700;
   margin-top: 0.5rem;
   margin-bottom: 1.5rem;
@@ -55,27 +58,25 @@
 
 /* Description */
 .modal-description {
-  font-size: 1.5rem; /* 24px / 16 */
+  font-size: 1.5rem;
   line-height: 1.8;
-  max-width: 100%;
+  width: 100%;
   overflow-y: auto;
   position: relative;
   padding-right: 1rem;
-  max-height: 14rem; /* adjust based on how much vertical space is left below logo/title */
+  max-height: 14rem;
 
-  
-  scrollbar-width: none;          /* Firefox */
-  -ms-overflow-style: none;       /* IE 10+ */
-  scroll-behavior: smooth;   
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-behavior: smooth;
 }
+
 .modal-description::-webkit-scrollbar {
   display: none;
 }
 
-
 .modal-description::after {
   content: "";
-  position: absolute;
   position: sticky;
   bottom: 0;
   left: 0;
@@ -86,4 +87,68 @@
   pointer-events: none;
 }
 
+/* ✅ Responsive Tweaks */
+@media (max-width: 1024px) {
+  .work-modal {
+    padding: 1.5rem;
+  }
+
+  .modal-logo {
+    max-width: 16rem;
+    margin-left: -2rem;
+  }
+
+  .modal-company {
+    font-size: 2.25rem;
+  }
+
+  .modal-role {
+    font-size: 1.5rem;
+  }
+
+  .modal-description {
+    font-size: 1.25rem;
+    max-height: 12rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .work-modal {
+    border-radius: 0.75rem;
+    padding: 1rem;
+    max-height: 95vh;
+  }
+
+  .modal-exit-button {
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.75rem;
+  }
+
+  .modal-logo {
+    max-width: 100%;
+    margin-left: 0;
+    align-self: center;
+  }
+
+  .modal-company,
+  .modal-role {
+    text-align: center;
+    align-self: center;
+  }
+
+  .modal-company {
+    font-size: 1.75rem;
+  }
+
+  .modal-role {
+    font-size: 1.25rem;
+  }
+
+  .modal-description {
+    font-size: 1rem;
+    max-height: 10rem;
+    padding-right: 0.5rem;
+  }
+}
 

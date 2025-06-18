@@ -4,13 +4,17 @@
   justify-content: center;
   height: 100%;
   padding-left: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .scroll-item {
   display: flex;
   align-items: center;
-  gap: 0.75rem;         /* reduced gap */
-  margin-bottom: 1rem;  /* reduced spacing */
+  gap: 0.75rem;
+  margin-bottom: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
 }
@@ -40,4 +44,54 @@
 .scroll-item.active .divider {
   width: 60px;
   opacity: 1;
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 1024px) {
+  .projects-scroll {
+    padding-left: 0.75rem;
+  }
+
+  .scroll-item .label {
+    font-size: 0.85rem;
+  }
+
+  .scroll-item.active .label {
+    font-size: 0.95rem;
+  }
+
+  .scroll-item .divider {
+    width: 24px;
+  }
+
+  .scroll-item.active .divider {
+    width: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .projects-scroll {
+    padding-left: 0.5rem;
+  }
+
+  .scroll-item {
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .scroll-item .label {
+    font-size: 0.8rem;
+  }
+
+  .scroll-item.active .label {
+    font-size: 0.9rem;
+  }
+
+  .scroll-item .divider {
+    width: 20px;
+  }
+
+  .scroll-item.active .divider {
+    width: 40px;
+  }
 }
