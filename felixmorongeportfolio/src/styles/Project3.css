@@ -1,0 +1,300 @@
+.project3-main{
+    background-color: black;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.project3-main::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+.project3-main::-webkit-scrollbar-track {
+    background: transparent;
+}
+.project3-main::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: url('Scrollbar.png') no-repeat center;
+    background-size: cover;
+}
+.section-header{
+    padding: 3vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: white;
+}
+.development-pill{
+    background-color: #444;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    width: fit-content;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.title{
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: bold;
+    line-height: 1.2;
+    color: white;
+    margin: 0;
+}
+.title-subtext{
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    font-weight: 300;
+    color: white;
+    line-height: 1.4;
+    margin: 0;
+}
+.image{
+    padding: 0vh 5vw;
+}
+.image img{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.divider-casestudy{
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 5vw;
+    align-items: center;
+}
+.divider-line-casestudy {
+    height: .75px;
+    background-color: rgba(255, 255, 255, 1); /* light white line */
+    flex: 1;
+    max-width: 45%;
+  }
+  .divider-casestudy.full {
+    height: .75px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0; 
+  }
+  .overview {
+    padding: 4vh 5vw;               /* match prior sections */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;                    /* tighten up that gap */
+  }
+  .overview-title-text{
+    color: #CC00EB; /* or whatever purple you're using */
+    font-size: clamp(1.25rem, 4vw, 49.94px);
+    font-weight: 500;
+    margin: 0;
+}
+.overview-subtext {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: clamp(1.1rem, 4vw, 38.18px);
+    line-height: clamp(1.8rem, 5vw, 46px);
+    font-weight: 400;
+    margin: 0;
+    text-align: left;
+  }
+.overview-maintext {
+    color: white;
+    font-size: clamp(1.25rem, 4vw, 48.22px); /* responsive scaling */
+    line-height: clamp(2rem, 5vw, 70px);     /* match 70px line height */
+    font-weight: 400;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;                               /* more space between paras */
+    text-align: left;
+}
+.stack-section {
+    padding: 4vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  }
+  
+  .stack-table {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5vh;
+  }
+  
+  .stack-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .stack-label {
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+    font-size: clamp(1rem, 2.5vw, 28px);
+  }
+  
+  .stack-value {
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 400;
+    font-size: clamp(1rem, 2.5vw, 30px);
+    line-height: 1.5;
+  }
+  
+  @media (min-width: 768px) {
+    .stack-row {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  
+    .stack-label,
+    .stack-value {
+      width: 48%;
+    }
+  }
+  .devops-early-section {
+    padding: 4vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+  }
+  
+  .devops-list {
+    list-style-type: disc;
+    padding-left: 2rem;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: clamp(1rem, 2.5vw, 30px);
+    font-weight: 400;
+    text-align: left;
+  }
+  .missing-section {
+    padding: 4vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .missing-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+  }
+  
+  .table-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .table-row.header {
+    font-weight: bold;
+    color: #CC00EB;
+  }
+  
+  .table-col {
+    color: white;
+    font-size: clamp(1rem, 2.5vw, 28px);
+    line-height: 1.4;
+  }
+  
+  @media (min-width: 768px) {
+    .table-row {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+  
+    .table-col {
+      width: 48%;
+    }
+  }
+  .bottom-line {
+    color: red;
+    font-size: clamp(1.2rem, 4vw, 36px);
+    font-weight: 500;
+    text-align: left;
+    padding-top: 2vh;
+    padding-bottom: 4vh;
+    line-height: 1.5;
+  }
+  .crucial-section {
+    padding: 4vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .crucial-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    font-size: clamp(1rem, 2.5vw, 30px);
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  .emoji {
+    margin-right: 0.5rem;
+  }
+  .response-section {
+    padding: 4vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .response-content {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: clamp(1rem, 2.5vw, 30px);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .quote {
+    color: rgba(255, 255, 255, 0.7);
+    font-style: italic;
+    font-size: clamp(1.1rem, 3vw, 32px);
+    line-height: 1.6;
+    margin-left: 1rem;
+    border-left: 3px solid #CC00EB;
+    padding-left: 1rem;
+  }
+  
+  .response-list {
+    padding-left: 2rem;
+    margin: 0;
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .live-site {
+    font-size: clamp(1rem, 2.2vw, 28px);
+    line-height: 1.4;
+    color: white;
+  }
+  
+  .live-site a {
+    color: white;
+    text-decoration: underline;
+  }
+  
+  .tutorials-link {
+    font-size: clamp(1rem, 2.2vw, 28px);
+    line-height: 1.4;
+    color: white;
+  }
+  
+  .tutorials-link a {
+    color: #CC00EB;
+    text-decoration: underline;
+    font-weight: 500;
+  }
+  
+   
+    
