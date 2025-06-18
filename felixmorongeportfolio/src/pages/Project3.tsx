@@ -165,27 +165,11 @@ export default function Project3() {
       Live Site: <a href="https://storybuilder.online" target="_blank" rel="noopener noreferrer">https://storybuilder.online</a>
     </p>
     <p className="tutorials-link">
-      All code, pipeline steps, and demonstrations are documented and demonstrated step-by-step on my <a href="/tutorials">Tutorials page</a>.
+      All code, pipeline steps, and demonstrations are documented and demonstrated step-by-step on my <a href="/Tutorial">Tutorials page</a>.
     </p>
   </div>
   <div className="divider-casestudy full"></div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
     );  
 }
