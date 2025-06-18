@@ -1,0 +1,993 @@
+.tutorial-container {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+  }
+  
+  /* Header Title */
+  .tutorial-title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    text-align: left;
+    margin-bottom: 2vh;
+  }
+  
+  .subline {
+    display: block;
+  }
+  
+  /* Divider */
+  .divider-casestudy {
+    display: flex;
+    justify-content: space-between;
+    padding: 2vh 5vw;
+    align-items: center;
+  }
+  
+  .divider-line-casestudy {
+    height: 0.75px;
+    background-color: rgba(255, 255, 255, 1);
+    flex: 1;
+    max-width: 45%;
+  }
+  
+  .divider-casestudy.full {
+    height: 0.75px;
+    background-color: rgba(255, 255, 255, 1);
+    padding: 0;
+  }
+  
+  /* Learn Section */
+  .tutorial-learn-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Subheading */
+  .learn-subheading {
+    font-size: 20px;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  
+  /* Main paragraph text */
+  .learn-body {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 400;
+    max-width: 1000px;
+    margin-bottom: 2rem;
+  }
+  
+  /* List */
+  .learn-list {
+    padding-left: 1.25rem;
+    text-align: left;
+    margin-bottom: 2rem;
+    max-width: 1000px;
+  }
+  
+  .learn-list li {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  
+  
+  @media screen and (max-width: 1024px) {
+    .learn-body,
+    .learn-list li {
+      font-size: 42px;
+      line-height: 54px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .tutorial-title {
+      font-size: 36px;
+      line-height: 44px;
+    }
+  
+    .learn-subheading {
+      font-size: 16px;
+    }
+  
+    .learn-body,
+    .learn-list li {
+      font-size: 22px;
+      line-height: 34px;
+    }
+  }
+  .tutorial-teaches-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .teaches-subheading {
+    font-size: 20px;
+    color: #888;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  
+  .teaches-body {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 400;
+    margin-bottom: 2rem;
+  }
+  
+  .teaches-list {
+    text-align: left;
+    padding-left: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .teaches-list li {
+    font-size: 60px;
+    line-height: 70px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+  }
+  
+  .teaches-purple-text {
+    font-size: 20px;
+    line-height: 32px;
+    color: #e200ff;
+    font-weight: 500;
+    max-width: 900px;
+  }
+  
+  /* Tablet and mobile scaling */
+  @media screen and (max-width: 1024px) {
+    .teaches-body,
+    .teaches-list li {
+      font-size: 42px;
+      line-height: 54px;
+    }
+  
+    .teaches-purple-text {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .teaches-body,
+    .teaches-list li {
+      font-size: 22px;
+      line-height: 34px;
+    }
+  
+    .teaches-subheading {
+      font-size: 16px;
+    }
+  
+    .teaches-purple-text {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+  .techstack-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .techstack-title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    margin-bottom: 3rem;
+    text-align: left;
+  }
+  
+  .techstack-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .techstack-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+  }
+  
+  .techstack-cell {
+    width: 50%;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+  }
+  
+  .techstack-cell.label {
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: 500;
+  }
+  
+  .techstack-cell.error {
+    color: #ff3b3b;
+    font-size: 18px;
+  }
+  
+  /* Responsive stack on mobile */
+  @media screen and (max-width: 768px) {
+    .techstack-title {
+      font-size: 36px;
+      line-height: 44px;
+    }
+  
+    .techstack-row {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem 0;
+    }
+  
+    .techstack-cell {
+      width: 100%;
+      font-size: 16px;
+      line-height: 1.5;
+      margin-bottom: 0.5rem;
+    }
+  
+    .techstack-cell.error {
+      font-size: 16px;
+    }
+  }
+  .tutorial-phase-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .phase-heading {
+    font-size: 24px;
+    font-weight: 600;
+    color: #e200ff; /* purple */
+    margin-bottom: 1.5rem;
+  }
+  
+  .phase-title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    margin-bottom: 2rem;
+  }
+  
+  .phase-description {
+    font-size: 20px;
+    line-height: 32px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+  
+  /* Divider already defined, reused */
+  .divider-casestudy.full {
+    height: 0.75px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 100%;
+    margin-top: 2rem;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 1024px) {
+    .phase-title {
+      font-size: 42px;
+      line-height: 54px;
+    }
+  
+    .phase-description {
+      font-size: 18px;
+      line-height: 30px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .phase-title {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  
+    .phase-heading {
+      font-size: 18px;
+    }
+  
+    .phase-description {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+  .tutorial-dockerfile-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .dockerfile-title {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 58px;
+    margin-bottom: 1rem;
+    text-align: center;
+    max-width: 900px;
+  }
+  @media screen and (max-width: 768px) {
+    .dockerfile-title {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  }
+  .dockerfile-paragraph {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 900px;
+  }
+  
+  .dockerfile-list {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    text-align: left;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 900px;
+  }
+  
+  .dockerfile-list li {
+    font-size: 20px;
+    line-height: 1.7;
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 1024px) {
+    .dockerfile-title {
+      font-size: 42px;
+      line-height: 54px;
+    }
+  
+    .dockerfile-paragraph,
+    .dockerfile-list li {
+      font-size: 18px;
+      line-height: 1.6;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .dockerfile-title {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  
+    .dockerfile-paragraph,
+    .dockerfile-list li {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+  .tutorial-containerization-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .containerization-title {
+    font-size: 60px;
+    font-weight: 400;
+    line-height: 70px;
+    margin-bottom: 2.5rem;
+  }
+  
+  /* Centered UL */
+  .containerization-list-centered {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.8rem;
+    max-width: 900px;
+  }
+  
+  .containerization-list-centered li {
+    font-size: 24px;
+    line-height: 1.8;
+    text-align: center;
+    max-width: 800px;
+  }
+  
+  .green-highlight {
+    color: #00ff84;
+    font-weight: 600;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 1024px) {
+    .containerization-title {
+      font-size: 42px;
+      line-height: 54px;
+    }
+  
+    .containerization-list-centered li {
+      font-size: 20px;
+      line-height: 1.6;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .containerization-title {
+      font-size: 28px;
+      line-height: 38px;
+    }
+  
+    .containerization-list-centered li {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+  .tutorial-code-section {
+    padding: 5vh 5vw;
+    color: white;
+    background-color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .code-step {
+    font-size: 20px;
+    color: #e200ff;
+    margin: 1.5rem 0;
+    text-align: left;
+    width: 100%;
+    max-width: 900px;
+  }
+  
+  .code-block {
+    font-family: 'Fira Code', 'Courier New', monospace;
+    font-size: 15px;
+    line-height: 1.7;
+    background: #1e1e1e;
+    color: white;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin-bottom: 2rem;
+  }
+  
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+    .code-step {
+      font-size: 16px;
+    }
+  
+    .code-block {
+      font-size: 14px;
+    }
+  }
+  .code-step {
+    font-size: 20px;
+    font-weight: 600;
+    color: #e200ff;
+    margin: 1rem 0 1.25rem;
+    text-align: left;
+    width: 100%;
+    max-width: 900px;
+  }
+  .code-explanation {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.8;
+    max-width: 900px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .code-explanation {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  }
+  .ci-disclaimer {
+    font-size: 28px;
+    color: red;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+  
+  .ci-warning {
+    color: #a20000;
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 2rem;
+  }
+  
+  .ci-limitations-table {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    border-collapse: collapse;
+  }
+  
+  .ci-row {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 0;
+    gap: 2rem;
+  }
+  
+  .ci-col {
+    width: 50%;
+    font-size: 18px;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+  }
+  
+  .ci-header .ci-col {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ci-row {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 1rem 0;
+    }
+  
+    .ci-col {
+      width: 100%;
+      font-size: 16px;
+      margin-bottom: 0.5rem;
+    }
+  
+    .ci-header .ci-col {
+      font-size: 17px;
+    }
+  
+    .ci-disclaimer {
+      font-size: 20px;
+    }
+  
+    .ci-warning {
+      font-size: 15px;
+    }
+  }
+  .ci-reflection-pill {
+    background-color: #00ff3c; /* neon green */
+    color: #1b1b1b;
+    padding: 4rem 2rem;
+    border-radius: 50px;
+    width: 100%;
+    max-width: 1480px;
+    margin: 4rem auto 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: 50px;
+    line-height: 61px;
+    font-weight: 600;
+    gap: 1.75rem;
+  }
+  
+  .ci-highlight {
+    color: white;
+  }
+  
+  /* Tablet + Mobile Scaling */
+  @media screen and (max-width: 1024px) {
+    .ci-reflection-pill {
+      font-size: 32px;
+      line-height: 44px;
+      padding: 3rem 1.5rem;
+      border-radius: 40px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .ci-reflection-pill {
+      font-size: 20px;
+      line-height: 30px;
+      padding: 2rem 1rem;
+      border-radius: 32px;
+    }
+  }
+  .cicd-definition-section {
+    padding: 5vh 5vw;
+    background-color: black;
+    color: white;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .cicd-title {
+    font-size: 42px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cicd-description {
+    font-size: 20px;
+    color: #aaa;
+    line-height: 1.75;
+    margin-bottom: 0.5rem;
+  }
+  
+  .cicd-list {
+    list-style-type: disc;
+    text-align: left;
+    padding-left: 2rem;
+    color: #aaa;
+    font-size: 20px;
+    line-height: 1.8;
+  }
+  
+  .cicd-list li {
+    margin-bottom: 0.8rem;
+  }
+  
+  /* Responsive Tweaks */
+  @media screen and (max-width: 1024px) {
+    .cicd-title {
+      font-size: 32px;
+    }
+  
+    .cicd-description,
+    .cicd-list {
+      font-size: 18px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .cicd-title {
+      font-size: 24px;
+    }
+  
+    .cicd-description,
+    .cicd-list {
+      font-size: 16px;
+    }
+  }
+.cicd-code-section {
+  width: 100%;
+  max-width: 1444px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 0 auto 4rem auto;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+  overflow-x: auto;
+}
+
+.cicd-code-section .code-block {
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background-color: #1e1e1e; /* keep code dark for contrast */
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Responsive scaling */
+@media screen and (max-width: 1024px) {
+  .cicd-code-section {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .cicd-code-section .code-block {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cicd-code-section {
+    padding: 1rem;
+    border-radius: 14px;
+  }
+
+  .cicd-code-section .code-block {
+    font-size: 14px;
+  }
+}
+.cicd-code-section {
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto 4rem auto;
+  padding: 0;
+}
+
+.cicd-code-section .code-block {
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+/* Responsive scaling */
+@media screen and (max-width: 1024px) {
+  .cicd-code-section .code-block {
+    font-size: 15px;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cicd-code-section .code-block {
+    font-size: 14px;
+    padding: 1rem;
+  }
+}
+.cicd-code-explanation {
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cicd-code-list {
+  list-style-type: disc;
+  padding-left: 2rem;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #aaa;
+}
+
+.cicd-code-list li {
+  margin-bottom: 1rem;
+}
+
+/* Responsive scaling */
+@media screen and (max-width: 1024px) {
+  .cicd-code-list {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cicd-code-list {
+    font-size: 15px;
+    line-height: 1.5;
+    padding-left: 1.5rem;
+  }
+
+  .cicd-code-list li {
+    margin-bottom: 0.75rem;
+  }
+}
+.cicd-code-section {
+  width: 100%;
+  max-width: 1444px;
+  padding: 0; /* No white background */
+  margin: 0 auto 4rem auto;
+  overflow-x: auto;
+}
+
+.cicd-code-section .code-block {
+  font-size: 16px;
+  line-height: 1.8;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  overflow-x: auto;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media screen and (max-width: 1024px) {
+  .cicd-code-section .code-block {
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cicd-code-section .code-block {
+    font-size: 14px;
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+}
+.cicd-fragility-section {
+  color: white;
+  background-color: black;
+  padding: 5vh 5vw;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.cicd-fragility-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 20px;
+  line-height: 1.75;
+  color: #ccc;
+}
+
+.cicd-fragility-list li {
+  margin-bottom: 1rem;
+}
+
+.cicd-fragility-list.red li {
+  color: #ff5f5f;
+}
+
+.cicd-fragility-warning {
+  font-size: 20px;
+  font-weight: 600;
+  color: #ff4c4c;
+}
+
+.cicd-fragility-recommendation {
+  font-size: 18px;
+  font-weight: 600;
+  color: #b9ff9e;
+}
+
+.cicd-fragility-note {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 1024px) {
+  .cicd-fragility-list,
+  .cicd-fragility-note {
+    font-size: 17px;
+  }
+
+  .cicd-fragility-warning,
+  .cicd-fragility-recommendation {
+    font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .cicd-fragility-list,
+  .cicd-fragility-note {
+    font-size: 15px;
+  }
+
+  .cicd-fragility-warning,
+  .cicd-fragility-recommendation {
+    font-size: 16px;
+  }
+}
+.cicd-next-section {
+  padding: 5vh 5vw;
+  color: white;
+  background-color: black;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cicd-next-title {
+  font-size: 34px;
+  font-weight: 600;
+  color: #e200ff;
+  margin-bottom: 1rem;
+}
+
+.cicd-next-description {
+  font-size: 20px;
+  color: #aaa;
+  line-height: 1.7;
+}
+
+.cicd-next-list {
+  list-style: none;
+  padding-left: 0;
+  font-size: 20px;
+  color: #aaa;
+  line-height: 1.8;
+}
+
+.cicd-next-list li {
+  margin-bottom: 1rem;
+}
+
+.cicd-next-list .bold {
+  font-weight: 600;
+}
+
+.cicd-next-tutorial {
+  font-size: 20px;
+  color: #e200ff;
+  font-weight: 500;
+}
+
+.cicd-next-tutorial .highlight {
+  font-weight: 600;
+}
+
+/* Responsive Scaling */
+@media screen and (max-width: 1024px) {
+  .cicd-next-title {
+    font-size: 28px;
+  }
+
+  .cicd-next-description,
+  .cicd-next-list,
+  .cicd-next-tutorial {
+    font-size: 18px;
+  }
+}
+ 
+  
