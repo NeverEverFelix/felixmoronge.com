@@ -423,30 +423,12 @@ fi
     <li>• CI/CD should be event-driven, observable, and testable</li>
   </ul>
   <p className="cicd-next-tutorial">
-    Next tutorial: <span className="highlight">Intermediate — Full IaC, EKS, Jenkins, and Helm</span>
-  </p>
+  Next tutorial:{' '}
+  <a href="/Tutorial2" className="highlight">
+    Intermediate — Full IaC, EKS, Jenkins, and Helm
+  </a>
+</p>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       </div>
     );
 }
