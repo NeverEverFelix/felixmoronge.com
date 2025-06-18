@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'NHaasGrotesk';
+  src: url('/fonts/NHaasGroteskDSPro-55Rg.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 .tutorial2-container{
     padding: 5vh 5vw;
     background-color: black;
