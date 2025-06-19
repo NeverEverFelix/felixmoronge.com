@@ -43,7 +43,7 @@ export default function HeroSection({ activeSection, onSectionClick }: Props) {
       </div>
 
       <footer className= "hero-footer fade-in-up" style={{ animationDelay: '1s' }} >
-        <a href="tel:2674689116">contact</a>
+        <a href="mailto:felixmftc@icloud.com">contact</a>
         <a href="https://github.com/NeverEverFelix" target="_blank" rel="noopener noreferrer">github</a>
         <a href="https://www.linkedin.com/in/felixmoronge" target="_blank" rel="noopener noreferrer">linkedin</a>
       </footer>

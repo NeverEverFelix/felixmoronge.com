@@ -71,9 +71,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
               <>
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <a
-                    href="https://github.com/NeverEverFelix/applicant"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    href="/Project3"
                     style={{ textDecoration: 'none', width: '100%' }}
                   >
                     <ContentCard variant="plain">
@@ -87,9 +85,8 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
                   <a
-                    href="http://3.138.102.244:5001"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  
+                    href="/Project2"
                     style={{ textDecoration: 'none', width: '100%' }}
                   >
                     <ContentCard variant="plain">
