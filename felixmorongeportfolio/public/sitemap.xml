@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Homepage -->
+  <url>
+    <loc>https://www.felixmoronge.com/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Project Pages -->
+  <url>
+    <loc>https://www.felixmoronge.com/Projects</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.felixmoronge.com/Project2</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.felixmoronge.com/Project3</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Tutorial Pages -->
+  <url>
+    <loc>https://www.felixmoronge.com/Tutorial</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.felixmoronge.com/Tutorial2</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  
+
+  <!-- Section Anchors (scroll sections still useful for indexing) -->
+  <url>
+    <loc>https://www.felixmoronge.com/#resume</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.felixmoronge.com/#work</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.felixmoronge.com/#skills</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
