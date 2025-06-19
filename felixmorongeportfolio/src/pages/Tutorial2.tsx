@@ -1,7 +1,43 @@
 import '../styles/Tutorial2.css';
 import CodeBlock from '../components/CodeBlock';
+import { useEffect } from 'react';
 
 export default function Tutorial2() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Full Infrastructure with IaC, EKS, Jenkins, and Helm",
+      "description": "An intermediate DevOps tutorial showing how to build a scalable production-grade infrastructure using Terraform, AWS EKS, IRSA, Helm, and Jenkins CI/CD — with RBAC, Ingress, and PVC support.",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Moronge",
+        "url": "https://www.felixmoronge.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Felix Moronge Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.felixmoronge.com/fabrics.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.felixmoronge.com/Tutorial2"
+      },
+      "image": "https://www.felixmoronge.com/social-preview.png",
+      "datePublished": "2025-06-18",
+      "dateModified": "2025-06-18"
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   return (
     <div className="tutorial2-container">
       <span className="learn-level">Intermediate</span>
@@ -768,46 +804,6 @@ EOF
   </ul>
   <p className="faang-footer">Next tutorial: Advanced — Coming Soon</p>
 </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
   );
 }

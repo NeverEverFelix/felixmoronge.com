@@ -1,6 +1,45 @@
 import '../styles/Project3.css';
+import { useEffect } from 'react';
 
 export default function Project3() {
+  useEffect(() => {
+    // SEO title for this project page
+    document.title = "StoryBuilder – First Step in DevOps | Felix Moronge";
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.innerHTML = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "StoryBuilder – A Multi-Agent AI Engine and the First Step in My DevOps Journey",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Moronge",
+        "url": "https://www.felixmoronge.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "FelixMoronge.com",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.felixmoronge.com/fabrics.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.felixmoronge.com/Project3"
+      },
+      "url": "https://www.felixmoronge.com/Project3",
+      "datePublished": "2025-05-01",
+      "image": "https://www.felixmoronge.com/DevOpsPortfolioSite.png",
+      "description": "How I deployed a containerized, full-stack AI storytelling platform using basic CI/CD practices — and what I learned about real-world infrastructure in the process."
+    });
+
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
     return(
         <div className="project3-main">
         <div className="section-header">
