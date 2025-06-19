@@ -71,22 +71,22 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
             ) : id === 'projects' ? (
               <>
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  <a href="/Project3" style={{ textDecoration: 'none', width: '100%' }}>
+                  <a href="/StoryBuilder My entry point to DevOps Case Study" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
-                        src="/DevOpsPortfolioSite.png"
-                        alt="Felix Moronge DevOps Portfolio Site"
+                        src="/storybuilder.png"
+                        alt="StoryBuilder.online-My first Step in My devOps Journey"
                         className="resume-card-image"
                       />
                     </ContentCard>
                   </a>
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  <a href="/Project2" style={{ textDecoration: 'none', width: '100%' }}>
+                  <a href="/Enterprise-Grade CI/CD Case Study" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
-                        src="/storybuilder.png"
-                        alt="StoryBuilder Project"
+                        src="/DevOpsPortfolioSite.png"
+                        alt="Felix Moronge DevOps Portfolio Site"
                         className="resume-card-image"
                       />
                     </ContentCard>

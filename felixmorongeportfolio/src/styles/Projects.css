@@ -39,13 +39,16 @@ scrollbar-width: thin;       /* hides default in Firefox */
     background: transparent;
 }
 .projects-main::-webkit-scrollbar-thumb {
-    border-radius: 5px;
-    background: url('/Scrollbar.png') no-repeat center;
-    background-size: cover;
+  border-radius: 5px;
+  background: transparent; /* Hide thumb initially */
+  background-size: cover;
+  box-shadow: inset -2px 0 0 rgba(0, 0, 0, 0);
+  transition: background 0.1s ease;
+  background-position: -20px 75px;
 }
 
 .section-header{
-  padding: 3vh 5vw;
+  padding: 4vh 5vw;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -94,11 +97,12 @@ padding: 0vh 5vw;
     background-color: rgba(255, 255, 255, 1); /* light white line */
     flex: 1;
     max-width: 45%;
+   
   }
   .divider-casestudy.full {
     height: .75px;
     background-color: rgba(255, 255, 255, 1);
-    padding: 0; 
+    padding: 1; 
   }
 .overview {
  padding: .5vh 5vw;
@@ -111,9 +115,11 @@ padding: 0vh 5vw;
     font-size: clamp(1.25rem, 4vw, 49.94px);
     font-weight: 500;
     margin: 0;
+    margin-top: -2.5rem;
+    padding-bottom: 1.25rem;
 }
 .overview-subtext {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.5) !important;
     font-size: clamp(1.1rem, 4vw, 38.18px);
     line-height: clamp(1.8rem, 5vw, 46px);
     font-weight: 400;
@@ -131,10 +137,10 @@ padding: 0vh 5vw;
     text-align: left;
   }
   .metadata-section {
-    padding: 3vh 5vw;
+    padding: 6vh 5vw;
     display: flex;
     flex-direction: column;
-    gap: 3vh;
+    gap: 5vh;
   }
   
   .metadata-block {
@@ -144,20 +150,20 @@ padding: 0vh 5vw;
   }
   
   .section-title {
-    color: #CC00EB;
-    font-size: clamp(1.2rem, 3vw, 40px);
-    font-weight: 500;
-    margin: 0;
-    text-align: left;
+    color: #CC00EB !important;
+    font-size: clamp(1.2rem, 3vw, 40px) !important;
+    font-weight: 500 !important;
+    margin-top: -1rem !important;
+    text-align: left !important;
   }
   
   .section-subtext {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: clamp(1rem, 2.5vw, 32px);
-    line-height: 1.5;
-    font-weight: 400;
-    margin: 0;
-    text-align: left;
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: clamp(1rem, 2.5vw, 32px) !important;
+  line-height: 1 !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
+  text-align: left !important;
   }
   .legacy-deployment {
     margin-top: 2vh;
@@ -313,7 +319,8 @@ padding: 0vh 5vw;
     font-size: clamp(1.5rem, 4vw, 48px);
     color: white;
     font-weight: 500;
-    margin: 0;
+    margin-top: -.25rem;
+    margin-bottom: .25rem
   }
   
   .final-list {
@@ -338,6 +345,7 @@ padding: 0vh 5vw;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    align-items: center;
   }
   
   .results-pill {
@@ -351,6 +359,7 @@ padding: 0vh 5vw;
     text-align: left;
     width: 100%;
     max-width: 1544px;
+    text-align: center;
   }
   .cta-next {
     padding: 6vh 5vw;
@@ -362,12 +371,12 @@ padding: 0vh 5vw;
   }
   
   .cta-text {
-    font-size: clamp(1.2rem, 4vw, 48px);
-    line-height: clamp(1.2rem, 4vw, 48px);
-    font-weight: 400;
-    color: white;
-    margin: 0;
-    max-width: 1100px;
+    font-size: clamp(1.2rem, 4vw, 36px) !important;
+    line-height: clamp(1.2rem, 4vw, 36px)!important;
+    font-weight: 400 !important;
+    color: white !important;
+    margin: 0 !important;
+    max-width: 1100px !important;
   }
   
   .cta-link {

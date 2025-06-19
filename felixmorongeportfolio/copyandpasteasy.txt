@@ -168,3 +168,9 @@ I design and automate scalable
 
 <FadeInOnScroll>
 </FadeInOnScroll>
+
+"/DevOpsPortfolioSite.png"
+"/storybuilder.png"
+/Projects
+/Project2
+/Project3
