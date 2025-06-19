@@ -74,8 +74,8 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                   <a href="/Project3" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
-                        src="/applican.jpg"
-                        alt="Applican Project"
+                        src="/DevOpsPortfolioSite.png"
+                        alt="Felix Moronge DevOps Portfolio Site"
                         className="resume-card-image"
                       />
                     </ContentCard>
