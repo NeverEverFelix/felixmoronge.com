@@ -146,10 +146,12 @@
   background-size: cover;
   box-shadow: inset -2px 0 0 rgba(0, 0, 0, 0);
   transition: background 0.1s ease;
+  background-position: -20px 75px;
 }
 
 /* Show thumb image on hover */
 .scroll-sections:hover::-webkit-scrollbar-thumb {
   background: url('/Scrollbar.png') no-repeat center;
   background-size: cover;
+  background-position: center 75px;
 }
