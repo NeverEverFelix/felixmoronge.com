@@ -1,10 +1,11 @@
 .scroll-sections {
-  height: 100%;
+  height: 85%;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   display: flex;
   flex-direction: column;
   scroll-behavior: smooth;
+  padding-right: 1rem;
 }
 
 .scroll-section {
@@ -17,7 +18,7 @@
   align-items: center;
   flex-shrink: 0;
   overflow-y: auto;
-  min-height: 100vh;
+  min-height: 90vh;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -25,7 +26,7 @@
 
 .scroll-section h2 {
   font-size: 2.25rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
   text-transform: uppercase;
   font-weight: 500;
   color: white;
@@ -36,7 +37,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
   margin-top: -2.2rem; /* or 0 for full collapse */
   width: 100%;
 }
@@ -45,8 +46,8 @@
   font-size: 2rem;
   font-weight: 500;
   letter-spacing: 0.05em;
-  margin-bottom: 1rem;
-  margin-top: -1rem;
+  margin-bottom: 0rem;
+  margin-top: 1.5rem;
   color: white;
   opacity: 0.5;
   text-align: center;
@@ -60,6 +61,7 @@
   border-radius: 0.9375rem;
   display: block;
   transition: transform 0.3s ease;
+  margin-top: 1rem;
 }
 
 .resume-card-image:hover {
@@ -128,4 +130,26 @@
   .resume-card-image {
     max-width: 100%;
   }
+}
+/* Default scrollbar: transparent thumb (effectively hidden, but still there) */
+.scroll-sections::-webkit-scrollbar {
+  width: 10px;
+}
+
+.scroll-sections::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll-sections::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: transparent; /* Hide thumb initially */
+  background-size: cover;
+  box-shadow: inset -2px 0 0 rgba(0, 0, 0, 0);
+  transition: background 0.1s ease;
+}
+
+/* Show thumb image on hover */
+.scroll-sections:hover::-webkit-scrollbar-thumb {
+  background: url('/Scrollbar.png') no-repeat center;
+  background-size: cover;
 }
