@@ -18,9 +18,9 @@ export default function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Landing />} />
-          <Route path="/Projects" element={<Projects />} />
-          <Route path="/Project2" element={<Project2 />} />
-          <Route path="/Project3" element={<Project3 />} />
+          <Route path="/Enterprise-Grade CI/CD Case Study" element={<Projects />} />
+          <Route path="/Fabrics Web with Production-Grade DevOps Case Study" element={<Project2 />} />
+          <Route path="/StoryBuilder My entry point to DevOps Case Study" element={<Project3 />} />
           <Route path="/Tutorial" element={<Tutorial />} />
           <Route path="/Tutorial2" element={<Tutorial2 />} />
 

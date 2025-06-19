@@ -249,7 +249,7 @@ export default function Projects() {
               See the full step-by-step breakdown in my Tutorials section —<br />
               including detailed approaches, code examples, and live demos of the entire process.
             </p>
-            <a href="/Project2" className="cta-link">Next Project</a>
+            <a href="/StoryBuilder My entry point to DevOps Case Study" className="cta-link">Next Project</a>
           </div>
           </FadeInOnScroll>
         </div>

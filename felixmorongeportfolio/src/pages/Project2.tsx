@@ -233,7 +233,7 @@ export default function Project2() {
             All code, pipeline steps, and Terraform modules are documented and demonstrated step-by-step on my <a href="/tutorials" className="tutorial-link">Tutorials page.</a>
           </p>
 
-          <a href="/Project3" className="next-project-link">Next Project</a>
+          <a href="/Tutorial" className="next-project-link">Next Project</a>
           </FadeInOnScroll>
         </div>
       </div>

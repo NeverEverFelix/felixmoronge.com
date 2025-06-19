@@ -154,7 +154,6 @@ export default function Tutorial(){
   <p className="dockerfile-paragraph">
     A Dockerfile is a script-like set of instructions for building a Docker image.
   </p>
-  <p className="dockerfile-paragraph">It tells Docker:</p>
   <ul className="dockerfile-list">
     <li>What base image to use</li>
     <li>What files to copy</li>

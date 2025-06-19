@@ -86,19 +86,20 @@
   
   /* Subheading */
   .learn-subheading {
-    font-size: 20px;
-    color: #888;
+    font-size: 30px !important;
+    color: rgba(255, 255, 255, .5) !important;
     font-weight: 500;
     margin-bottom: 2rem;
   }
   
   /* Main paragraph text */
   .learn-body {
-    font-size: 60px;
+    font-size: 30px !important;
     line-height: 70px;
     font-weight: 400;
     max-width: 1000px;
-    margin-bottom: 2rem;
+    margin-bottom: -3rem;
+    text-align: left;
   }
   
   /* List */
@@ -106,7 +107,8 @@
     padding-left: 1.25rem;
     text-align: left;
     margin-bottom: 2rem;
-    max-width: 1000px;
+    max-width: 750px !important;
+    margin-top:5rem;
   }
   
   .learn-list li {
@@ -154,7 +156,7 @@
   }
   
   .teaches-subheading {
-    font-size: 20px;
+    font-size: 30px;
     color: #888;
     font-weight: 500;
     margin-bottom: 2rem;
@@ -186,6 +188,7 @@
     color: #e200ff;
     font-weight: 500;
     max-width: 900px;
+    margin-bottom:-3rem;
   }
   
   /* Tablet and mobile scaling */
@@ -224,6 +227,7 @@
     color: white;
     max-width: 1000px;
     margin: 0 auto;
+    
   }
   
   .techstack-title {
@@ -299,6 +303,7 @@
     text-align: center;
     max-width: 1000px;
     margin: 0 auto;
+    margin-top: -5rem;
   }
   
   .phase-heading {
@@ -378,6 +383,7 @@
     margin-bottom: 1rem;
     text-align: center;
     max-width: 900px;
+    margin-top: -4.5rem;
   }
   @media screen and (max-width: 768px) {
     .dockerfile-title {
@@ -400,6 +406,7 @@
     margin-bottom: 1.5rem;
     color: rgba(255, 255, 255, 0.7);
     max-width: 900px;
+    text-align:center;
   }
   
   .dockerfile-list li {
@@ -450,6 +457,7 @@
     font-size: 60px;
     font-weight: 400;
     line-height: 70px;
+    margin-top: -4.5rem;
     margin-bottom: 2.5rem;
   }
   
@@ -713,6 +721,8 @@
     color: #aaa;
     font-size: 20px;
     line-height: 1.8;
+    margin-top:-2.5rem !important;
+    text-align: center;
   }
   
   .cicd-list li {
@@ -747,7 +757,7 @@
   background-color: white;
   padding: 2rem;
   border-radius: 20px;
-  margin: 0 auto 4rem auto;
+  margin: 0 auto 2rem auto !important;
   box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
   overflow-x: auto;
 }
@@ -909,19 +919,22 @@
   font-size: 20px;
   line-height: 1.75;
   color: #ccc;
+  margin-top: -2rem;
 }
 
 .cicd-fragility-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .cicd-fragility-list.red li {
   color: #ff5f5f;
+  margin-bottom: 1rem;
 }
 
 .cicd-fragility-warning {
   font-size: 20px;
   font-weight: 600;
+  margin-bottom: 3rem;
   color: #ff4c4c;
 }
 
