@@ -1,6 +1,7 @@
 import '../styles/Tutorial2.css';
 import CodeBlock from '../components/CodeBlock';
 import { useEffect } from 'react';
+import FadeInOnScroll from '../components/FadeInOnScroll';
 
 export default function Tutorial2() {
   useEffect(() => {
@@ -50,6 +51,7 @@ export default function Tutorial2() {
       </div>
 
       <div className="tutorial-learn-section">
+      <FadeInOnScroll>
         <p className="learn-description">
           This tutorial walks you through the exact infrastructure that powers my live portfolio site — deployed via a real Kubernetes cluster, Terraform-based IaC, and a Jenkins + Kaniko CI/CD pipeline. You’ll learn:
         </p>
@@ -62,11 +64,13 @@ export default function Tutorial2() {
         <p className="learn-note">
           This stack simulates modern infra patterns used at FAANG-scale companies — containerized CI/CD, dynamic cloud infra, RBAC-secured deploys, and TLS-backed endpoints.
         </p>
+        </FadeInOnScroll>
       </div>
       </div>
       <div className="divider-casestudy full" />
 
       <section className="techstack-section">
+      <FadeInOnScroll>
         <h2 className="techstack-title">Tech Stack</h2>
         <div className="techstack-table">
           <div className="techstack-row header">
@@ -111,9 +115,11 @@ export default function Tutorial2() {
           </div>
         </div>
         <div className="techstack-divider" />
+        </FadeInOnScroll>
       </section>
 
       <section className="architecture-section">
+      <FadeInOnScroll>
         <h2 className="architecture-title">Architecture</h2>
 
         <div className="arch-flow">
@@ -148,11 +154,13 @@ export default function Tutorial2() {
           <li>Rollout happens via kubectl apply</li>
           <li>TLS managed by CertManager, DNS via Route53</li>
         </ul>
+        </FadeInOnScroll>
       </section>
 
       <div className="divider-casestudy full" />
 
       <section className="breakdown-section">
+      <FadeInOnScroll>
         <h2 className="breakdown-title">Breakdown</h2>
         <h3 className="breakdown-subheading">IaC (Terraform)</h3>
         <p className="breakdown-description">
@@ -341,9 +349,12 @@ provider "kubernetes" {
     allow Jenkins + Kaniko to push to ECR without exposing root credentials.
   </li>
 </ul>
+</FadeInOnScroll>
       </section>
       <div className="code-wrapper">
+      <FadeInOnScroll>
   <div className="code-label">eks.tf</div>
+  
   <CodeBlock
     language="yaml"
     code={`
@@ -385,8 +396,10 @@ module "eks" {
 }
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="code-wrapper">
+<FadeInOnScroll>
   <div className="code-label">iam_irsa.tf</div>
   <CodeBlock
     language="yaml"
@@ -445,8 +458,10 @@ resource "aws_iam_role_policy" "jenkins_irsa_policy" {
 }
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="code-wrapper">
+<FadeInOnScroll>
   <div className="code-label">helm_ebs_csi.tf</div>
   <CodeBlock
     language="yaml"
@@ -540,8 +555,10 @@ resource "helm_release" "ebs_csi_driver" {
 }
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="code-wrapper">
+<FadeInOnScroll>
   <div className="code-label">storageclass.tf</div>
   <CodeBlock
     language="yaml"
@@ -572,6 +589,7 @@ resource "kubernetes_storage_class_v1" "ebs_sc" {
 }
     `}
   />
+   </FadeInOnScroll>
 </div>
 <li>
   <strong>EKS + OIDC:</strong> <code>eks.tf</code> and <code>iam_oidc.tf</code> initialized the cluster and added IAM trust policies for Kubernetes.
@@ -586,6 +604,7 @@ resource "kubernetes_storage_class_v1" "ebs_sc" {
   <strong>Ingress + TLS:</strong> <code>helm_ingress.tf</code> deployed NGINX; <code>ingress.yaml</code> routed traffic to the frontend and CertManager managed TLS using Let's Encrypt.
 </li>
 <div className="code-wrapper">
+<FadeInOnScroll>
   <div className="code-label">helm_ingress.tf</div>
   <CodeBlock
     language="yaml"
@@ -650,8 +669,10 @@ resource "helm_release" "nginx_ingress" {
 }
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="code-wrapper">
+<FadeInOnScroll>
   <div className="code-label">ingress.yaml</div>
   <CodeBlock
     language="yaml"
@@ -691,8 +712,10 @@ spec:
       secretName: portfolio-tls
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="code-wrapper">
+<FadeInOnScroll>
   <div className="code-label">helm_jenkins.tf</div>
   <CodeBlock
     language="yaml"
@@ -765,10 +788,12 @@ EOF
 }
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="divider-casestudy full" />
 
 <section className="jenkins-section">
+<FadeInOnScroll>
   <h2 className="jenkins-title">Jenkins Setup<br />via Helm</h2>
 
   <p className="jenkins-text">
@@ -793,9 +818,11 @@ EOF
   <p className="jenkins-text">
     The Jenkinsfile defines a CI/CD pipeline that builds, pushes, and deploys Docker images without root credentials using IRSA:
   </p>
+  </FadeInOnScroll>
 </section>
 <div className="divider-casestudy full" />
 <section className="faang-section">
+<FadeInOnScroll>
   <h2 className="faang-title">How to Take This Further (Toward Real FAANG-Grade)</h2>
   <ul className="faang-list">
     <li>Integrate Vault for dynamic secrets and short-lived tokens</li>
@@ -804,6 +831,7 @@ EOF
     <li>Refactor multi-service into microservices with Helmfile or Kustomize</li>
   </ul>
   <p className="faang-footer">Next tutorial: Advanced — Coming Soon</p>
+  </FadeInOnScroll>
 </section>
     </div>
   );

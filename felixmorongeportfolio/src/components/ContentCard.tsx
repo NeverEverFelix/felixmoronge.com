@@ -1,6 +1,6 @@
 // src/components/ContentCard.tsx
+import { motion } from 'framer-motion';
 import '../styles/ContentCard.css';
-
 
 type Props = {
   children?: React.ReactNode;
@@ -12,7 +12,7 @@ type Props = {
 
 export default function ContentCard({ title, onClick, children, imageUrl, variant = 'default' }: Props) {
   return (
-    <div
+    <motion.div
       className={`content-card fade-in-up ${variant === 'plain' ? 'plain-card' : ''}`}
       onClick={onClick}
       role={onClick ? 'button' : undefined}
@@ -23,16 +23,19 @@ export default function ContentCard({ title, onClick, children, imageUrl, varian
           onClick();
         }
       }}
+      whileHover={{ scale: 2.3 }}
+      whileTap={{ scale: 0.50 }}
+      transition={{ type: 'spring', stiffness: 100, damping: 10 }}
     >
       {children ? (
         children
       ) : (
         <>
-        {imageUrl && <img src={imageUrl} alt={title || 'card'} className="card-image" />}
-        {variant !== 'image-only' && title && <h3>{title}</h3>}
+          {imageUrl && <img src={imageUrl} alt={title || 'card'} className="card-image" />}
+          {variant !== 'image-only' && title && <h3>{title}</h3>}
         </>
       )}
       {title && <h3>{title}</h3>}
-    </div>
+    </motion.div>
   );
 }

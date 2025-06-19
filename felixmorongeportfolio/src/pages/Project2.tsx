@@ -1,5 +1,6 @@
 import '../styles/Project2.css';
 import { useEffect } from 'react';
+import FadeInOnScroll from '../components/FadeInOnScroll';
 
 export default function Project2() {
   useEffect(() => {
@@ -69,6 +70,7 @@ export default function Project2() {
 
       <div className="fade-in-up" style={{ animationDelay: '0.3s' }}>
         <div className="overview">
+        <FadeInOnScroll>
           <h2 className="overview-title-text">Overview</h2>
           <div className="overview-maintext">
             <p>
@@ -79,24 +81,32 @@ export default function Project2() {
             </p>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
         <div className="metadata-section">
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">Product</h2>
             <p className="section-subtext">Fabrics Web Platform</p>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
-
+          </FadeInOnScroll>
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">My Role</h2>
             <p className="section-subtext">Founder + Product Designer + UI/UX + DevOps Engineer</p>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
-
+          </FadeInOnScroll>
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">Tech Stack</h2>
             <p className="section-subtext">
               Infra: Terraform, AWS EKS, Jenkins (Helm), IRSA, Helm, Kaniko, NGINX Ingress,<br />
@@ -108,6 +118,7 @@ export default function Project2() {
             <p className="section-subtext">
               Data Pipeline: Istio, Prometheus, Grafana, Redis Streams
             </p>
+            </FadeInOnScroll>
           </div>
           <div className="divider-casestudy full"></div>
         </div>
@@ -115,6 +126,7 @@ export default function Project2() {
 
       <div className="fade-in-up" style={{ animationDelay: '0.5s' }}>
         <div className="highlights-section">
+        <FadeInOnScroll>
           <h2 className="section-title">Key Architecture Highlights</h2>
           <div className="highlight-list">
             <div className="highlight-item">
@@ -143,11 +155,13 @@ export default function Project2() {
             </div>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
         <div className="coreml-hosting">
+        <FadeInOnScroll>
           <h2 className="section-title">CoreML Hosting Strategy</h2>
           <div className="pill-container">
             <ul className="pill-list">
@@ -195,11 +209,13 @@ export default function Project2() {
             </div>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.7s' }}>
         <div className="reflection-section">
+        <FadeInOnScroll>
           <p className="reflection-header">
             This system directly mirrors real-world production ML pipelines and DevOps patterns used at companies like Meta and Airbnb:
           </p>
@@ -218,6 +234,7 @@ export default function Project2() {
           </p>
 
           <a href="/Project3" className="next-project-link">Next Project</a>
+          </FadeInOnScroll>
         </div>
       </div>
     </div>
