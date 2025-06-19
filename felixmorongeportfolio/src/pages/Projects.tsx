@@ -1,5 +1,42 @@
 import '../styles/Projects.css';
+import { useEffect } from 'react';
+
 export default function Projects() {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Building Enterprise-Grade CI/CD for My Portfolio Site",
+      "description": "How I architected and deployed a production-grade DevOps pipeline from scratch using AWS, Terraform, and Kubernetes. Includes full CI/CD stack, Jenkins, IRSA, EKS, and automated deployments.",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Moronge",
+        "url": "https://www.felixmoronge.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Felix Moronge Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.felixmoronge.com/fabrics.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.felixmoronge.com/Project1"
+      },
+      "image": "https://www.felixmoronge.com/DevOpsPortfolioSite.png",
+      "datePublished": "2025-06-01",
+      "dateModified": "2025-06-18"
+    });
+
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
     return (
       <div className="projects-main">
         <div className="section-header">

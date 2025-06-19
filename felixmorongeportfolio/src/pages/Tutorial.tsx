@@ -1,8 +1,44 @@
 import '../styles/Tutorial.css';
 import CodeBlock from '../components/CodeBlock';
+import { useEffect } from 'react';
 
 
 export default function Tutorial(){
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "CI/CD, Docker, and EC2 — Your First Live Deployment",
+      "description": "A beginner's tutorial on deploying a live application using GitHub Actions, Docker, and AWS EC2, while also explaining why manual infrastructure fails and what real DevOps requires.",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Moronge",
+        "url": "https://www.felixmoronge.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Felix Moronge Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.felixmoronge.com/fabrics.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.felixmoronge.com/Tutorial"
+      },
+      "image": "https://www.felixmoronge.com/social-preview.png",
+      "datePublished": "2025-06-18",
+      "dateModified": "2025-06-18"
+    });
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
     return(
         <div className="tutorial-container">
         <h1 className="tutorial-title">

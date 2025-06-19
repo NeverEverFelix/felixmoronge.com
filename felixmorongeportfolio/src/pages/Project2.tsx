@@ -1,6 +1,45 @@
 import '../styles/Project2.css';
+import { useEffect } from 'react';
 
 export default function Project2() {
+  useEffect(() => {
+    document.title = "Building CI/CD with Jenkins and Terraform | Felix Moronge";
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.text = JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Scaling Fabrics Web with Production-Grade DevOps",
+      "author": {
+        "@type": "Person",
+        "name": "Felix Moronge",
+        "url": "https://www.felixmoronge.com"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Felix Moronge Portfolio",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.felixmoronge.com/fabrics.png"
+        }
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.felixmoronge.com/Project2"
+      },
+      "url": "https://www.felixmoronge.com/Project2",
+      "datePublished": "2025-06-01",
+      "dateModified": "2025-06-18",
+      "image": "https://www.felixmoronge.com/DevOpsPortfolioSite.png",
+      "description": "How I scaled the Fabrics Web platform with a production-grade DevOps pipeline and CoreML infrastructure using Terraform, Jenkins, EKS, and Istio. This article outlines the architecture for real-time ML inference, microservices, and blue-green deployments."
+    });
+
+    document.head.appendChild(script);
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   return (
     <div className="project2-main">
       <div className="section-header">
@@ -168,13 +207,6 @@ export default function Project2() {
 
   <a href="/Project3" className="next-project-link">Next Project</a>
 </div>
-
-
-
-
-
-
-
     </div>
   );
 }
