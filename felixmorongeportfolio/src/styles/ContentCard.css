@@ -14,9 +14,7 @@
   box-sizing: border-box;
 }
 
-.content-card:hover {
-  transform: translateY(-4px);
-}
+
 
 .card-image {
   width: 100%;

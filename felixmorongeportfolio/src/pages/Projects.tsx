@@ -1,5 +1,6 @@
 import '../styles/Projects.css';
 import { useEffect } from 'react';
+import FadeInOnScroll from '../components/FadeInOnScroll';
 
 export default function Projects() {
   useEffect(() => {
@@ -37,9 +38,11 @@ export default function Projects() {
       document.head.removeChild(script);
     };
   }, []);
-
+  
   return (
+   
     <div className="projects-main">
+      
       <div className="fade-in-up" style={{ animationDelay: '0s' }}>
         <div className="section-header">
           <div className="development-pill">Live</div>
@@ -65,7 +68,9 @@ export default function Projects() {
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.3s' }}>
+     
         <div className="overview">
+        <FadeInOnScroll >
           <h2 className="overview-title-text">Overview</h2>
           <p className="overview-subtext">
             Initial DevOps challenges, bottlenecks, security risks, and scalability goals; what wasn’t working before
@@ -82,24 +87,34 @@ export default function Projects() {
             </p>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
+      
         <div className="metadata-section">
+        
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">Product</h2>
             <p className="section-subtext">Felix Moronge DevOps Portfolio Site</p>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
-
+          </FadeInOnScroll>
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">My Role</h2>
             <p className="section-subtext">Fullstack Developer + DevOps</p>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
-
+          </FadeInOnScroll>
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">Skills</h2>
             <p className="section-subtext">
               UI/UX<br />
@@ -107,18 +122,24 @@ export default function Projects() {
               Fullstack Development<br />
               Cloud & AWS
             </p>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
-
+          </FadeInOnScroll>
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">Tools</h2>
             <p className="section-subtext">
               AWS EKS + ECR, GitHub, Docker, kubectl, Helm, Jenkins, Terraform, Prometheus, Grafana
             </p>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
-
+          </FadeInOnScroll>
           <div className="metadata-block">
+          <FadeInOnScroll>
             <h2 className="section-title">Old Infrastack</h2>
             <p className="section-subtext">
               Single-server deployment, manual deploys, no rollback strategy
@@ -143,13 +164,17 @@ export default function Projects() {
                 <span className="quote-emphasized">without ever touching the server.</span>
               </p>
             </div>
+            </FadeInOnScroll>
           </div>
+          <FadeInOnScroll>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.5s' }}>
         <div className="architecture-whiteboard">
+        <FadeInOnScroll>
           <h2 className="section-title">Architecture Whiteboard</h2>
           <p className="section-subtext">Infra goals, CI/CD stages, bottlenecks solved</p>
           <div className="whiteboard-body">
@@ -162,11 +187,13 @@ export default function Projects() {
               <li>DNS + TLS via Let’s Encrypt and Route 53</li>
             </ul>
           </div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
         <div className="infra-diagrams">
+        <FadeInOnScroll>
           <h2 className="section-title">Infra Diagrams</h2>
           <p className="section-subtext">Terraform provisioning, EKS cluster structure, Jenkins pipeline layout</p>
           <div className="diagrams-body">
@@ -178,11 +205,13 @@ export default function Projects() {
               <li>Nginx + Vite – Multi-stage Docker build optimized for static delivery, deployed as Kubernetes Deployment + Service</li>
             </ol>
           </div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.7s' }}>
         <div className="final-infrastructure">
+        <FadeInOnScroll>
           <h2 className="section-title">Final Infrastructure</h2>
           <p className="section-subtext">
             Live deployment pipeline, Jenkins + Kaniko + ECR, Ingress TLS
@@ -198,11 +227,13 @@ export default function Projects() {
               <li>✅ IngressController routes all subdomains (e.g., jenkins.felixmoronge.com)</li>
             </ul>
           </div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.8s' }}>
         <div className="results-section">
+        <FadeInOnScroll>
           <h2 className="section-title">Results</h2>
           <p className="section-subtext">
             Deployment time reduction, zero-downtime rollouts, CVEs mitigated, infrastructure as code compliance
@@ -220,8 +251,11 @@ export default function Projects() {
             </p>
             <a href="/Project2" className="cta-link">Next Project</a>
           </div>
+          </FadeInOnScroll>
         </div>
       </div>
+     
     </div>
+   
   );
 }

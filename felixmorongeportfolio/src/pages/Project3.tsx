@@ -1,5 +1,6 @@
 import '../styles/Project3.css';
 import { useEffect } from 'react';
+import FadeInOnScroll from '../components/FadeInOnScroll';
 
 export default function Project3() {
   useEffect(() => {
@@ -69,6 +70,7 @@ export default function Project3() {
 
       <div className="fade-in-up" style={{ animationDelay: '0.3s' }}>
         <div className="overview">
+        <FadeInOnScroll>
           <h2 className="overview-title-text">Overview</h2>
           <p className="overview-subtext">
             My first CI/CD project — functional but not scalable or reliable. It exposed the gaps that drove my shift to real-world DevOps.
@@ -85,11 +87,13 @@ export default function Project3() {
             </p>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
         <div className="stack-section">
+        <FadeInOnScroll>
           <h2 className="section-title">Stack Overview</h2>
           <div className="stack-table">
             <div className="stack-row header">
@@ -121,11 +125,13 @@ export default function Project3() {
             </div>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.5s' }}>
         <div className="devops-early-section">
+        <FadeInOnScroll>
           <h2 className="section-title">DevOps Implementation (Early Version)</h2>
           <ul className="devops-list">
             <li>CI/CD via GitHub Actions on main branch</li>
@@ -139,11 +145,13 @@ export default function Project3() {
             <li>DNS managed with Route53, domain via Namecheap</li>
           </ul>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
         <div className="missing-section">
+        <FadeInOnScroll>
           <h2 className="section-title">What Was Missing (And Why It Wasn’t Production-Grade)</h2>
           <div className="missing-table">
             <div className="table-row header">
@@ -183,11 +191,13 @@ export default function Project3() {
             </p>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.7s' }}>
         <div className="crucial-section">
+        <FadeInOnScroll>
           <h2 className="section-title">Why This Was Crucial Anyway</h2>
           <ul className="crucial-list">
             <li><span className="emoji">✅</span> It gave me my first exposure to CI/CD, containers, and automated deploys</li>
@@ -196,11 +206,13 @@ export default function Project3() {
             <li><span className="emoji">✅</span> It became the catalyst for me to build fully automated, fault-tolerant platforms later</li>
           </ul>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.8s' }}>
         <div className="response-section">
+        <FadeInOnScroll>
           <h2 className="section-title">What I Did Next (In Response)</h2>
           <div className="response-content">
             <p>After StoryBuilder, I realized:</p>
@@ -224,6 +236,7 @@ export default function Project3() {
             </p>
           </div>
           <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
         </div>
       </div>
     </div>

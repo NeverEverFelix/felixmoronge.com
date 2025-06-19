@@ -4,6 +4,7 @@ import '../styles/ContentCard.css';
 import { useEffect, useRef, useState } from 'react';
 import Modal from 'react-modal';
 import WorkModal from './WorkModal';
+import { AnimatePresence } from 'framer-motion';
 
 type Props = {
   setActiveSection: (id: string) => void;
@@ -70,10 +71,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
             ) : id === 'projects' ? (
               <>
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  <a
-                    href="/Project3"
-                    style={{ textDecoration: 'none', width: '100%' }}
-                  >
+                  <a href="/Project3" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
                         src="/applican.jpg"
@@ -84,11 +82,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                   </a>
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  <a
-                  
-                    href="/Project2"
-                    style={{ textDecoration: 'none', width: '100%' }}
-                  >
+                  <a href="/Project2" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
                         src="/storybuilder.png"
@@ -101,7 +95,6 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
               </>
             ) : id === 'work' ? (
               <>
-              
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <ContentCard
                     imageUrl="/wavform.png"
@@ -124,54 +117,59 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                   />
                 </div>
 
-                <Modal
-                  isOpen={!!selectedCompany}
-                  onRequestClose={closeModal}
-                  contentLabel="Work Experience Modal"
-                  className="custom-modal"
-                  overlayClassName="modal-overlay"
-                >
-                  {selectedCompany === 'wavform' && (
-                    <WorkModal
-                      logo="/wavformLogo.png"
-                      company="Wavform, LLC"
-                      role="DevOps Engineer Intern"
-                      description="Sole DevOps Engineer responsible for the end-to-end design and implementation of Wavform’s cloud infrastructure. Built a hybrid CI/CD pipeline using GitHub Actions and Jenkins, cutting deployment time by 40%. Deployed services to Kubernetes clusters using blue-green deployment strategies, service mesh, and auto-scaling. Provisioned AWS EC2, ALB, and EKS via Terraform and Helm, establishing repeatable IaC patterns. Integrated PostHog-based telemetry into deployment gates for analytics-driven rollbacks and phased releases. Secured infrastructure with AWS Secrets Manager, and authored full onboarding docs—reducing infra ramp-up time by 60%."
-                      onClose={closeModal}
-                    />
-                  )}
+                <AnimatePresence mode="wait">
+                  {selectedCompany && (
+                    <Modal
+                      isOpen={!!selectedCompany}
+                      onRequestClose={closeModal}
+                      contentLabel="Work Experience Modal"
+                      className="custom-modal"
+                      overlayClassName="modal-overlay"
+                      ariaHideApp={false}
+                    >
+                      {selectedCompany === 'wavform' && (
+                        <WorkModal
+                          logo="/wavformLogo.png"
+                          company="Wavform, LLC"
+                          role="DevOps Engineer Intern"
+                          description="Sole DevOps Engineer responsible for the end-to-end design and implementation of Wavform’s cloud infrastructure. Built a hybrid CI/CD pipeline using GitHub Actions and Jenkins, cutting deployment time by 40%. Deployed services to Kubernetes clusters using blue-green deployment strategies, service mesh, and auto-scaling. Provisioned AWS EC2, ALB, and EKS via Terraform and Helm, establishing repeatable IaC patterns. Integrated PostHog-based telemetry into deployment gates for analytics-driven rollbacks and phased releases. Secured infrastructure with AWS Secrets Manager, and authored full onboarding docs—reducing infra ramp-up time by 60%."
+                          onClose={closeModal}
+                        />
+                      )}
 
-                  {selectedCompany === 'temple' && (
-                    <WorkModal
-                      logo="/templeLogo.png"
-                      company="Temple University"
-                      role="Technical Support Specialist"
-                      description="Delivered technical support across a university-wide environment. Resolved system and software issues on over 100 endpoints, improved workflows by 20% through automated maintenance, and supported essential productivity tools such as Adobe Creative Suite, Office 365, and Zoom."
-                      onClose={closeModal}
-                    />
-                  )}
+                      {selectedCompany === 'temple' && (
+                        <WorkModal
+                          logo="/templeLogo.png"
+                          company="Temple University"
+                          role="Technical Support Specialist"
+                          description="Delivered technical support across a university-wide environment. Resolved system and software issues on over 100 endpoints, improved workflows by 20% through automated maintenance, and supported essential productivity tools such as Adobe Creative Suite, Office 365, and Zoom."
+                          onClose={closeModal}
+                        />
+                      )}
 
-                  {selectedCompany === 'temple-surgery' && (
-                    <WorkModal
-                      logo="/templeLogo.png"
-                      company="Temple University Department of Surgery"
-                      role="Adminstrative Assistant"
-                      description="Maintained HIPAA-compliant systems, helped digitize medical records securely, and managed credential configurations for sensitive medical software systems."
-                      onClose={closeModal}
-                    />
+                      {selectedCompany === 'temple-surgery' && (
+                        <WorkModal
+                          logo="/templeLogo.png"
+                          company="Temple University Department of Surgery"
+                          role="Administrative Assistant"
+                          description="Maintained HIPAA-compliant systems, helped digitize medical records securely, and managed credential configurations for sensitive medical software systems."
+                          onClose={closeModal}
+                        />
+                      )}
+                    </Modal>
                   )}
-                </Modal>
+                </AnimatePresence>
               </>
             ) : id === 'skills' ? (
               <>
                 <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
-                  <ContentCard  imageUrl="/docker.png" />
+                  <ContentCard imageUrl="/docker.png" />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  <ContentCard  imageUrl="/github-actions.png" />
+                  <ContentCard imageUrl="/github-actions.png" />
                 </div>
                 <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
-                  <ContentCard  imageUrl="/aws.png" />
+                  <ContentCard imageUrl="/aws.png" />
                 </div>
               </>
             ) : null}

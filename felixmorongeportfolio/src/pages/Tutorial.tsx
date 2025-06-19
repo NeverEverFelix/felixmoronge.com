@@ -1,6 +1,7 @@
 import '../styles/Tutorial.css';
 import CodeBlock from '../components/CodeBlock';
 import { useEffect } from 'react';
+import FadeInOnScroll from '../components/FadeInOnScroll';
 
 
 export default function Tutorial(){
@@ -65,6 +66,7 @@ export default function Tutorial(){
 <div className="divider-casestudy full" />
 </div>
 <div className="tutorial-teaches-section">
+<FadeInOnScroll>
   <h2 className="teaches-subheading">What This Teaches You</h2>
   <p className="teaches-body">
     You’ll walk away understanding:
@@ -80,9 +82,11 @@ export default function Tutorial(){
   <p className="teaches-purple-text">
     This is the CI/CD version of your first production deployment. It's what most developers get wrong when shipping something live. But it's also what teaches you why you need to evolve.
   </p>
+  </FadeInOnScroll>
 </div>
 <div className="divider-casestudy full" />
 <div className="techstack-section">
+<FadeInOnScroll>
   <h2 className="techstack-title">Tech Stack</h2>
   <div className="techstack-table">
     <div className="techstack-row techstack-header">
@@ -125,11 +129,13 @@ export default function Tutorial(){
       <div className="techstack-cell error">❌ None (explained below)</div>
     </div>
   </div>
+  </FadeInOnScroll>
 </div>
 
 <div className="divider-casestudy full" />
 
 <div className="tutorial-phase-section">
+<FadeInOnScroll>
   <h3 className="phase-heading">Phase One: Containerize With Docker</h3>
   <h2 className="phase-title">What is Docker?</h2>
   <p className="phase-description">
@@ -140,8 +146,10 @@ export default function Tutorial(){
     This solves the classic problem: "It worked on my machine!" — by ensuring your app always runs in an isolated, predictable environment.
   </p>
   <div className="divider-casestudy full" />
+  </FadeInOnScroll>
 </div>
 <div className="tutorial-dockerfile-section">
+<FadeInOnScroll>
   <h2 className="dockerfile-title">What is a Dockerfile?</h2>
   <p className="dockerfile-paragraph">
     A Dockerfile is a script-like set of instructions for building a Docker image.
@@ -158,8 +166,10 @@ export default function Tutorial(){
     A Dockerfile is declarative infrastructure — the foundation of Infrastructure as Code.
   </p>
   <div className="divider-casestudy full" />
+  </FadeInOnScroll>
 </div>
 <div className="tutorial-containerization-section">
+<FadeInOnScroll>
   <h2 className="containerization-title">
     Why Containerization<br />Matters in Production
   </h2>
@@ -170,8 +180,10 @@ export default function Tutorial(){
     <li><span className="green-highlight">Scalability:</span> Containers are the unit of deployment in Kubernetes, ECS, etc.</li>
   </ul>
   <div className="divider-casestudy full" />
+  </FadeInOnScroll>
 </div>
 <div className="tutorial-code-section">
+<FadeInOnScroll>
   <h2 className="dockerfile-title">
     Here's the StoryBuilder Dockerfile —<br />Line-by-Line
   </h2>
@@ -197,8 +209,10 @@ FROM node:18-alpine AS frontend
     “<code>AS frontend</code>” gives the current build stage a name that you can reference and reuse later in the same Dockerfile in another stage like this:<br />
     <code>COPY --from=frontend ...</code>
   </p>
+  </FadeInOnScroll>
 </div>
 <div className="tutorial-code-section">
+<FadeInOnScroll>
   <h3 className="code-step">Step 2:</h3>
   <CodeBlock
     language="yaml"
@@ -224,8 +238,10 @@ RUN npm install
     <br /><br />
     Together, these three instructions enable efficient caching, clean and reproducible builds, and lay the groundwork for a proper multi-stage production build.
   </p>
+  </FadeInOnScroll>
 </div>
 <div className="tutorial-code-section">
+<FadeInOnScroll>
   <h3 className="code-step">Step 3:</h3>
 
   <CodeBlock
@@ -262,8 +278,10 @@ CMD ["node", "server.js"]
     <code>EXPOSE 5001</code> declares the port your app will run on inside the container, and <code>CMD ["node", "server.js"]</code>
     tells Docker what command to run to start your backend service.
   </p>
+  </FadeInOnScroll>
 </div>
 <div className="tutorial-phase-section">
+<FadeInOnScroll>
   <h3 className="phase-heading">Phase Two: CI/CD with GitHub Actions</h3>
   <h2 className="ci-disclaimer">Disclaimer</h2>
   <p className="ci-warning">Why This Isn’t Production-Grade (And Why That Matters)</p>
@@ -315,8 +333,10 @@ CMD ["node", "server.js"]
 </div>
   </div>
   <div className="divider-casestudy full" />
+  </FadeInOnScroll>
 </div>
 <div className="cicd-definition-section">
+<FadeInOnScroll>
   <h2 className="cicd-title">What is CI/CD?</h2>
   <p className="cicd-description">
     CI/CD stands for Continuous Integration and Continuous Deployment. It’s a methodology where code changes are:
@@ -328,8 +348,10 @@ CMD ["node", "server.js"]
   <p className="cicd-description">
     This ensures faster iteration, safer delivery, and a unified team workflow.
   </p>
+  </FadeInOnScroll>
 </div>
 <div className="cicd-code-section">
+<FadeInOnScroll>
   <CodeBlock
     language="yaml"
     code={`
@@ -356,8 +378,10 @@ jobs:
             bash deploy.sh
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="cicd-code-explanation">
+<FadeInOnScroll>
   <ul className="cicd-code-list">
     <li><strong>name:</strong> Title for the workflow in GitHub UI.</li>
     <li><strong>on.push.branches.main:</strong> Trigger workflow when pushing to main — simulating a production merge.</li>
@@ -366,8 +390,10 @@ jobs:
     <li><strong>with.host/username/key:</strong> Injects EC2 login credentials via GitHub secrets.</li>
     <li><strong>script:</strong> This line SSHs into your server, enters the project directory, and executes your deployment logic.</li>
   </ul>
+  </FadeInOnScroll>
 </div>
 <div className="cicd-code-section">
+<FadeInOnScroll>
   <CodeBlock
     language="bash"
     code={`
@@ -424,8 +450,10 @@ else
 fi
     `}
   />
+  </FadeInOnScroll>
 </div>
 <div className="cicd-fragility-section">
+<FadeInOnScroll>
   <ul className="cicd-fragility-list">
     <li>• Blue/Green Deployment: Spins up a temp container, tests it,<br />then swaps it live only if healthy.</li>
     <li>• ✅ Rollback Protection: Leaves the live container untouched on failure.</li>
@@ -448,8 +476,10 @@ fi
     <br />• Use tools like Jenkins, GitHub Actions + Kaniko, or ArgoCD
     <br />• Replace shell scripts with declarative pipelines (with rollback, caching, secrets)
   </p>
+  </FadeInOnScroll>
 </div>
 <div className="cicd-next-section">
+<FadeInOnScroll>
   <h2 className="cicd-next-title">What Comes Next (and Why It Matters)</h2>
   <p className="cicd-next-description">
     After this tutorial, you’ll understand why Infrastructure as Code is non-negotiable:
@@ -466,6 +496,7 @@ fi
     Intermediate — Full IaC, EKS, Jenkins, and Helm
   </a>
 </p>
+</FadeInOnScroll>
 </div>
       </div>
     );

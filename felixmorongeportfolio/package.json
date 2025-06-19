@@ -10,6 +10,7 @@
     "tailwind:init": "tailwindcss init -p"
   },
   "dependencies": {
+    "framer-motion": "^12.18.1",
     "motion": "^12.18.1",
     "prism-react-renderer": "^1.3.5",
     "react": "^19.1.0",
