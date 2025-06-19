@@ -41,6 +41,7 @@ export default function Tutorial(){
   }, []);
     return(
         <div className="tutorial-container">
+           <div className="fade-in-up" style={{ animationDelay: '.5s' }}>
         <h1 className="tutorial-title">
           CI/CD, Docker, and EC2 — Your First Live Deployment<br />
           <span className="subline">(and Why It’s Not Enough)</span>
@@ -62,6 +63,7 @@ export default function Tutorial(){
   </p>
 </div>
 <div className="divider-casestudy full" />
+</div>
 <div className="tutorial-teaches-section">
   <h2 className="teaches-subheading">What This Teaches You</h2>
   <p className="teaches-body">

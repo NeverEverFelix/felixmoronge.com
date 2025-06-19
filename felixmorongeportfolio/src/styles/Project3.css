@@ -4,6 +4,23 @@
   font-weight: normal;
   font-style: normal;
 }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: var(--final-opacity, 1);
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
 .project3-main{
     background-color: black;
     overflow-y: scroll;
@@ -41,10 +58,11 @@
 }
 .title{
     font-size: clamp(1.5rem, 5vw, 3rem);
-    font-weight: bold;
+    font-weight: normal;
     line-height: 1.2;
-    color: white;
+    color:  #ffffff;
     margin: 0;
+    text-align: left;
 }
 .title-subtext{
     font-size: clamp(1rem, 3vw, 1.5rem);
@@ -52,6 +70,7 @@
     color: white;
     line-height: 1.4;
     margin: 0;
+    text-align: left;
 }
 .image{
     padding: 0vh 5vw;
@@ -91,7 +110,7 @@
     margin: 0;
 }
 .overview-subtext {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255);
     font-size: clamp(1.1rem, 4vw, 38.18px);
     line-height: clamp(1.8rem, 5vw, 46px);
     font-weight: 400;
