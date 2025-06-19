@@ -40,6 +40,7 @@ export default function Tutorial2() {
   }, []);
   return (
     <div className="tutorial2-container">
+      <div className="fade-in-up" style={{ animationDelay: '0s' }}>
       <span className="learn-level">Intermediate</span>
 
       <div className="divider-casestudy">
@@ -62,7 +63,7 @@ export default function Tutorial2() {
           This stack simulates modern infra patterns used at FAANG-scale companies — containerized CI/CD, dynamic cloud infra, RBAC-secured deploys, and TLS-backed endpoints.
         </p>
       </div>
-
+      </div>
       <div className="divider-casestudy full" />
 
       <section className="techstack-section">

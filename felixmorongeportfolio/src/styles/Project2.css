@@ -4,6 +4,23 @@
   font-weight: normal;
   font-style: normal;
 }
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    filter: blur(12px);
+  }
+  100% {
+    opacity: var(--final-opacity, 1);
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
 .project2-main{
     background-color: black;
     overflow-y: scroll;

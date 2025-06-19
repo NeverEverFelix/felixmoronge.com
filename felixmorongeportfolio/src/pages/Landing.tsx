@@ -1,7 +1,6 @@
 import HeroSection from '../components/HeroSection';
 import RightScrollSections from '../components/RightScrollSections';
 import { useState, useRef, useEffect } from 'react';
-
 import '../styles/Landingg.css';
 
 
