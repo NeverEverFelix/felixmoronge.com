@@ -1,49 +1,79 @@
 .github-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 2rem 0;
-    color: white;
-    max-width: 800px;
-    width: 100%;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(12px);
-    transition: transform 0.3s ease;
-  }
-  
-  .github-card:hover {
-    transform: scale(1.02);
-  }
-  
-  .repo-name {
-    font-size: 1.75rem;
-    color: #cc00eb;
-    margin-bottom: 0.5rem;
-  }
-  
-  .repo-description {
-    font-size: 1.125rem;
-    color: rgba(255, 255, 255, 0.8);
-    margin-bottom: 1rem;
-  }
-  
-  .repo-stats {
-    display: flex;
-    gap: 1.5rem;
-    font-size: 0.95rem;
-    opacity: 0.8;
-    margin-bottom: 1rem;
-  }
-  
-  .repo-link {
-    color: #cc00eb;
-    font-weight: 500;
-    text-decoration: none;
-    font-size: 1rem;
-  }
-  
-  .repo-link:hover {
-    text-decoration: underline;
-  }
-  
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 1rem;
+  padding: 2rem;
+  margin: 2rem 0;
+  color: white;
+
+  /* Backdrop filter with vendor prefix */
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+
+  max-width: 420px;
+  min-width: 320px;
+  width: 100%;
+
+  /* Flex responsiveness */
+  flex: 1 1 360px;
+
+  /* Box shadow for soft glow */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+
+  /* Transform and rendering optimizations */
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+
+  will-change: transform;
+
+  /* Smooth transition */
+  transition: transform 0.3s ease;
+}
+
+.github-card:hover {
+  /* Glow effect */
+  box-shadow:
+    0 0 6px #cc00eb,
+    0 0 12px #cc00eb,
+    0 0 24px rgba(204, 0, 235, 0.4);
+
+  /* Glass pulse with vendor prefix */
+  -webkit-backdrop-filter: blur(16px) brightness(1.1);
+  backdrop-filter: blur(16px) brightness(1.1);
+
+  border: 1px solid rgba(204, 0, 235, 0.25);
+}
+
+.repo-name {
+  font-size: 1.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.5rem;
+}
+
+.repo-description {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.repo-stats {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.95rem;
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.repo-link {
+  color: #cc00eb;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.repo-link:hover {
+  text-decoration: underline;
+}

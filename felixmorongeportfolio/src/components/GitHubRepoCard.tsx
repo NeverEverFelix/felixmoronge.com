@@ -1,7 +1,6 @@
-// src/components/GitHubRepoCard.tsx
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import '../styles/GitHubRepoCard.css'; // we’ll define this shortly
+import '../styles/GitHubRepoCard.css';
 
 type GitHubRepoCardProps = {
   username: string;
@@ -20,24 +19,36 @@ export default function GitHubRepoCard({ username, repository }: GitHubRepoCardP
   if (!repo) return null;
 
   return (
-    <motion.div
-      className="github-card"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
+    <motion.a
+      href={repo.html_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ textDecoration: 'none' }}
     >
-      <h3 className="repo-name">{repo.name}</h3>
-      <p className="repo-description">{repo.description}</p>
+      <motion.div
+        className="github-card"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        whileHover={{
+          scale: 1.05,
+          rotate: 2.5,
+          rotateZ: 1,
+          rotateX: 3,
+        }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: 'tween', duration: 0.4, ease: 'easeOut' }}
+      >
+        <h3 className="repo-name">{repo.name}</h3>
+        <p className="repo-description">{repo.description}</p>
 
-      <div className="repo-stats">
-        <span>⭐ {repo.stargazers_count}</span>
-        <span>🍴 {repo.forks_count}</span>
-        {repo.language && <span>🛠 {repo.language}</span>}
-      </div>
+        <div className="repo-stats">
+          <span>⭐ {repo.stargazers_count}</span>
+          <span>🍴 {repo.forks_count}</span>
+          {repo.language && <span>🛠 {repo.language}</span>}
+        </div>
 
-      <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="repo-link">
-        View Repository →
-      </a>
-    </motion.div>
+        <div className="repo-link">View Repository →</div>
+      </motion.div>
+    </motion.a>
   );
 }

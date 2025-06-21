@@ -424,9 +424,37 @@ padding: 0vh 5vw;
   }
   .open-source-repos {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    flex-wrap: wrap;
+    gap: 6.5rem;
     margin-top: 3rem;
-    align-items: center;
+    justify-content: center;
+    align-items: stretch;
+    perspective: 1200px;
+  }
+  @media (max-width: 1200px) {
+    .open-source-repos {
+      gap: 4rem; /* Reduced gap for smaller screens */
+    }
   }
   
+  @media (max-width: 992px) {
+    .open-source-repos {
+      gap: 2rem; /* Further reduced gap for tablets */
+      margin-top: 2rem; /* Slightly reduced margin-top for smaller screens */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .open-source-repos {
+      flex-direction: column; /* Stack items vertically on smaller screens */
+      gap: 1rem; /* Tightened gap */
+      margin-top: 1.5rem; /* Adjusted margin-top for smaller screens */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .open-source-repos {
+      gap: 1rem; /* Further reduce gap for mobile */
+      margin-top: 1rem; /* Tighten margin on mobile */
+    }
+  }
