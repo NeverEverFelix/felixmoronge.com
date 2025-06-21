@@ -392,4 +392,34 @@ padding: 0vh 5vw;
     text-decoration-thickness: 2px;
     text-underline-offset: 6px;
   }
-      
+  .diagram-wrapper {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.25rem 1rem;
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch; /* for smooth iOS scroll */
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+    max-width: 100%;
+  }
+  
+  /* Smooth horizontal scroll on small screens */
+  .diagram-wrapper::-webkit-scrollbar {
+    height: 6px;
+  }
+  
+  .diagram-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+  }
+  
+  .diagram-wrapper svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    min-width: 600px; /* ensures diagram doesn't squish on small screens */
+    max-width: 100%;
+  }
+  
