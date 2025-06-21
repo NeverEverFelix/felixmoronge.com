@@ -175,3 +175,5 @@ I design and automate scalable
 /Project2
 /Project3
 <MermaidChart chart={eksInfra} />
+
+Still feels like a UI/UX person describing infra, not an infra engineer who built it to spec.

@@ -422,4 +422,11 @@ padding: 0vh 5vw;
     min-width: 600px; /* ensures diagram doesn't squish on small screens */
     max-width: 100%;
   }
+  .open-source-repos {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
   

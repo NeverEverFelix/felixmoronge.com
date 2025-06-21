@@ -5,6 +5,8 @@ import MermaidChart from '../components/MermaidChart';
 import cicdpipeline from '../components/charts/cicdpipeline';
 import  eksInfra  from '../components/charts/eksInfra';
 import  helmIngress  from '../components/charts/helmIngress';
+import GitHubRepoCard from '../components/GitHubRepoCard';
+
 
 
 
@@ -272,9 +274,15 @@ export default function Projects() {
               See the full step-by-step breakdown in my Tutorials section —<br />
               including detailed approaches, code examples, and live demos of the entire process.
             </p>
+          <div className="open-source-repos">
+          <GitHubRepoCard username="NeverEverFelix" repository="felixmoronge.com" />
+          <GitHubRepoCard username="NeverEverFelix" repository="terraform-aws-devops-infra" />
+          </div>
             <a href="/StoryBuilder My entry point to DevOps Case Study" className="cta-link">Next Project</a>
           </div>
           </FadeInOnScroll>
+          
+
         </div>
       </div>
      
