@@ -1,6 +1,15 @@
 import '../styles/Projects.css';
 import { useEffect } from 'react';
 import FadeInOnScroll from '../components/FadeInOnScroll';
+import MermaidChart from '../components/MermaidChart';
+import  fullOverview  from '../components/charts/fullOverview';
+import cicdpipeline from '../components/charts/cicdpipeline';
+import  eksInfra  from '../components/charts/eksInfra';
+import  helmIngress  from '../components/charts/helmIngress';
+
+
+
+
 
 export default function Projects() {
   useEffect(() => {
@@ -185,7 +194,12 @@ export default function Projects() {
               <li>IAM delegation via IRSA</li>
               <li>Jenkins-in-K8s integration with Helm, ECR, and Kaniko</li>
               <li>DNS + TLS via Let’s Encrypt and Route 53</li>
-            </ul>
+           </ul>
+              <div className="diagram-wrapper">
+              <FadeInOnScroll>
+              <MermaidChart chart={eksInfra} />
+              </FadeInOnScroll>
+              </div>
           </div>
           </FadeInOnScroll>
         </div>
@@ -206,6 +220,11 @@ export default function Projects() {
             </ol>
           </div>
           </FadeInOnScroll>
+          <div className="diagram-wrapper">
+              <FadeInOnScroll>
+              <MermaidChart chart={helmIngress} />
+              </FadeInOnScroll>
+          </div>
         </div>
       </div>
 
@@ -228,6 +247,11 @@ export default function Projects() {
             </ul>
           </div>
           </FadeInOnScroll>
+          <div className="diagram-wrapper">
+              <FadeInOnScroll>
+              <MermaidChart chart={cicdpipeline } />
+              </FadeInOnScroll>
+         </div>
         </div>
       </div>
 
