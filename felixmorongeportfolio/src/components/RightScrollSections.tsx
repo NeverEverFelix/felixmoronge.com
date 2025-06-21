@@ -92,6 +92,17 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                     </ContentCard>
                   </a>
                 </div>
+                <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
+                  <a href="/Fabrics Web with Production-Grade DevOps Case Study" style={{ textDecoration: 'none', width: '100%' }}>
+                    <ContentCard variant="plain">
+                      <img
+                        src="/fabricsLanding.png"
+                        alt="Fabrics Web with Production-Grade Infrastrucure Case Study"
+                        className="resume-card-image"
+                      />
+                    </ContentCard>
+                  </a>
+                </div>
               </>
             ) : id === 'work' ? (
               <>
