@@ -2,7 +2,6 @@ import '../styles/Projects.css';
 import { useEffect } from 'react';
 import FadeInOnScroll from '../components/FadeInOnScroll';
 import MermaidChart from '../components/MermaidChart';
-import  fullOverview  from '../components/charts/fullOverview';
 import cicdpipeline from '../components/charts/cicdpipeline';
 import  eksInfra  from '../components/charts/eksInfra';
 import  helmIngress  from '../components/charts/helmIngress';
