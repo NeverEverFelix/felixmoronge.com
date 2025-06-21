@@ -12,6 +12,7 @@ import GitHubRepoCard from '../components/GitHubRepoCard';
 
 
 
+
 export default function Projects() {
   useEffect(() => {
     const script = document.createElement('script');
@@ -274,6 +275,7 @@ export default function Projects() {
               See the full step-by-step breakdown in my Tutorials section —<br />
               including detailed approaches, code examples, and live demos of the entire process.
             </p>
+            
           <div className="open-source-repos">
           <GitHubRepoCard username="NeverEverFelix" repository="felixmoronge.com" />
           <GitHubRepoCard username="NeverEverFelix" repository="terraform-aws-devops-infra" />
