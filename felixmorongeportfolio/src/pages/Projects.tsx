@@ -6,10 +6,7 @@ import cicdpipeline from '../components/charts/cicdpipeline';
 import  eksInfra  from '../components/charts/eksInfra';
 import  helmIngress  from '../components/charts/helmIngress';
 import GitHubRepoCard from '../components/GitHubRepoCard';
-
-
-
-
+import K6LoadTestChart from '../components/K6LoadTestChart';
 
 
 
@@ -269,6 +266,9 @@ export default function Projects() {
             <div className="results-pill">Fully automated HTTPS via Let’s Encrypt, 100% uptime</div>
             <div className="results-pill">CI job history with success/failure logs, reproducible builds</div>
             <div className="results-pill">Least privilege via IRSA, no root IAM credentials stored</div>
+          </div>
+          <div className="fade-in-up" style={{ animationDelay: '0.74s' }}>
+          <K6LoadTestChart />
           </div>
           <div className="cta-next">
             <p className="cta-text">
