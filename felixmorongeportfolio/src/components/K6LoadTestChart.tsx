@@ -13,7 +13,7 @@ export default function K6LoadTestChart() {
   const [data, setData] = useState<MetricData[]>([]);
 
   useEffect(() => {
-    fetch('/LoadTests/k6-summary.json')
+    fetch('/public/LoadTests/k6-summary.json')
       .then((res) => res.json())
       .then((json) => {
         const metrics = json.metrics;

@@ -18,7 +18,7 @@
   flex: 1 1 360px;
 
   /* Box shadow for soft glow */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  
 
   /* Transform and rendering optimizations */
   -webkit-transform-style: preserve-3d;
@@ -33,19 +33,7 @@
   transition: transform 0.3s ease;
 }
 
-.github-card:hover {
-  /* Glow effect */
-  box-shadow:
-    0 0 6px #cc00eb,
-    0 0 12px #cc00eb,
-    0 0 24px rgba(204, 0, 235, 0.4);
 
-  /* Glass pulse with vendor prefix */
-  -webkit-backdrop-filter: blur(16px) brightness(1.1);
-  backdrop-filter: blur(16px) brightness(1.1);
-
-  border: 1px solid rgba(204, 0, 235, 0.25);
-}
 
 .repo-name {
   font-size: 1.75rem;
