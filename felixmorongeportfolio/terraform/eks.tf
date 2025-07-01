@@ -1,6 +1,6 @@
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
-  version         = "19.21.0" # LTS version
+  version         = "19.21.0"
 
   cluster_name    = "felix-eks-cluster-v2"
   cluster_version = "1.29"
@@ -10,12 +10,7 @@ module "eks" {
 
   enable_irsa                    = true
   cluster_endpoint_public_access = true
-
-  #  Disabled to prevent module from injecting aws-auth behind the scenes
   manage_aws_auth_configmap = false
-
-  #  Removed aws_auth_users — we will manage this in aws_auth.tf directly
-  # aws_auth_users = [ ... ] ← DELETE THIS BLOCK
 
   eks_managed_node_groups = {
     default_node_group = {
@@ -24,8 +19,7 @@ module "eks" {
       desired_size   = 1
       min_size       = 1
       max_size       = 2
-
-      iam_role_arn = aws_iam_role.eks_node_group_role.arn
+      iam_role_arn   = aws_iam_role.eks_node_group_role.arn
     }
   }
 

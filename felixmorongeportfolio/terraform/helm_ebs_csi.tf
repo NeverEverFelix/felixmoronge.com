@@ -30,7 +30,7 @@ resource "helm_release" "ebs_csi_driver" {
 
   set {
     name  = "controller.serviceAccount.name"
-    value = "ebs-csi-controller-sa"
+    value = kubernetes_service_account.ebs_csi_sa.metadata[0].name
   }
 
   set {
@@ -53,10 +53,9 @@ resource "helm_release" "ebs_csi_driver" {
     value = "true"
   }
 
-  # 🛡️ Prevent controller from going into Pending state
   set {
-    name  = "controller.nodeSelector.eks\\.amazonaws\\.com/nodegroup"
-    value = "devops-node-group-20250529212344454300000014"
+     name  = "controller.nodeSelector.kubernetes\\.io/os"
+     value = "linux"
   }
 
   set {
@@ -68,11 +67,6 @@ resource "helm_release" "ebs_csi_driver" {
     name  = "controller.tolerations[0].operator"
     value = "Exists"
   }
-  set {
-  name  = "controller.serviceAccount.name"
-  value = "jenkins-irsa-sa"
-}
-
 
   timeout         = 600
   wait            = true

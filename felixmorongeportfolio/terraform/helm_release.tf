@@ -9,6 +9,14 @@ resource "helm_release" "jenkins" {
 
   values = [<<EOF
 controller:
+  image:
+    repository: "jenkins/jenkins"
+    tag: "2.452.1-jdk17"
+
+  serviceAccount:
+    name: jenkins-irsa-sa
+    create: false
+    
   admin:
     username: "nevereverfelix"
     password: "138824"
@@ -40,7 +48,7 @@ controller:
 
   persistence:
     enabled: true
-    existingClaim: jenkins         # ← ✅ CRITICAL FIX
+    existingClaim: jenkins         
     size: 8Gi
     storageClass: "ebs-sc"
     accessMode: ReadWriteOnce

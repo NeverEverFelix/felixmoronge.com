@@ -7,19 +7,14 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
     cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "120"
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "120"
 spec:
   ingressClassName: nginx
   rules:
     - host: www.felixmoronge.com
       http:
         paths:
-          - path: /.well-known/acme-challenge/
-            pathType: Prefix
-            backend:
-              service:
-                name: nginx-ingress-ingress-nginx-controller
-                port:
-                  number: 80
           - path: /
             pathType: Prefix
             backend:
