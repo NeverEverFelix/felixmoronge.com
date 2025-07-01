@@ -54,7 +54,7 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0s' }}>
         <div className="section-header">
           <div className="development-pill">Live</div>
-          <h1 className="title">Case Study: Engineering Enterprise-Grade CI/CD and Kubernetes Infrastructure for Production-Ready Deployments</h1>
+          <h1 className="title">Case Study: Enterprise CI/CD and Kubernetes for Production Deployments</h1>
           <p className="title-subtext">
           Transforming Manual Deployments into Scalable, Automated Infrastructure Using<br />
           AWS, Terraform, and Kubernetes
