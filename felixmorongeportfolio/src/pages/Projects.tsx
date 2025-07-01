@@ -81,17 +81,17 @@ export default function Projects() {
         <FadeInOnScroll >
           <h2 className="overview-title-text">Overview</h2>
           <p className="overview-subtext">
-            Initial DevOps challenges, bottlenecks, security risks, and scalability goals; what wasn’t working before
+          Identifying DevOps Bottlenecks and Architectural Gaps
           </p>
           <div className="overview-maintext">
             <p>
-              Before this project, my personal portfolio was deployed via basic hosting with no CI/CD pipeline, no monitoring, and no scalable architecture. It couldn’t handle updates safely, lacked SSL, and was entirely manual — which meant longer iteration cycles and zero rollback protection.
+            Many personal sites rely on managed platforms like Vercel, limiting control over scalability, security, and enterprise-grade reliability. To showcase my ability to build robust production infrastructure, I engineered a full CI/CD pipeline and Kubernetes-based deployment for my portfolio. 
             </p>
             <p>
-              I decided to rebuild the entire infrastructure stack to reflect what I'd deploy at a mid-to-large tech company: a fully containerized frontend, built with Vite + Nginx, deployed to a Kubernetes cluster (EKS), with image builds handled by Kaniko and all provisioning done via Terraform.
+            This architecture uses Terraform for infrastructure as code, Kaniko for container builds, Nginx for high-performance serving, and integrated observability with Prometheus and Grafana.   
             </p>
             <p>
-              The goal was simple: treat my portfolio like a real production-grade web service — and use it to showcase DevOps principles at scale.
+            The result is a scalable, secure, and automated deployment process mirroring enterprise practices
             </p>
           </div>
           <div className="divider-casestudy full"></div>
