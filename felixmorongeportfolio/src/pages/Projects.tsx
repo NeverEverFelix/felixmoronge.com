@@ -54,10 +54,10 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0s' }}>
         <div className="section-header">
           <div className="development-pill">Live</div>
-          <h1 className="title">Building Enterprise-Grade CI/CD for My Portfolio Site</h1>
+          <h1 className="title">Case Study: Engineering Enterprise-Grade CI/CD and Kubernetes Infrastructure for Production-Ready Deployments</h1>
           <p className="title-subtext">
-            How I architected and deployed a production-grade DevOps pipeline from scratch<br />
-            using AWS, Terraform, and Kubernetes
+          Transforming Manual Deployments into Scalable, Automated Infrastructure Using<br />
+          AWS, Terraform, and Kubernetes
           </p>
         </div>
       </div>
@@ -106,7 +106,7 @@ export default function Projects() {
           <div className="metadata-block">
           <FadeInOnScroll>
             <h2 className="section-title">Product</h2>
-            <p className="section-subtext">Felix Moronge DevOps Portfolio Site</p>
+            <p className="section-subtext">Felix Moronge Portfolio Site</p>
             </FadeInOnScroll>
           </div>
           <FadeInOnScroll>
@@ -115,7 +115,7 @@ export default function Projects() {
           <div className="metadata-block">
           <FadeInOnScroll>
             <h2 className="section-title">My Role</h2>
-            <p className="section-subtext">Fullstack Developer + DevOps</p>
+            <p className="section-subtext">Fullstack Developer + Cloud Infrastructure Engineer</p>
             </FadeInOnScroll>
           </div>
           <FadeInOnScroll>
@@ -150,26 +150,23 @@ export default function Projects() {
           <FadeInOnScroll>
             <h2 className="section-title">Old Infrastack</h2>
             <p className="section-subtext">
-              Single-server deployment, manual deploys, no rollback strategy
+            Legacy Deployment: Manual Processes and Technical Gaps
             </p>
             <div className="legacy-deployment">
-              <p><strong>Legacy Deployment</strong></p>
-              <p><strong>Before the rebuild:</strong></p>
-              <p>
-                Manually launched an EC2 instance via AWS GUI, installed Docker, containerized the project, and served it with Nginx and python3-certbot-nginx. Site was hosted at <a href="http://www.felixmoronge.com" target="_blank" rel="noopener noreferrer">http://www.felixmoronge.com</a>.
-              </p>
-              <p><strong>Limitations:</strong></p>
+              <p><strong>Before rebuilding my portfolio infrastructure, the site was hosted via a single EC2 instance provisioned manually through the AWS console. I installed Docker, containerized the frontend, and served it with Nginx alongside python3-certbot-nginx for SSL configuration.</strong></p>
+              
+              <p><strong>However, this setup introduced significant limitations</strong></p>
               <ul>
-                <li>❌ No CI/CD — deployments required manual rebuilds and scp</li>
-                <li>❌ No automated HTTPS, domain binding, or rollback</li>
-                <li>❌ No true containerization — raw EC2 running npm run build</li>
-                <li>❌ No Infrastructure as Code — zero reproducibility or version control</li>
+                <li>❌ No CI/CD pipeline: All deployments required manual rebuilds and file transfers via scp, increasing human error risk and slowing iteration cycles.</li>
+                <li>❌ Lack of automated security: SSL certificates and domain bindings were managed manually, leaving room for misconfigurations and downtime.</li>
+                <li>❌ Limited containerization: Despite using Docker, deployments often involved running npm run build directly on the EC2 instance rather than following a consistent container lifecycle.</li>
+                <li>❌ No Infrastructure as Code: The environment lacked reproducibility, version control, or the ability to provision identical infrastructure reliably.</li>
               </ul>
             </div>
             <div className="quote-block">
               <p>
-                <span className="quote-faded">The goal: automate the full path from code commit to production deployment,</span><br />
-                <span className="quote-emphasized">without ever touching the server.</span>
+                <span className="quote-faded">This architecture was neither scalable nor resilient enough to reflect production-grade DevOps practices,</span><br />
+                <span className="quote-emphasized">prompting a complete infrastructure overhaul</span>
               </p>
             </div>
             </FadeInOnScroll>
