@@ -158,7 +158,7 @@ padding: 0vh 5vw;
   }
   
   .section-subtext {
-  color: rgba(255, 255, 255, 0.6) !important;
+  color: rgba(255, 255, 255) !important;
   font-size: clamp(1rem, 2.5vw, 32px) !important;
   line-height: 1 !important;
   font-weight: 400 !important;
@@ -171,8 +171,9 @@ padding: 0vh 5vw;
     flex-direction: column;
     gap: 1.2rem;
     font-size: clamp(1rem, 2.5vw, 32px);
-    color: white;
+    color: rgb(255,255,255,0.5);
     line-height: 1.6;
+    font-weight:400 !important;
   }
   .legacy-deployment a {
     color: white;
