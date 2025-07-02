@@ -1,0 +1,86 @@
+/* Outer wrapper provides positioning context */
+.conveyor-wrapper {
+    position: relative;
+    width: min(90vw, 1200px);
+    margin: 5rem auto;
+  }
+  
+  /* Scrollable container */
+  .conveyor-container {
+    overflow-x: auto;
+    overflow-y: hidden;
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none;    /* Firefox */
+  }
+  
+  .conveyor-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  /* Horizontal track */
+  .conveyor-track {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  /* Cards styling */
+  .conveyor-card {
+    flex: 0 0 auto;
+    width: clamp(280px, 80vw, 346px);
+    height: clamp(280px, 80vw, 346px);
+    background-color: #EC0707;
+    border-radius: 50px;
+    color: white;
+    padding: 2rem;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    text-align: center;
+    user-select: none;
+  }
+  
+  .card-title {
+    font-family: 'NHaasGrotesk', sans-serif;
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-weight: 700;
+  }
+  
+  .card-text {
+    font-family: 'NHaasGrotesk', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    line-height: 1.4;
+  }
+  
+  /* Gradient fades */
+  .conveyor-fade {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .fade-left {
+    left: 0;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, .75),
+      rgba(0, 0, 0, 0)
+    );
+  }
+  
+  .fade-right {
+    right: 0;
+    background: linear-gradient(
+      to left,
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0)
+    );
+    backdrop-filter: blur(1.2px);
+    -webkit-backdrop-filter: blur(2px);
+  }
+  

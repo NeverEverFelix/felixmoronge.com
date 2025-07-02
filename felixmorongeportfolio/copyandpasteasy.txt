@@ -177,3 +177,8 @@ I design and automate scalable
 <MermaidChart chart={eksInfra} />
 
 Still feels like a UI/UX person describing infra, not an infra engineer who built it to spec.
+
+<li>❌ No CI/CD pipeline: All deployments required manual rebuilds and file transfers via scp, increasing human error risk and slowing iteration cycles.</li>
+                <li>❌ Lack of automated security: SSL certificates and domain bindings were managed manually, leaving room for misconfigurations and downtime.</li>
+                <li>❌ Limited containerization: Despite using Docker, deployments often involved running npm run build directly on the EC2 instance rather than following a consistent container lifecycle.</li>
+                <li>❌ No Infrastructure as Code: The environment lacked reproducibility, version control, or the ability to provision identical infrastructure reliably.</li>

@@ -7,6 +7,8 @@ import  eksInfra  from '../components/charts/eksInfra';
 import  helmIngress  from '../components/charts/helmIngress';
 import GitHubRepoCard from '../components/GitHubRepoCard';
 import K6LoadTestChart from '../components/K6LoadTestChart';
+import LegacyIssuesSwipeCards from '../components/LegacyIssuesSwipeCards';
+
 
 
 
@@ -156,12 +158,9 @@ export default function Projects() {
               <p><strong>Before rebuilding my portfolio infrastructure, the site was hosted via a single EC2 instance provisioned manually through the AWS console. I installed Docker, containerized the frontend, and served it with Nginx alongside python3-certbot-nginx for SSL configuration.</strong></p>
               
               <p><strong>However, this setup introduced significant limitations</strong></p>
-              <ul>
-                <li>❌ No CI/CD pipeline: All deployments required manual rebuilds and file transfers via scp, increasing human error risk and slowing iteration cycles.</li>
-                <li>❌ Lack of automated security: SSL certificates and domain bindings were managed manually, leaving room for misconfigurations and downtime.</li>
-                <li>❌ Limited containerization: Despite using Docker, deployments often involved running npm run build directly on the EC2 instance rather than following a consistent container lifecycle.</li>
-                <li>❌ No Infrastructure as Code: The environment lacked reproducibility, version control, or the ability to provision identical infrastructure reliably.</li>
-              </ul>
+              <div>
+              <LegacyIssuesSwipeCards />
+              </div>
             </div>
             <div className="quote-block">
               <p>
