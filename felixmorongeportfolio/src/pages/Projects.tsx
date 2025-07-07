@@ -410,10 +410,62 @@ export default function Projects() {
           </div>
         </div>
         <div className="divider-casestudy full"></div>
+        
           <div className="fade-in-up" style={{ animationDelay: '0.74s' }}>
           <K6LoadTestChart />
           </div>
           <div className="divider-casestudy full"></div>
+          <div className="fade-in-up" style={{ animationDelay: '0.85s' ,
+    padding: '4vh 5vw'}}>
+ <div className="whats-next-section" style={{ textAlign: "left" }}>
+    <h2 className="section-title">What's Next</h2>
+    <p className="section-subtext">
+      To elevate this pipeline to full enterprise-grade maturity, I’d expand into these areas, each critical for scaling, resilience, and security:
+    </p>
+    <div className="results-pill-container">
+      <div className="results-pill">
+        Monitoring, Logging, and Alerting
+        <p className="pill-detail">
+          Ensure visibility into deployments and production health, enabling faster incident response and proactive troubleshooting.
+        </p>
+      </div>
+      <div className="results-pill">
+        Secrets Management
+        <p className="pill-detail">
+          Replace hard-coded secrets with tools like HashiCorp Vault or AWS Secrets Manager to reduce breach risk and meet compliance standards.
+        </p>
+      </div>
+      <div className="results-pill">
+        Blue/Green or Canary Deployments
+        <p className="pill-detail">
+          Roll out changes safely with controlled traffic shifting, reducing blast radius and enabling seamless user experiences during updates.
+        </p>
+      </div>
+      <div className="results-pill">
+        Security & Vulnerability Scanning
+        <p className="pill-detail">
+          Integrate scanning tools to detect CVEs in container images and IaC code early in the pipeline, hardening overall security posture.
+        </p>
+      </div>
+      <div className="results-pill">
+        IaC Security & Compliance Checks
+        <p className="pill-detail">
+          Automate compliance scans of Terraform configs to prevent misconfigurations and meet enterprise governance requirements.
+        </p>
+      </div>
+      <div className="results-pill">
+        Multi-Region Deployment
+        <p className="pill-detail">
+          Enable global redundancy and low-latency user experiences by replicating infrastructure across AWS regions.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div className="divider-casestudy full"></div>
+</div>
+
+
+
           <div className="cta-next">
             <p className="overview-subtext">
             Through this personal portfolio project, I demonstrated my ability to transform real-world engineering lessons into a production-grade CI/CD pipeline. I built this as an independent initiative, drawing on skills and insights gained during my experience at Wavform under the mentorship of the founding developer. My goal was to prove I can independently architect and deliver enterprise-grade solutions from end to end. Through this project, I proved I can independently design and deploy enterprise-grade DevOps systems that reduce costs, accelerate delivery, and improve security. I’m excited to bring these skills to a team that values innovation and reliability
