@@ -87,7 +87,7 @@ export default function Projects() {
           </p>
           <div className="overview-maintext">
             <p>
-            When I launched my portfolio site, deploying updates was slow, manual, and error-prone. Hence, I engineered a fully automated CI/CD pipeline using Terraform, Helm, and Kaniko, reducing deploy times from 45 minutes to under 2 minutes 
+            When I launched my portfolio site, deploying updates was slow, manual, and error-prone. Hence, I engineered a Kaniko- and Helm-powered Jenkins CI/CD pipeline for Dockerized AWS EKS deployments, slashing release cycles by 98% and accelerating time-to-market for feature delivery.
             </p>
             <p>
             This pipeline ensures secure, reliable updates, showcasing my ability to build enterprise-grade DevOps systems that deliver real business value.   
