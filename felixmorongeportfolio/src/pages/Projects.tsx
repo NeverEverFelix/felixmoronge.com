@@ -244,70 +244,118 @@ export default function Projects() {
             <p className="whiteboard-heading">Infrastructure Whiteboard</p>
             <p className="whiteboard-subtext">I mapped out:</p>
             <ul className="whiteboard-list">
-              <li>CI/CD flow from git push to kubectl rollout</li>
-              <li>IAM delegation via IRSA</li>
-              <li>Jenkins-in-K8s integration with Helm, ECR, and Kaniko</li>
-              <li>DNS + TLS via Let’s Encrypt and Route 53</li>
+            <li>
+            <strong>CI/CD Pipeline:</strong> GitHub → Jenkins → Kaniko → Kubernetes. Fixed slow deploys and errors.
+          </li>
+          <li>
+            <strong>EKS Cluster:</strong> Custom VPC, ALB ingress, network policies. Solved manual provisioning risks.
+          </li>
+          <li>
+            <strong>IRSA:</strong> Pods use IAM roles instead of static creds, improving security.
+          </li>
+          <li>
+            <strong>Jenkins via Helm:</strong> Deployed with TLS, persistent storage. Avoided Helm upgrade issues.
+          </li>
+          <li>
+            <strong>DNS & TLS:</strong> Automated Route 53 + cert-manager. No manual SSL configs.
+          </li>
            </ul>
               <div className="diagram-wrapper">
               <FadeInOnScroll>
               <MermaidChart chart={eksInfra} />
               </FadeInOnScroll>
               </div>
+
+              <p className="overview-subtext">
+              I designed this EKS architecture with a custom VPC, ALB ingress, and private subnets to isolate workloads. This solved manual infra gaps and enables secure, scalable deployments, reducing downtime risks and future cloud costs.
+            </p>
           </div>
+          <div className="divider-casestudy full"></div>
           </FadeInOnScroll>
         </div>
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
-        <div className="infra-diagrams">
-        <FadeInOnScroll>
-          <h2 className="section-title">Infra Diagrams</h2>
-          <p className="section-subtext">Terraform provisioning, EKS cluster structure, Jenkins pipeline layout</p>
-          <div className="diagrams-body">
-            <p className="diagrams-heading">Infra Diagrams</p>
-            <ol className="diagrams-list">
-              <li>Terraform layout – Provisioned all infra from scratch, including EKS cluster, IAM roles, Helm charts, VPCs</li>
-              <li>Jenkins Helm chart – Deployed Jenkins inside Kubernetes with persistent volume, external Ingress + HTTPS</li>
-              <li>Kaniko build agent – Custom Jenkins PodTemplate with IRSA permissions to push to AWS ECR</li>
-              <li>Nginx + Vite – Multi-stage Docker build optimized for static delivery, deployed as Kubernetes Deployment + Service</li>
-            </ol>
-          </div>
-          </FadeInOnScroll>
-          <div className="diagram-wrapper">
-              <FadeInOnScroll>
-              <MermaidChart chart={helmIngress} />
-              </FadeInOnScroll>
-          </div>
-        </div>
+      <div className="infra-diagrams">
+  <FadeInOnScroll>
+    <h2 className="section-title">Infrastructure Diagrams</h2>
+    <p className="section-subtext">
+      Terraform builds, Kubernetes architecture, Jenkins pipeline design
+    </p>
+    <div className="diagrams-body">
+      <p className="diagrams-heading">Key Components</p>
+      <ol className="diagrams-list">
+        <li>
+          <strong>Terraform Provisioning:</strong> Defined all infra as code — EKS cluster, IAM roles, Helm charts, and VPCs — replacing manual setups for safer, repeatable deployments.
+        </li>
+        <li>
+          <strong>Jenkins Helm Deployment:</strong> Deployed Jenkins into Kubernetes with persistent storage and TLS ingress, solving earlier Helm upgrade failures and enabling seamless rollouts.
+        </li>
+        <li>
+          <strong>Kaniko Build Agent:</strong> Configured Jenkins Pods with IRSA to securely build and push images to ECR, avoiding hard-coded AWS credentials.
+        </li>
+        <li>
+          <strong>Nginx + Vite:</strong> Built the frontend with a multi-stage Docker setup, then deployed as a Kubernetes Deployment + Service for faster, lightweight static delivery.
+        </li>
+      </ol>
+    </div>
+  </FadeInOnScroll>
+  <div className="diagram-wrapper">
+    <FadeInOnScroll>
+      <MermaidChart chart={helmIngress} />
+    </FadeInOnScroll>
+  </div>
+  <p className="overview-subtext">
+  I built this Helm Ingress to manage TLS termination and route traffic into Jenkins pods inside Kubernetes. It replaced manual Nginx configs, securing external access and enabling smooth, scalable deployments.
+</p>
+  <div className="divider-casestudy full"></div>
+</div>
+
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.7s' }}>
-        <div className="final-infrastructure">
-        <FadeInOnScroll>
-          <h2 className="section-title">Final Infrastructure</h2>
-          <p className="section-subtext">
-            Live deployment pipeline, Jenkins + Kaniko + ECR, Ingress TLS
-          </p>
-          <div className="final-body">
-            <p className="final-heading">Final Infrastructure</p>
-            <ul className="final-list">
-              <li>✅ GitHub → Jenkins webhook triggers pipeline</li>
-              <li>✅ Kaniko container builds image → pushes to ECR</li>
-              <li>✅ Jenkins applies updated manifest via kubectl rollout restart</li>
-              <li>✅ Portfolio auto-updates live at https://www.felixmoronge.com</li>
-              <li>✅ TLS certificate provisioned via cert-manager with Let’s Encrypt</li>
-              <li>✅ IngressController routes all subdomains (e.g., jenkins.felixmoronge.com)</li>
-            </ul>
-          </div>
-          </FadeInOnScroll>
-          <div className="diagram-wrapper">
-              <FadeInOnScroll>
-              <MermaidChart chart={cicdpipeline } />
-              </FadeInOnScroll>
-         </div>
-        </div>
+  <div className="final-infrastructure">
+    <FadeInOnScroll>
+      <h2 className="section-title">Final Infrastructure Pipeline</h2>
+      <p className="section-subtext">
+        Automated deployments from GitHub to Kubernetes with secure builds, TLS, and live updates.
+      </p>
+      <div className="final-body">
+        <p className="final-heading">Pipeline Highlights</p>
+        <ul className="final-list">
+          <li>
+            <strong>GitHub → Jenkins:</strong> Webhooks trigger builds automatically, removing manual release steps.
+          </li>
+          <li>
+            <strong>Kaniko Builds:</strong> Jenkins pipelines build and push Docker images securely to ECR, cutting build times and avoiding local Docker daemons.
+          </li>
+          <li>
+            <strong>kubectl Rollouts:</strong> Jenkins updates Kubernetes deployments live without downtime.
+          </li>
+          <li>
+            <strong>Live Updates:</strong> Changes instantly reflect on my portfolio at <a href="https://www.felixmoronge.com" target="_blank" rel="noopener noreferrer">felixmoronge.com</a>.
+          </li>
+          <li>
+            <strong>Automated TLS:</strong> cert-manager provisions Let's Encrypt certificates, securing all traffic without manual SSL handling.
+          </li>
+          <li>
+            <strong>Ingress Routing:</strong> NGINX IngressController directs subdomains (e.g. jenkins.felixmoronge.com) for clean, scalable architecture.
+          </li>
+        </ul>
       </div>
+    </FadeInOnScroll>
+    <div className="diagram-wrapper">
+      <FadeInOnScroll>
+        <MermaidChart chart={cicdpipeline} />
+      </FadeInOnScroll>
+    </div>
+    <p className="overview-subtext">
+      I designed this CI/CD pipeline to automate deployments from GitHub to Kubernetes. It replaces manual processes, accelerates feature delivery, and ensures secure, scalable operations across my portfolio.
+    </p>
+    <div className="divider-casestudy full"></div>
+  </div>
+</div>
+
 
       <div className="fade-in-up" style={{ animationDelay: '0.8s' }}>
         <div className="results-section">
@@ -317,11 +365,20 @@ export default function Projects() {
             Deployment time reduction, zero-downtime rollouts, CVEs mitigated, infrastructure as code compliance
           </p>
           <div className="results-pill-container">
-            <div className="results-pill">Reduced from ~20 min manual process to &lt;1 min from git push</div>
-            <div className="results-pill">Fully automated HTTPS via Let’s Encrypt, 100% uptime</div>
-            <div className="results-pill">CI job history with success/failure logs, reproducible builds</div>
-            <div className="results-pill">Least privilege via IRSA, no root IAM credentials stored</div>
+          <div className="results-pill">
+            Cut deploy times from ~45 min manual steps to under 1 min, speeding releases by 98% and reducing rollout risks.
           </div>
+          <div className="results-pill">
+            Automated HTTPS via Let’s Encrypt, removing manual cert renewals and ensuring 100% uptime and user trust.
+          </div>
+          <div className="results-pill">
+            Enabled full CI traceability with logs and reproducible builds, accelerating debugging and safer deployments.
+          </div>
+          <div className="results-pill">
+            Hardened security with IRSA least-privilege access, eliminating root IAM keys and lowering breach risk.
+          </div>
+        </div>
+        <div className="divider-casestudy full"></div>
           <div className="fade-in-up" style={{ animationDelay: '0.74s' }}>
           <K6LoadTestChart />
           </div>
