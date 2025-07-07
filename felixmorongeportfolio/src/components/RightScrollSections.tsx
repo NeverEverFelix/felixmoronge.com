@@ -70,7 +70,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
               </div>
             ) : id === 'projects' ? (
               <>
-                <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
+                {/* <div className="fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <a href="/StoryBuilder My entry point to DevOps Case Study" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
@@ -80,7 +80,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                       />
                     </ContentCard>
                   </a>
-                </div>
+                </div> */}
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
                   <a href="/Enterprise-Grade CI/CD Case Study" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
@@ -92,7 +92,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                     </ContentCard>
                   </a>
                 </div>
-                <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
+                {/* <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
                   <a href="/Fabrics Web with Production-Grade DevOps Case Study" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
@@ -102,7 +102,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                       />
                     </ContentCard>
                   </a>
-                </div>
+                </div> */}
               </>
             ) : id === 'work' ? (
               <>
