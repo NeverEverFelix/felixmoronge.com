@@ -187,7 +187,59 @@ export default function Projects() {
         <div className="architecture-whiteboard">
         <FadeInOnScroll>
           <h2 className="section-title">Architecture Whiteboard</h2>
-          <p className="section-subtext">Infra goals, CI/CD stages, bottlenecks solved</p>
+          <p className="section-subtext">Implementation Challenges & Resolutions</p>
+          <div className="results-pill-container" style={{ marginTop: '2rem' }}>
+  <div className="results-pill">
+    <span style={{ color: '#9b30ff', fontWeight: 700 }}>
+      Solved Helm immutable errors
+    </span>
+    &nbsp;&nbsp;→&nbsp;&nbsp;
+    <span style={{ color: '#ffffff' }}>
+      Implemented templated Deployments for zero-downtime releases, ensuring reliable updates and user trust.
+    </span>
+  </div>
+  <div className="results-pill">
+    <span style={{ color: '#9b30ff', fontWeight: 700 }}>
+      Cut Kaniko build times ~40%
+    </span>
+    &nbsp;&nbsp;→&nbsp;&nbsp;
+    <span style={{ color: '#ffffff' }}>
+      Optimized Docker layers for faster feature delivery and reduced cloud costs.
+    </span>
+  </div>
+  <div className="results-pill">
+    <span style={{ color: '#9b30ff', fontWeight: 700 }}>
+      Fixed OIDC cluster lockouts
+    </span>
+    &nbsp;&nbsp;→&nbsp;&nbsp;
+    <span style={{ color: '#ffffff' }}>
+      Refined IAM roles to secure access and maintain deployment reliability.
+    </span>
+  </div>
+  <div className="results-pill">
+    <span style={{ color: '#9b30ff', fontWeight: 700 }}>
+      Unblocked Jenkins volumes on EKS
+    </span>
+    &nbsp;&nbsp;→&nbsp;&nbsp;
+    <span style={{ color: '#ffffff' }}>
+      Adjusted SecurityContext for stable builds, reducing deployment failures.
+    </span>
+  </div>
+  <div className="results-pill">
+    <span style={{ color: '#9b30ff', fontWeight: 700 }}>
+      Prevented Terraform drift
+    </span>
+    &nbsp;&nbsp;→&nbsp;&nbsp;
+    <span style={{ color: '#ffffff' }}>
+      Added pipeline checks to maintain infra consistency and avoid costly outages.
+    </span>
+  </div>
+</div>
+<div className="divider-casestudy full"></div>
+
+
+
+
           <div className="whiteboard-body">
             <p className="whiteboard-heading">Infrastructure Whiteboard</p>
             <p className="whiteboard-subtext">I mapped out:</p>
