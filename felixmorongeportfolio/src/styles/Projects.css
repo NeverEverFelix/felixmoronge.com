@@ -514,4 +514,17 @@ padding: 0vh 5vw;
    margin-top: 1rem;
     height: auto;
   }
+  .cta-logo-link {
+    display: inline-block;
+    transition: transform 0.3s ease;
+  }
   
+  .cta-logo-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .cta-logo-img {
+    height: 80px;         /* adjust as desired */
+    width: auto;
+    display: block;
+  }

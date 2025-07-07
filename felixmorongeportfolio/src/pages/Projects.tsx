@@ -423,7 +423,9 @@ export default function Projects() {
           <GitHubRepoCard username="NeverEverFelix" repository="felixmoronge.com" />
           <GitHubRepoCard username="NeverEverFelix" repository="terraform-aws-devops-infra" />
           </div>
-            <a href="/StoryBuilder My entry point to DevOps Case Study" className="cta-link">Next Project</a>
+          <a href="/" className="cta-logo-link">
+          <img src="/Vector.png" alt="Felix Moronge Logo" className="cta-logo-img" />
+          </a>
           </div>
           </FadeInOnScroll>
           
