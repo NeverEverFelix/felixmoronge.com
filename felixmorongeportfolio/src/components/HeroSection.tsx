@@ -9,12 +9,6 @@ type Props = {
 export default function HeroSection({ activeSection, onSectionClick }: Props) {
   return (
     <section className="hero-text">
-      <nav className="hero-nav fade-in-up" style={{ animationDelay: '0s' }}>
-        <a href="/StoryBuilder My entry point to DevOps Case Study">Projects</a>
-        <a href="/Tutorial">Tutorials</a>
-        <a href="/About">About</a>
-      </nav>
-
       <div className="hero-content">
       <h1 className="hero-heading">
           <span style={{ animationDelay: '0.2s' }}>Hello,</span>{' '}
