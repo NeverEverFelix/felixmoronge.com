@@ -56,7 +56,7 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0s' }}>
         <div className="section-header">
           <div className="development-pill">Live</div>
-          <h1 className="title">Case Study: How I Engineered a Fault-Tolerant CI/CD Platform on AWS to Enable Safe, Zero-Downtime Deploymentss</h1>
+          <h1 className="title">Enterprise-Grade CI/CD Pipeline: Cutting Deploy Times and Delivering Reliable Updates</h1>
           <p className="title-subtext">
           Transforming Manual Deployments into Scalable, Automated Infrastructure Using<br />
           AWS, Terraform, and Kubernetes
@@ -87,10 +87,10 @@ export default function Projects() {
           </p>
           <div className="overview-maintext">
             <p>
-            Many personal sites rely on managed platforms like Vercel, limiting control over scalability, security, and enterprise-grade reliability. To showcase my ability to build robust production infrastructure, I engineered a full CI/CD pipeline and Kubernetes-based deployment for my portfolio. 
+            When I launched my portfolio site, deploying updates was slow, manual, and error-prone I engineered a fully automated CI/CD pipeline using Terraform, Helm, and Kaniko, reducing deploy times from 45 minutes to under 2 minutes 
             </p>
             <p>
-            This architecture uses Terraform for infrastructure as code, Kaniko for container builds, Nginx for high-performance serving, and integrated observability with Prometheus and Grafana.   
+            This pipeline ensures secure, reliable updates, showcasing my ability to build enterprise-grade DevOps systems that deliver real business value.   
             </p>
             <p>
             The result is a scalable, secure, and automated deployment process mirroring enterprise practices
