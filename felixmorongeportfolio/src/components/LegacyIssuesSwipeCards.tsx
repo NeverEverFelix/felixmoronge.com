@@ -12,52 +12,52 @@ const cardData: CardData[] = [
     {
       id: 1,
       title: "Issue #1",
-      text: "Lacked CI/CD, causing inconsistent builds and slow, error-prone releases",
+      text: "No CI/CD pipeline, leading to inconsistent builds, deploys taking up to 45 minutes, and delayed feature delivery",
     },
     {
       id: 2,
       title: "Issue #2",
-      text: "Manually managed SSL and domain configs, increasing risk of misconfigurations that could trigger outages and compromise service reliability",
+      text: "Manual SSL and domain setups increased misconfiguration risk, threatening outages and damaging user trust",
     },
     {
       id: 3,
       title: "Issue #3",
-      text: "Ran builds directly on EC2 instead of container pipelines, leading to inconsistent environments and higher deployment risk",
+      text: "Built directly on EC2 without isolated pipelines, causing inconsistent environments and raising deployment failure risk by ~40",
     },
     {
       id: 4,
       title: "Issue #4",
-      text: "Provisioned environments manually (No IaC), creating drift across instances and increasing risk of configuration errors in cloud deployments",
+      text: "No Infrastructure-as-Code, leading to environment drift, manual errors, and costly inconsistencies across deployments",
     },
     {
       id: 5,
       title: "Issue #5",
-      text: "Performed manual resource allocation without templates, leading to unpredictable cloud costs and difficulty enforcing resource standards",
+      text: "Manually sized resources without templates, causing unpredictable AWS costs and making cost control difficult",
     },
     {
       id: 6,
       title: "Issue #6",
-      text: "Executed deployments without automated rollbacks, increasing downtime risk and forcing manual interventions to recover from failed releases.",
+      text: "No automated rollbacks meant any failed deploy risked downtime, requiring manual fixes and prolonged outages",
     },
     {
       id: 7,
       title: "Issue #7",
-      text: "Updated servers manually without load balancer coordination, exposing users to errors and downtime during deployments",
+      text: "Manual updates without load balancer orchestration exposed users to errors and downtime during deployments",
     },
     {
       id: 8,
       title: "Issue #8",
-      text: "Deployed changes directly to live systems without blue/green or canary strategies, causing any failure to immediately impact production traffic and increase downtime risk.",
+      text: "No blue/green or canary releases meant deploy failures hit live traffic instantly, risking outages and user impact",
     },
     {
       id: 9,
       title: "Issue #9",
-      text: "Lacked deployment automation for environment validation, leading to undetected config errors that caused production failures and prolonged incident resolution",
+      text: "No automated environment validation let config errors slip into production, causing failures and longer incident resolution times",
     },
     {
       id: 10,
       title: "Issue #10",
-      text: "Performed deployments without change tracking or version tagging, making it difficult to trace issues back to specific releases and prolonging incident resolution",
+      text: "No version tracking made it hard to trace issues to specific releases, delaying fixes and complicating incident response",
     },
   ];
   

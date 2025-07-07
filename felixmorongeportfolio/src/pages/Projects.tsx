@@ -87,7 +87,7 @@ export default function Projects() {
           </p>
           <div className="overview-maintext">
             <p>
-            When I launched my portfolio site, deploying updates was slow, manual, and error-prone I engineered a fully automated CI/CD pipeline using Terraform, Helm, and Kaniko, reducing deploy times from 45 minutes to under 2 minutes 
+            When I launched my portfolio site, deploying updates was slow, manual, and error-prone. Hence, I engineered a fully automated CI/CD pipeline using Terraform, Helm, and Kaniko, reducing deploy times from 45 minutes to under 2 minutes 
             </p>
             <p>
             This pipeline ensures secure, reliable updates, showcasing my ability to build enterprise-grade DevOps systems that deliver real business value.   
@@ -108,7 +108,12 @@ export default function Projects() {
           <div className="metadata-block">
           <FadeInOnScroll>
             <h2 className="section-title">Product</h2>
-            <p className="section-subtext">Felix Moronge Portfolio Site</p>
+            <p className="section-subtext">
+       <span style={{ opacity: 0.5 }}>
+         Felix Moronge Portfolio Site
+        </span>
+          — my personal brand platform, engineered to showcase my skills and operate with enterprise-grade reliability, security, and scalability.
+        </p>
             </FadeInOnScroll>
           </div>
           <FadeInOnScroll>
@@ -117,7 +122,7 @@ export default function Projects() {
           <div className="metadata-block">
           <FadeInOnScroll>
             <h2 className="section-title">My Role</h2>
-            <p className="section-subtext">Fullstack Developer + Cloud Infrastructure Engineer</p>
+            <p className="section-subtext"> Architect & Engineer — designed and implemented the end-to-end infrastructure and CI/CD pipeline.</p>
             </FadeInOnScroll>
           </div>
           <FadeInOnScroll>
@@ -127,10 +132,12 @@ export default function Projects() {
           <FadeInOnScroll>
             <h2 className="section-title">Skills</h2>
             <p className="section-subtext">
-              UI/UX<br />
-              DevOps<br />
-              Fullstack Development<br />
-              Cloud & AWS
+            Infrastructure-as-Code<br />
+            CI/CD Pipeline Design<br />
+            Kubernetes Operations<br />
+            Container Security<br />
+            Observability & Monitoring<br />
+            Fullstack Development
             </p>
             </FadeInOnScroll>
           </div>
@@ -141,7 +148,7 @@ export default function Projects() {
           <FadeInOnScroll>
             <h2 className="section-title">Tools</h2>
             <p className="section-subtext">
-              AWS EKS + ECR, GitHub, Docker, kubectl, Helm, Jenkins, Terraform, Prometheus, Grafana
+            AWS · Docker · Kubernetes · Helm · Jenkins · Terraform · Prometheus — powering secure, automated infrastructure.
             </p>
             </FadeInOnScroll>
           </div>
@@ -152,10 +159,10 @@ export default function Projects() {
           <FadeInOnScroll>
             <h2 className="section-title">Old Infrastack</h2>
             <p className="section-subtext">
-            Legacy Deployment: Manual Processes and Technical Gaps
+            Before the Overhaul: Slow Deployments, Manual Errors, and Hidden Costs
             </p>
             <div className="legacy-deployment">
-              <p><strong>Before rebuilding my portfolio infrastructure, the site was hosted via a single EC2 instance provisioned manually through the AWS console. I installed Docker, containerized the frontend, and served it with Nginx alongside python3-certbot-nginx for SSL configuration.</strong></p>
+              <p><strong>Originally, my portfolio ran on a single EC2 instance, provisioned manually. I containerized the frontend with Docker and served it via Nginx and Certbot for SSL.</strong></p>
               
               <p><strong>However, this setup introduced significant limitations</strong></p>
               <div>
