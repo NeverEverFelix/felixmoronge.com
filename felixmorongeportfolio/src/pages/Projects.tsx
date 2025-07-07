@@ -269,9 +269,6 @@ export default function Projects() {
               <p className="overview-subtext">
               I designed this EKS architecture with a custom VPC, ALB ingress, and private subnets to isolate workloads. This solved manual infra gaps and enables secure, scalable deployments, reducing downtime risks and future cloud costs.
             </p>
-            <p className="overview-subtext">
-  This pipeline wasn’t built without tradeoffs. Early on, my IRSA integration failed because many Helm charts assumed static IAM roles. I solved it by writing Terraform modules to dynamically inject ARNs per environment, preventing privilege escalation and securing workloads.
-</p>
           </div>
           <div className="divider-casestudy full"></div>
           </FadeInOnScroll>
@@ -310,9 +307,6 @@ export default function Projects() {
   </div>
   <p className="overview-subtext">
   I built this Helm Ingress to manage TLS termination and route traffic into Jenkins pods inside Kubernetes. It replaced manual Nginx configs, securing external access and enabling smooth, scalable deployments.
-</p>
-<p className="overview-subtext">
-. Kaniko added minor build overhead but avoided security risks tied to privileged Docker builds. Helm also required extra templating for IAM. These were real-world tradeoffs I had to navigate
 </p>
   <div className="divider-casestudy full"></div>
 </div>
@@ -357,6 +351,9 @@ export default function Projects() {
     </div>
     <p className="overview-subtext">
       I designed this CI/CD pipeline to automate deployments from GitHub to Kubernetes. It replaces manual processes, accelerates feature delivery, and ensures secure, scalable operations across my portfolio.
+    </p>
+    <p className="overview-subtext">
+    This pipeline wasn’t built without tradeoffs. Initially, IRSA failed because Helm charts assumed static roles; I wrote Terraform modules to inject dynamic ARNs, preventing privilege escalation. While Kaniko added ~30 seconds per build, it eliminated privileged containers, a tradeoff I prioritized for security. Helm wasn’t always perfect out-of-the-box, requiring chart patches to integrate dynamic IAM logic. I also weighed tools like Kustomize, tuned Jenkins PodTemplates for scalability, and configured cert-manager to automate TLS. Each choice balanced complexity, security, and maintainability—exactly the tradeoffs I’d solve in real production environments
     </p>
     <div className="divider-casestudy full"></div>
   </div>
