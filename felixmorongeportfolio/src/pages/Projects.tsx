@@ -355,6 +355,33 @@ export default function Projects() {
     <div className="divider-casestudy full"></div>
   </div>
 </div>
+<div className="see-it-in-action-section">
+  <h2 className="overview-title-text">See it in Action</h2>
+  <p className="overview-subtext">
+    Watch how my CI/CD pipeline deploys changes end-to-end—from a Git commit to live updates on the site, all with zero downtime.
+  </p>
+  
+  <div className="videos-container">
+    <video
+      className="pipeline-video"
+      src="/CICD1.mp4"
+      controls
+      muted
+      loop
+      playsInline
+    ></video>
+
+    <video
+      className="pipeline-video"
+      src="/CICD2.mp4"
+      controls
+      muted
+      loop
+      playsInline
+    ></video>
+  </div>
+  <div className="divider-casestudy full"></div>
+</div>
 
 
       <div className="fade-in-up" style={{ animationDelay: '0.8s' }}>
@@ -364,8 +391,7 @@ export default function Projects() {
           <p className="overview-subtext">
         At Wavform, I collaborated with the founding engineer to tackle 45-minute manual deployments that caused environment drift and security risks from static secrets. To replicate and solve these challenges, I built this portfolio pipeline using Terraform, Helm, Kaniko, and IRSA. I navigated complex hurdles like integrating IRSA into Helm charts for dynamic AWS credentials, ultimately cutting deploys to under 1 minute, eliminating manual errors, and hardening security—mirroring enterprise-scale systems.
         </p>
-
-
+        <div className="divider-casestudy full"></div>
           <div className="results-pill-container">
           <div className="results-pill">
             Cut deploy times from ~45 min manual steps to under 1 min, speeding releases by 98% and reducing rollout risks.
