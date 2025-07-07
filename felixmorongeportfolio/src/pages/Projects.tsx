@@ -269,6 +269,9 @@ export default function Projects() {
               <p className="overview-subtext">
               I designed this EKS architecture with a custom VPC, ALB ingress, and private subnets to isolate workloads. This solved manual infra gaps and enables secure, scalable deployments, reducing downtime risks and future cloud costs.
             </p>
+            <p className="overview-subtext">
+  This pipeline wasn’t built without tradeoffs. Early on, my IRSA integration failed because many Helm charts assumed static IAM roles. I solved it by writing Terraform modules to dynamically inject ARNs per environment, preventing privilege escalation and securing workloads.
+</p>
           </div>
           <div className="divider-casestudy full"></div>
           </FadeInOnScroll>
@@ -307,6 +310,9 @@ export default function Projects() {
   </div>
   <p className="overview-subtext">
   I built this Helm Ingress to manage TLS termination and route traffic into Jenkins pods inside Kubernetes. It replaced manual Nginx configs, securing external access and enabling smooth, scalable deployments.
+</p>
+<p className="overview-subtext">
+. Kaniko added minor build overhead but avoided security risks tied to privileged Docker builds. Helm also required extra templating for IAM. These were real-world tradeoffs I had to navigate
 </p>
   <div className="divider-casestudy full"></div>
 </div>
