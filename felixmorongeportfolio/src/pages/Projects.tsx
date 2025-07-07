@@ -361,9 +361,11 @@ export default function Projects() {
         <div className="results-section">
         <FadeInOnScroll>
           <h2 className="section-title">Results</h2>
-          <p className="section-subtext">
-            Deployment time reduction, zero-downtime rollouts, CVEs mitigated, infrastructure as code compliance
-          </p>
+          <p className="overview-subtext">
+        At Wavform, I collaborated with the founding engineer to tackle 45-minute manual deployments that caused environment drift and security risks from static secrets. To replicate and solve these challenges, I built this portfolio pipeline using Terraform, Helm, Kaniko, and IRSA. I navigated complex hurdles like integrating IRSA into Helm charts for dynamic AWS credentials, ultimately cutting deploys to under 1 minute, eliminating manual errors, and hardening security—mirroring enterprise-scale systems.
+        </p>
+
+
           <div className="results-pill-container">
           <div className="results-pill">
             Cut deploy times from ~45 min manual steps to under 1 min, speeding releases by 98% and reducing rollout risks.
@@ -382,12 +384,12 @@ export default function Projects() {
           <div className="fade-in-up" style={{ animationDelay: '0.74s' }}>
           <K6LoadTestChart />
           </div>
+          <div className="divider-casestudy full"></div>
           <div className="cta-next">
-            <p className="cta-text">
-              See the full step-by-step breakdown in my Tutorials section —<br />
-              including detailed approaches, code examples, and live demos of the entire process.
+            <p className="overview-subtext">
+            Through this personal portfolio project, I demonstrated my ability to transform real-world engineering lessons into a production-grade CI/CD pipeline. I built this as an independent initiative, drawing on skills and insights gained during my experience at Wavform under the mentorship of the founding developer. My goal was to prove I can independently architect and deliver enterprise-grade solutions from end to end.”
             </p>
-            
+            <div className="divider-casestudy full"></div>
           <div className="open-source-repos">
           <GitHubRepoCard username="NeverEverFelix" repository="felixmoronge.com" />
           <GitHubRepoCard username="NeverEverFelix" repository="terraform-aws-devops-infra" />
