@@ -417,50 +417,51 @@ export default function Projects() {
           <div className="divider-casestudy full"></div>
           <div className="fade-in-up" style={{ animationDelay: '0.85s' ,
     padding: '4vh 5vw'}}>
- <div className="whats-next-section" style={{ textAlign: "left" }}>
-    <h2 className="section-title">What's Next</h2>
-    <p className="section-subtext">
-      To elevate this pipeline to full enterprise-grade maturity, I’d expand into these areas, each critical for scaling, resilience, and security:
-    </p>
-    <div className="results-pill-container">
-      <div className="results-pill">
-        Monitoring, Logging, and Alerting
-        <p className="pill-detail">
-          Ensure visibility into deployments and production health, enabling faster incident response and proactive troubleshooting.
-        </p>
-      </div>
-      <div className="results-pill">
-        Secrets Management
-        <p className="pill-detail">
-          Replace hard-coded secrets with tools like HashiCorp Vault or AWS Secrets Manager to reduce breach risk and meet compliance standards.
-        </p>
-      </div>
-      <div className="results-pill">
-        Blue/Green or Canary Deployments
-        <p className="pill-detail">
-          Roll out changes safely with controlled traffic shifting, reducing blast radius and enabling seamless user experiences during updates.
-        </p>
-      </div>
-      <div className="results-pill">
-        Security & Vulnerability Scanning
-        <p className="pill-detail">
-          Integrate scanning tools to detect CVEs in container images and IaC code early in the pipeline, hardening overall security posture.
-        </p>
-      </div>
-      <div className="results-pill">
-        IaC Security & Compliance Checks
-        <p className="pill-detail">
-          Automate compliance scans of Terraform configs to prevent misconfigurations and meet enterprise governance requirements.
-        </p>
-      </div>
-      <div className="results-pill">
-        Multi-Region Deployment
-        <p className="pill-detail">
-          Enable global redundancy and low-latency user experiences by replicating infrastructure across AWS regions.
-        </p>
-      </div>
+<div className="whats-next-section" style={{ textAlign: "left" }}>
+  <h2 className="section-title">What's Next</h2>
+  <p className="section-subtext">
+    To elevate this pipeline to full enterprise-grade maturity, I’d expand into these areas, each critical not just for technical excellence—but for delivering tangible business value in scalability, security, and reliability:
+  </p>
+  <div className="results-pill-container">
+    <div className="results-pill">
+      Monitoring, Logging, and Alerting
+      <p className="pill-detail">
+        Provides real-time visibility into deployments and production health, reducing downtime risk and protecting business revenue through faster incident resolution.
+      </p>
+    </div>
+    <div className="results-pill">
+      Secrets Management
+      <p className="pill-detail">
+        Eliminates hard-coded secrets by using tools like Vault or AWS Secrets Manager, reducing breach costs, protecting customer data, and ensuring regulatory compliance.
+      </p>
+    </div>
+    <div className="results-pill">
+      Blue/Green or Canary Deployments
+      <p className="pill-detail">
+        Lowers the risk of revenue-impacting outages by enabling safe, gradual rollouts with minimal user disruption, preserving customer trust and business continuity.
+      </p>
+    </div>
+    <div className="results-pill">
+      Security & Vulnerability Scanning
+      <p className="pill-detail">
+        Shifts security left in the pipeline, preventing CVEs from reaching production, protecting brand reputation, and reducing costly security remediation.
+      </p>
+    </div>
+    <div className="results-pill">
+      IaC Security & Compliance Checks
+      <p className="pill-detail">
+        Automates governance and compliance enforcement for Terraform, helping avoid costly misconfigurations and ensuring enterprise regulatory alignment.
+      </p>
+    </div>
+    <div className="results-pill">
+      Multi-Region Deployment
+      <p className="pill-detail">
+        Improves customer experience through low latency and guarantees service availability even in regional failures—essential for global business resilience.
+      </p>
     </div>
   </div>
+</div>
+
   <div className="divider-casestudy full"></div>
 </div>
 
