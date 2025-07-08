@@ -358,6 +358,13 @@ export default function Projects() {
     <div className="divider-casestudy full"></div>
   </div>
   <div className="battle-story-section">
+    <h2 className="section-title"> Technical Decisions & Trade-Offs</h2>
+    <p className = "overview-subtext">
+    I used Helm instead of raw kubectl YAML because Helm templates allowed parameterized, reusable deployments across multiple environments. While Helm’s templating introduced some complexity, it ultimately made the pipeline more maintainable and reduced human error in managing Kubernetes resources
+    </p>
+    <div className="divider-casestudy full"></div>
+  </div>
+  <div className="battle-story-section">
   <h2 className="section-title">Troubleshooting & Lessons Learned</h2>
   <p className="overview-subtext">
   Despite my experince at wavform under direct mentorship from the founding developer, this process was not an easy task.Building this infrastrucutre took 8 tries and I faced significant challenges all the from IRSA erros, kubernetes CRASHLOOPFALLBACK, broken & unhealthy pods etc. These challenges are explored here:
