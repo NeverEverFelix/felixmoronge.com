@@ -745,7 +745,7 @@ spec:
         <FadeInOnScroll >
           <h2 className="overview-title-text">Reflections</h2>
           <p className="overview-subtext">
-          Through this personal portfolio project, I demonstrated my ability to transform real-world engineering lessons into a production-grade CI/CD pipeline. I built this as an independent initiative, drawing on skills and insights gained during my experience at Wavform under the mentorship of the founding developer. My goal was to prove I can independently architect and deliver enterprise-grade solutions from end to end. Through this project, I proved I can independently design and deploy enterprise-grade DevOps systems that reduce costs, accelerate delivery, and improve security. I’m excited to bring these skills to a team that values innovation and reliability
+          Through this personal portfolio project, I demonstrated my ability to transform real-world engineering lessons into a end-to-end infrastructure build & CI/CD pipeline. I built this as an independent initiative, drawing on skills and insights gained during my experience at Wavform under the mentorship of the founding developer. My goal was to prove I can independently architect and deliver cloud & infrastructure solutions end to end. Through this project, I proved I can independently design and deploy DevOps systems that reduce costs, accelerate delivery, and improve security. I’m excited to bring these skills to a team that values innovation and reliability
           </p>
           <div className="overview-maintext">
             <p>
