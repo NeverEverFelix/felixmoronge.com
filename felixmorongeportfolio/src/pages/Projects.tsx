@@ -60,7 +60,7 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0s' }}>
         <div className="section-header">
           <div className="development-pill">Live</div>
-          <h1 className="title">Enterprise-Grade CI/CD Pipeline: Cutting Deploy Times and Delivering Reliable Updates</h1>
+          <h1 className="title">Infrastructure & CI/CD Pipeline: Cutting Deploy Times and Delivering Reliable Updates</h1>
           <p className="title-subtext">
           Transforming Manual Deployments into Scalable, Automated Infrastructure Using<br />
           AWS, Terraform, and Kubernetes
@@ -133,7 +133,7 @@ export default function Projects() {
        <span style={{ opacity: 0.5 }}>
          Felix Moronge Portfolio Site
         </span>
-          — my personal brand platform, engineered to showcase my skills and operate with enterprise-grade reliability, security, and scalability.
+          — my personal brand platform,
         </p>
             </FadeInOnScroll>
           </div>
@@ -286,7 +286,44 @@ export default function Projects() {
               <MermaidChart chart={eksInfra} />
               </FadeInOnScroll>
               </div>
+              <div className="tutorial-code-section">
+<FadeInOnScroll>
+  <CodeBlock
+    language="yaml"
+    code={dedent(`module "eks" {
+  source          = "terraform-aws-modules/eks/aws"
+  version         = "19.21.0"
 
+  cluster_name    = "felix-eks-cluster-v2"
+  cluster_version = "1.29"
+
+  vpc_id     = module.vpc.vpc_id
+  subnet_ids = module.vpc.private_subnets
+
+  enable_irsa                    = true
+  cluster_endpoint_public_access = true
+  manage_aws_auth_configmap = false
+
+  eks_managed_node_groups = {
+    default_node_group = {
+      name           = "devops-node-group"
+      instance_types = ["t3.medium"]
+      desired_size   = 1
+      min_size       = 1
+      max_size       = 2
+      iam_role_arn   = aws_iam_role.eks_node_group_role.arn
+    }
+  }
+
+  tags = {
+    Environment = "dev"
+    Project     = "felix-devops"
+  }
+}
+`)}
+  />
+  </FadeInOnScroll>
+</div>
               <p className="overview-subtext">
               I designed this EKS architecture with a custom VPC, ALB ingress, and private subnets to isolate workloads. This solved manual infra gaps and enables secure, scalable deployments, reducing downtime risks and future cloud costs.
             </p>
