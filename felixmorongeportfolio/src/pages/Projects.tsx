@@ -82,6 +82,23 @@ export default function Projects() {
       </div>
 
       <div className="fade-in-up" style={{ animationDelay: '0.3s' }}>
+      <div className="overview">
+        <FadeInOnScroll >
+          <h2 className="overview-title-text">About this Project</h2>
+          <p className="overview-subtext">
+          My Goals
+          </p>
+          <div className="overview-maintext">
+            <p>
+            This case study is a personal learning project I built independently to deepen my DevOps skills. While I’m early in my career, I wanted to challenge myself by designing and deploying an architecture inspired by enterprise-level best practices.
+            </p>
+            <p>
+            This isn’t running in a production commercial environment. Instead, I set up and tested it in my own AWS account and Kubernetes cluster to simulate a real-world pipeline from scratch. Everything described here—Terraform, ECR, IRSA, Kaniko, Helm, Ingress, SSL—is configured and working in my environment
+            </p>
+          </div>
+          <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
+        </div>
      
         <div className="overview">
         <FadeInOnScroll >
@@ -94,7 +111,7 @@ export default function Projects() {
             When I launched my portfolio site, deploying updates was slow, manual, and error-prone. Hence, I engineered a Kaniko- and Helm-powered Jenkins CI/CD pipeline for Dockerized AWS EKS deployments, slashing release cycles by 98% and accelerating time-to-market for feature delivery.
             </p>
             <p>
-            This pipeline ensures secure, reliable updates, showcasing my ability to build enterprise-grade DevOps systems that deliver real business value.   
+            This pipeline ensures secure, reliable updates, showcasing my ability to simulate production-grade DevOps systems that deliver real business value.   
             </p>
             <p>
             The result is a scalable, secure, and automated deployment process mirroring enterprise practices
@@ -553,25 +570,28 @@ spec:
   <div className="battle-story-section">
   <h2 className="section-title">Troubleshooting & Lessons Learned</h2>
   <p className="overview-subtext">
-  Despite my experince at wavform under direct mentorship from the founding developer, this process was not an easy task.Building this infrastrucutre took 8 tries and I faced significant challenges all the from IRSA erros, kubernetes CRASHLOOPFALLBACK, broken & unhealthy pods etc. These challenges are explored here:
+  This project wasn’t flawless. I faced several challenges that forced me to dig deeper and learn. Overall, it took me 8 tries and 4 Terraform Destorys to get this site up and running
   </p>
-  <p className="overview-subtext">
+  <p className="overview-maintext">
     While integrating IRSA, I discovered the upstream Helm chart hard-coded IAM role ARNs, preventing dynamic role binding across environments. 
     To solve it, I forked the chart, parameterized the annotations, and redeployed via Terraform to keep infrastructure as a single source of truth. 
     This reduced maintenance risk and enabled consistent, environment-specific security boundaries without manual patching.
   </p>
 
-  <p className="overview-subtext">
+  <p className="overview-maintext">
   Early Terraform applies sometimes reported success even though resources like IRSA roles weren’t fully created, leaving the cluster in a broken state. I fixed this by adding explicit depends_on references and staggered deployments, ensuring resources deployed in the correct order. This prevented silent misconfigurations that could have led to production outages and saved hours of debugging time.
   </p>
-  <p className="overview-subtext">
+  <p className="overview-maintext">
   Integrating IRSA initially failed because many Helm charts assumed static IAM role ARNs, causing pods to launch without proper permissions. I forked those charts, added dynamic annotations templated via Terraform, and redeployed. This eliminated hard-coded credentials, tightened security, and ensured consistent deployments across environments
   </p>
-  <p className="overview-subtext">
+  <p className="overview-maintext">
   In early deployments, misconfigured OIDC caused pods to fail with access errors, locking the cluster out of key AWS resources. I fixed this by isolating OIDC resources into separate Terraform modules, deploying them first, and validating readiness before any dependent workloads. This secured access and eliminated downtime risks
   </p>
-  <p className = "overview-subtext">
+  <p className = "overview-maintext">
   Deploying Jenkins initially failed due to Kubernetes security contexts restricting write access to persistent volumes. I adjusted the Helm values to set fsGroup permissions and configured the storage class properly. This stabilized Jenkins builds and avoided runtime crashes, keeping my pipeline reliable
+  </p>
+  <p className = "overview-maintext">
+  I learned that cert-manager requires my domain to resolve publicly before issuing certificates. I fixed it by creating a temporary A record in Route53 pointing to my load balancer’s IP and then re-running the ClusterIssuer process. This taught me how DNS, Ingress, and cert-manager all tie together.
   </p>
   <div className="divider-casestudy full"></div>
 </div>
@@ -684,14 +704,26 @@ spec:
 
   <div className="divider-casestudy full"></div>
 </div>
-
+<div className="overview">
+        <FadeInOnScroll >
+          <h2 className="overview-title-text">Reflections</h2>
+          <p className="overview-subtext">
+          Through this personal portfolio project, I demonstrated my ability to transform real-world engineering lessons into a production-grade CI/CD pipeline. I built this as an independent initiative, drawing on skills and insights gained during my experience at Wavform under the mentorship of the founding developer. My goal was to prove I can independently architect and deliver enterprise-grade solutions from end to end. Through this project, I proved I can independently design and deploy enterprise-grade DevOps systems that reduce costs, accelerate delivery, and improve security. I’m excited to bring these skills to a team that values innovation and reliability
+          </p>
+          <div className="overview-maintext">
+            <p>
+            Building this pipeline was one of the most challenging—and rewarding—projects I’ve done so far. It pushed me to connect infrastructure concepts, troubleshoot real-world errors, and implement best practices I’d only read about previously
+            </p>
+            <p>
+            While it’s not deployed in a commercial production environment, this project helped me understand the kinds of challenges DevOps engineers face every day. I’m excited to keep learning, build on these skills, and contribute to enterprise-grade systems in my professional career.
+            </p>
+          </div>
+          <div className="divider-casestudy full"></div>
+          </FadeInOnScroll>
+        </div>
 
 
           <div className="cta-next">
-            <p className="overview-subtext">
-            Through this personal portfolio project, I demonstrated my ability to transform real-world engineering lessons into a production-grade CI/CD pipeline. I built this as an independent initiative, drawing on skills and insights gained during my experience at Wavform under the mentorship of the founding developer. My goal was to prove I can independently architect and deliver enterprise-grade solutions from end to end. Through this project, I proved I can independently design and deploy enterprise-grade DevOps systems that reduce costs, accelerate delivery, and improve security. I’m excited to bring these skills to a team that values innovation and reliability
-            </p>
-            <div className="divider-casestudy full"></div>
           <div className="open-source-repos">
           <GitHubRepoCard username="NeverEverFelix" repository="felixmoronge.com" />
           <GitHubRepoCard username="NeverEverFelix" repository="terraform-aws-devops-infra" />
