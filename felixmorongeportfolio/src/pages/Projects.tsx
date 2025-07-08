@@ -362,6 +362,18 @@ export default function Projects() {
     <p className = "overview-subtext">
     I used Helm instead of raw kubectl YAML because Helm templates allowed parameterized, reusable deployments across multiple environments. While Helm’s templating introduced some complexity, it ultimately made the pipeline more maintainable and reduced human error in managing Kubernetes resources
     </p>
+    <p className="overview-subtext">
+  I chose EKS instead of ECS to avoid vendor lock-in, maintain full Kubernetes compatibility, and gain fine-grained control over deployments and networking. While EKS had a steeper learning curve, it provided the flexibility I needed for enterprise-grade scaling and future hybrid deployments
+  </p>
+  <p className = "overview-subtext">
+  Beyond simply enabling OIDC, I scoped IRSA permissions to least privilege, enforced network policies between pods, and planned to integrate secrets management tools like Vault or AWS Secrets Manager. This layered security approach mitigates blast radius risk and prepares the pipeline for enterprise compliance standards
+  </p>
+  <p className = "overview-subtext">
+  Choosing Kaniko over Docker-in-Docker slightly increased build times, but eliminated privileged container security risks, reducing potential breach impact and safeguarding production environments—a tradeoff worth ~10% slower builds for enterprise-grade security
+  </p>
+  <p className= "overview-subtext">
+  I chose a declarative Jenkins pipeline for my portfolio project. Although scripted pipelines offer more flexibility, declarative syntax provided clarity and maintainability, ensuring anyone could quickly grasp the build and deploy flow. This decision traded some dynamic logic for greater readability — critical in an enterprise environment where multiple engineers might maintain the pipeline
+  </p>
     <div className="divider-casestudy full"></div>
   </div>
   <div className="battle-story-section">
@@ -374,6 +386,7 @@ export default function Projects() {
     To solve it, I forked the chart, parameterized the annotations, and redeployed via Terraform to keep infrastructure as a single source of truth. 
     This reduced maintenance risk and enabled consistent, environment-specific security boundaries without manual patching.
   </p>
+
   <p className="overview-subtext">
   Early Terraform applies sometimes reported success even though resources like IRSA roles weren’t fully created, leaving the cluster in a broken state. I fixed this by adding explicit depends_on references and staggered deployments, ensuring resources deployed in the correct order. This prevented silent misconfigurations that could have led to production outages and saved hours of debugging time.
   </p>
