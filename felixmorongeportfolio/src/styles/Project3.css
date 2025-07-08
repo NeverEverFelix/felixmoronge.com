@@ -331,5 +331,8 @@
     font-weight: 500;
   }
   
-   
-    
+  .tutorial-code-section pre {
+    white-space: pre;
+    font-family: monospace;
+  }
+  
