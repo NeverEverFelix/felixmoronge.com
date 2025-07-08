@@ -535,4 +535,9 @@ padding: 0vh 5vw;
     color: rgba(255, 255, 255, 0.75);
     text-align: center;
   }
-  
+  .battle-story-section {
+    padding: 4vh 5vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+  }
