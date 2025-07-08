@@ -2,6 +2,7 @@ import React from 'react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import type { Language } from 'prism-react-renderer';
 import vsDark from 'prism-react-renderer/themes/vsDark';
+import dedent from 'dedent';
 
 
 interface CodeBlockProps {
@@ -11,7 +12,7 @@ interface CodeBlockProps {
 
 const CodeBlock: React.FC<CodeBlockProps> = ({ code, language = 'yaml' }) => {
   return (
-    <Highlight {...defaultProps} code={code.trim()} language={language} theme={vsDark}>
+    <Highlight {...defaultProps} code={dedent(code).trim()} language={language} theme={vsDark}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre
           className={`code-block ${className}`}

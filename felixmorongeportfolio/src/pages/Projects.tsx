@@ -8,6 +8,10 @@ import  helmIngress  from '../components/charts/helmIngress';
 import GitHubRepoCard from '../components/GitHubRepoCard';
 import K6LoadTestChart from '../components/K6LoadTestChart';
 import LegacyIssuesSwipeCards from '../components/LegacyIssuesSwipeCards';
+import '../styles/Tutorial.css';
+import CodeBlock from '../components/CodeBlock';
+import dedent from 'dedent';
+
 
 
 
@@ -355,6 +359,176 @@ export default function Projects() {
     <p className="overview-subtext">
     This pipeline wasn’t built without tradeoffs—or frustrations. Early on, my IRSA integration kept failing because Helm charts assumed static IAM roles, leading to repeated deployment errors and AccessDenied messages. After days of debugging, I realized I’d need a custom solution. I wrote Terraform modules to inject dynamic ARNs based on each environment, preventing privilege escalation and restoring deployment reliability. Kaniko added about 30 seconds to each build, but I chose it to eliminate privileged containers and improve security posture. Helm wasn’t always perfect out-of-the-box, forcing me to patch charts to handle dynamic IAM logic. I weighed tools like Kustomize, tuned Jenkins PodTemplates for scalability, and integrated cert-manager for automated TLS. Each of these choices balanced complexity, security, and maintainability—exactly the kind of engineering tradeoffs needed to deliver secure, business-critical systems
     </p>
+    <div className="tutorial-code-section">
+<FadeInOnScroll>
+  <h2 className="section-title" style={{ textAlign: "left" }}>
+    Here's Portfolio Site JenkinsFile that declares this site's CI/CD and Deployment —<br />Line-by-Line
+  </h2>
+
+  
+
+  <CodeBlock
+    language="yaml"
+    code={dedent(`
+pipeline {
+  agent {
+    kubernetes {
+      defaultContainer 'kaniko'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    jenkins: kaniko-deploy
+spec:
+  serviceAccountName: jenkins-irsa-sa
+  containers:
+    - name: kaniko
+      image: gcr.io/kaniko-project/executor:debug
+      imagePullPolicy: Always
+      command: ["/bin/sh"]
+      args: ["-c", "sleep infinity"]
+      workingDir: /home/jenkins/agent
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
+      env:
+        - name: AWS_REGION
+          value: us-east-1
+        - name: AWS_DEFAULT_REGION
+          value: us-east-1
+        - name: AWS_ROLE_ARN
+          value: arn:aws:iam::137068221475:role/jenkins-irsa-role
+        - name: AWS_WEB_IDENTITY_TOKEN_FILE
+          value: /var/run/secrets/eks.amazonaws.com/serviceaccount/token
+
+    - name: kubectl
+      image: alpine/k8s:1.28.2 
+      command: ["/bin/sh"]
+      args: ["-c", "sleep infinity"]
+      workingDir: /home/jenkins/agent
+      tty: true
+      volumeMounts:
+        - name: workspace-volume
+          mountPath: /home/jenkins/agent
+
+  volumes:
+    - name: workspace-volume
+      emptyDir: {}
+"""
+    }
+  }
+
+  environment {
+    ECR_REGISTRY = "137068221475.dkr.ecr.us-east-1.amazonaws.com"
+    IMAGE_NAME = "felixmoronge-portfolio"
+    IMAGE_TAG = "latest"
+  }
+
+  stages {
+    stage('Checkout Code') {
+      steps {
+        checkout scm
+      }
+    }
+
+    stage('Verify Dockerfile Presence') {
+      steps {
+        container('kaniko') {
+          dir("process.env.WORKSPACE/felixmorongeportfolio") {
+            sh '''
+              echo "📂 Listing felixmorongeportfolio contents:"
+              ls -la
+              echo "📄 Previewing Dockerfile:"
+              head -n 20 Dockerfile || echo "⚠️ Dockerfile not found"
+            '''
+          }
+        }
+      }
+    }
+
+    stage('Build and Push with Kaniko') {
+      steps {
+        container('kaniko') {
+          dir("process.env.WORKSPACE/felixmorongeportfolio") {
+            sh '''
+              echo "🚀 Starting Kaniko build..."
+              /kaniko/executor \
+                --context=. \
+                --dockerfile=Dockerfile \
+                --destination=$ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG \
+                --verbosity=debug \
+                --log-format=text \
+                --log-timestamp \
+                --cache=true \
+                --cache-repo=$ECR_REGISTRY/$IMAGE_NAME
+            '''
+          }
+        }
+      }
+    }
+
+    stage('Deploy to EKS') {
+      steps {
+        container('kubectl') {
+          sh '''
+            set -e
+            echo "♻️ Restarting deployment to pull new image..."
+
+            if ! kubectl rollout restart deployment/felix-portfolio -n default; then
+              echo "❌ Failed to restart deployment. Check if the deployment name or namespace is correct."
+              exit 1
+            fi
+
+            if ! kubectl rollout status deployment/felix-portfolio -n default; then
+              echo "❌ Rollout status check failed. Pods may be stuck or crashing."
+              kubectl get pods -n default
+              kubectl describe deployment felix-portfolio -n default
+              exit 1
+            fi
+
+            echo "✅ Deployment restarted and completed!"
+          '''
+        }
+      }
+    }
+
+    stage('Debug IRSA + kubectl') {
+      steps {
+        container('kubectl') {
+          sh '''
+            echo "🔍 Verifying kubectl access and IRSA:"
+            kubectl get nodes
+            kubectl get pods -n default
+          '''
+        }
+      }
+    }
+  }
+
+  post {
+    failure {
+      script {
+        echo "🛑 Pipeline failed. Check logs above to identify which stage caused it."
+      }
+    }
+  }
+}
+`)}
+  />
+  <p className="overview-subtext">
+  <strong>Explanation:</strong> <br />
+  <strong>Problem:</strong> Modern DevOps pipelines face challenges balancing security, scalability, and operational complexity. Traditional container build processes often rely on Docker-in-Docker (DinD), which requires running a privileged Docker daemon inside CI pipelines. This introduces security vulnerabilities, as privileged containers can break isolation boundaries, and leads to instability under heavy parallel workloads. Additionally, managing credentials for private registries like AWS ECR often forces engineers to embed static secrets into pipelines, creating compliance and security risks.<br /><br />
+
+  <strong>Action:</strong> To mitigate these issues, this pipeline is declared in a <code>Jenkinsfile</code>, which defines CI/CD stages as code rather than manual configuration through Jenkins UI jobs. A Jenkinsfile is a Groovy-based script that specifies pipeline logic, infrastructure configurations, and stage orchestration, enabling version control, review, and reproducibility. In this Jenkinsfile, the build runs on Kubernetes agents dynamically provisioned via YAML defined inline in the pipeline itself. Instead of DinD, the pipeline uses <code>Kaniko</code> as the container build engine. Kaniko builds container images without requiring a Docker daemon, operating entirely in userspace. It reads the Dockerfile, builds each layer, and pushes directly to <code>AWS Elastic Container Registry (ECR)</code>. Integration with ECR leverages IRSA (IAM Roles for Service Accounts), enabling the Kaniko pods to assume temporary AWS roles without static secrets. This architecture enforces least-privilege access, limits blast radius, and prevents credential leakage.<br /><br />
+
+  <strong>Result:</strong> This approach eliminates the security and operational pitfalls of DinD while enabling fully automated, scalable builds. Kaniko ensures builds remain isolated and secure, avoiding the risk of privileged escalations inherent to Docker daemons. Using AWS ECR provides native support for image caching, accelerating build times and reducing costs by reusing unchanged layers. The Jenkinsfile encapsulates complex deployment logic—including validation of Dockerfiles, Kaniko builds, image pushes, and Kubernetes rollouts via <code>kubectl</code>—into a single, version-controlled artifact, improving maintainability and team collaboration.<br /><br />
+
+  <strong>Impact:</strong> Architecting the pipeline this way aligns DevOps practices with enterprise security and business goals. Security posture improves significantly by removing DinD risks and static secrets, helping meet compliance standards (e.g., SOC 2, ISO 27001). Faster builds and automated rollouts reduce time-to-market, enabling the business to deploy new features rapidly without sacrificing safety. Moreover, infrastructure-as-code via Jenkinsfiles ensures that infrastructure changes can be peer-reviewed and audited, fostering engineering rigor and operational resilience.
+</p>
+
+  </FadeInOnScroll>
+</div>
     <div className="divider-casestudy full"></div>
   </div>
   <div className="battle-story-section">
