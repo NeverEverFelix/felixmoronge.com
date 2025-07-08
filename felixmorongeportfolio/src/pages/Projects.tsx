@@ -357,6 +357,32 @@ export default function Projects() {
     </p>
     <div className="divider-casestudy full"></div>
   </div>
+  <div className="battle-story-section">
+  <h2 className="section-title">Troubleshooting & Lessons Learned</h2>
+  <p className="overview-subtext">
+  Despite my experince at wavform under direct mentorship from the founding developer, this process was not an easy task.Building this infrastrucutre took 8 tries and I faced significant challenges all the from IRSA erros, kubernetes CRASHLOOPFALLBACK, broken & unhealthy pods etc. These challenges are explored here:
+  </p>
+  <p className="overview-subtext">
+    While integrating IRSA, I discovered the upstream Helm chart hard-coded IAM role ARNs, preventing dynamic role binding across environments. 
+    To solve it, I forked the chart, parameterized the annotations, and redeployed via Terraform to keep infrastructure as a single source of truth. 
+    This reduced maintenance risk and enabled consistent, environment-specific security boundaries without manual patching.
+  </p>
+  <p className="overview-subtext">
+  Early Terraform applies sometimes reported success even though resources like IRSA roles weren’t fully created, leaving the cluster in a broken state. I fixed this by adding explicit depends_on references and staggered deployments, ensuring resources deployed in the correct order. This prevented silent misconfigurations that could have led to production outages and saved hours of debugging time.
+  </p>
+  <p className="overview-subtext">
+  Integrating IRSA initially failed because many Helm charts assumed static IAM role ARNs, causing pods to launch without proper permissions. I forked those charts, added dynamic annotations templated via Terraform, and redeployed. This eliminated hard-coded credentials, tightened security, and ensured consistent deployments across environments
+  </p>
+  <p className="overview-subtext">
+  In early deployments, misconfigured OIDC caused pods to fail with access errors, locking the cluster out of key AWS resources. I fixed this by isolating OIDC resources into separate Terraform modules, deploying them first, and validating readiness before any dependent workloads. This secured access and eliminated downtime risks
+  </p>
+  <p className = "overview-subtext">
+  Deploying Jenkins initially failed due to Kubernetes security contexts restricting write access to persistent volumes. I adjusted the Helm values to set fsGroup permissions and configured the storage class properly. This stabilized Jenkins builds and avoided runtime crashes, keeping my pipeline reliable
+  </p>
+  <div className="divider-casestudy full"></div>
+</div>
+
+
 </div>
 <div className="see-it-in-action-section">
   <h2 className="overview-title-text">See it in Action</h2>
