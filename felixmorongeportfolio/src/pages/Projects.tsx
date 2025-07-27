@@ -1,5 +1,5 @@
 import '../styles/Projects.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import FadeInOnScroll from '../components/FadeInOnScroll';
 import MermaidChart from '../components/MermaidChart';
 import cicdpipeline from '../components/charts/cicdpipeline';
@@ -11,6 +11,7 @@ import LegacyIssuesSwipeCards from '../components/LegacyIssuesSwipeCards';
 import '../styles/Tutorial.css';
 import CodeBlock from '../components/CodeBlock';
 import dedent from 'dedent';
+import ChatModal from '../components/ChatModal';
 
 
 
@@ -52,7 +53,7 @@ export default function Projects() {
       document.head.removeChild(script);
     };
   }, []);
-  
+  const [showChatModal, setShowChatModal] = useState(false);
   return (
    
     <div className="projects-main">
@@ -178,7 +179,11 @@ export default function Projects() {
           </FadeInOnScroll>
           <div className="metadata-block">
           <FadeInOnScroll>
-            <h2 className="section-title">Old Infrastack</h2>
+            <h2 className="section-title">Old Infrastack 
+            <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+           </h2>
             <p className="section-subtext">
             Before the Overhaul: Slow Deployments, Manual Errors, and Hidden Costs
             </p>
@@ -207,7 +212,11 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0.5s' }}>
         <div className="architecture-whiteboard">
         <FadeInOnScroll>
-          <h2 className="section-title">Architecture Whiteboard</h2>
+          <h2 className="section-title">Architecture Whiteboard
+          <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+          </h2>
           <p className="section-subtext">Implementation Challenges & Resolutions</p>
           <div className="results-pill-container" style={{ marginTop: '2rem' }}>
   <div className="results-pill">
@@ -262,7 +271,7 @@ export default function Projects() {
 
 
           <div className="whiteboard-body">
-            <p className="whiteboard-heading">Infrastructure Whiteboard</p>
+            <p className="whiteboard-heading">Infrastructure Whiteboard</p>  
             <p className="whiteboard-subtext">I mapped out:</p>
             <ul className="whiteboard-list">
             <li>
@@ -336,7 +345,11 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0.6s' }}>
       <div className="infra-diagrams">
   <FadeInOnScroll>
-    <h2 className="section-title">Infrastructure Diagrams</h2>
+    <h2 className="section-title">Infrastructure Diagrams
+    <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+    </h2>
     <p className="section-subtext">
       Terraform builds, Kubernetes architecture, Jenkins pipeline design
     </p>
@@ -374,7 +387,15 @@ export default function Projects() {
       <div className="fade-in-up" style={{ animationDelay: '0.7s' }}>
   <div className="final-infrastructure">
     <FadeInOnScroll>
-      <h2 className="section-title">Final Infrastructure Pipeline</h2>
+    <h2 className="section-title">
+      Final Infrastructure Pipeline
+      <button
+        className="QnAButton-pill"
+        onClick={() => setShowChatModal(true)}
+      >
+        Learn More
+      </button>
+    </h2>
       <p className="section-subtext">
         Automated deployments from GitHub to Kubernetes with secure builds, TLS, and live updates.
       </p>
@@ -586,7 +607,11 @@ spec:
     <div className="divider-casestudy full"></div>
   </div>
   <div className="battle-story-section">
-    <h2 className="section-title"> Technical Decisions & Trade-Offs</h2>
+    <h2 className="section-title"> Technical Decisions & Trade-Offs
+    <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+    </h2>
     <p className = "overview-subtext">
     I used Helm instead of raw kubectl YAML because Helm templates allowed parameterized, reusable deployments across multiple environments. While Helm’s templating introduced some complexity, it ultimately made the pipeline more maintainable and reduced human error in managing Kubernetes resources
     </p>
@@ -605,7 +630,11 @@ spec:
     <div className="divider-casestudy full"></div>
   </div>
   <div className="battle-story-section">
-  <h2 className="section-title">Troubleshooting & Lessons Learned</h2>
+  <h2 className="section-title">Troubleshooting & Lessons Learned
+  <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+  </h2>
   <p className="overview-subtext">
   This project wasn’t flawless. I faced several challenges that forced me to dig deeper and learn. Overall, it took me 8 tries and 4 Terraform Destorys to get this site up and running
   </p>
@@ -667,7 +696,11 @@ spec:
       <div className="fade-in-up" style={{ animationDelay: '0.8s' }}>
         <div className="results-section">
         <FadeInOnScroll>
-          <h2 className="section-title">Results</h2>
+          <h2 className="section-title">Results
+          <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+          </h2>
           <p className="overview-subtext">
         At Wavform, I collaborated with the founding engineer to tackle 45-minute manual deployments that caused environment drift and security risks from static secrets. To replicate and solve these challenges, I built this portfolio pipeline using Terraform, Helm, Kaniko, and IRSA. I navigated complex hurdles like integrating IRSA into Helm charts for dynamic AWS credentials, ultimately cutting deploys to under 1 minute, eliminating manual errors, and hardening security—mirroring enterprise-scale systems.
         </p>
@@ -695,7 +728,11 @@ spec:
           <div className="fade-in-up" style={{ animationDelay: '0.85s' ,
     padding: '4vh 5vw'}}>
 <div className="whats-next-section" style={{ textAlign: "left" }}>
-  <h2 className="section-title">What's Next</h2>
+  <h2 className="section-title">What's Next
+  <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
+        <ChatModal onClose={() => setShowChatModal(false)} />
+      )}
+  </h2>
   <p className="section-subtext">
     To elevate this pipeline to full enterprise-grade maturity, I’d expand into these areas, each critical not just for technical excellence—but for delivering tangible business value in scalability, security, and reliability:
   </p>

@@ -1,0 +1,166 @@
+Title: Infrastructure & CI/CD Pipeline: Cutting Deploy Times and Delivering Reliable Updates
+Subtitle: Transforming Manual Deployments into Scalable, Automated Infrastructure Using AWS, Terraform, and Kubernetes
+
+---
+
+## About this Project: My Goals
+This case study is a personal learning project I built independently to deepen my DevOps skills. While I’m early in my career, I wanted to challenge myself by designing and deploying an architecture inspired by enterprise-level best practices.
+
+This isn’t running in a production commercial environment. Instead, I set up and tested it in my own AWS account and Kubernetes cluster to simulate a real-world pipeline from scratch. Everything described here—Terraform, ECR, IRSA, Kaniko, Helm, Ingress, SSL—is configured and working in my environment.
+
+---
+
+## Overview: Identifying DevOps Bottlenecks and Architectural Gaps
+When I launched my portfolio site, deploying updates was slow, manual, and error-prone. Hence, I engineered a Kaniko- and Helm-powered Jenkins CI/CD pipeline for Dockerized AWS EKS deployments, slashing release cycles by 98% and accelerating time-to-market for feature delivery.
+
+This pipeline ensures secure, reliable updates, showcasing my ability to simulate production-grade DevOps systems that deliver real business value.   
+The result is a scalable, secure, and automated deployment process mirroring enterprise practices.
+
+---
+
+## Product
+Felix Moronge Portfolio Site — my personal brand platform
+
+## My Role
+Architect & Engineer — designed and implemented the end-to-end infrastructure and CI/CD pipeline.
+
+## Skills
+Infrastructure-as-Code  
+CI/CD Pipeline Design  
+Kubernetes Operations  
+Container Security  
+Observability & Monitoring  
+Fullstack Development
+
+## Tools
+AWS · Docker · Kubernetes · Helm · Jenkins · Terraform · Prometheus — powering secure, automated infrastructure.
+
+---
+
+## Old Infrastack: Before the Overhaul
+Before the Overhaul: Slow Deployments, Manual Errors, and Hidden Costs
+
+Originally, my portfolio ran on a single EC2 instance, provisioned manually. I containerized the frontend with Docker and served it via Nginx and Certbot for SSL.
+
+However, this setup introduced significant limitations.
+
+“This architecture was neither scalable nor resilient enough to reflect production-grade DevOps practices, prompting a complete infrastructure overhaul.”
+
+Legacy Infrastructure Issues:
+1. No CI/CD pipeline, leading to inconsistent builds, deploys taking up to 45 minutes, and delayed feature delivery
+2. Manual SSL and domain setups increased misconfiguration risk, threatening outages and damaging user trust
+3. Built directly on EC2 without isolated pipelines, causing inconsistent environments and raising deployment failure risk by ~40%
+4. No Infrastructure-as-Code, leading to environment drift, manual errors, and costly inconsistencies across deployments
+5. Manually sized resources without templates, causing unpredictable AWS costs and making cost control difficult
+6. No automated rollbacks meant any failed deploy risked downtime, requiring manual fixes and prolonged outages
+7. Manual updates without load balancer orchestration exposed users to errors and downtime during deployments
+8. No blue/green or canary releases meant deploy failures hit live traffic instantly, risking outages and user impact
+9. No automated environment validation let config errors slip into production, causing failures and longer incident resolution times
+10. No version tracking made it hard to trace issues to specific releases, delaying fixes and complicating incident response
+
+---
+
+## Architecture Whiteboard: Implementation Challenges & Resolutions
+
+Infrastructure Whiteboard - I mapped out:
+- CI/CD Pipeline: GitHub → Jenkins → Kaniko → Kubernetes. Fixed slow deploys and errors.
+- EKS Cluster: Custom VPC, ALB ingress, network policies. Solved manual provisioning risks.
+- IRSA: Pods use IAM roles instead of static creds, improving security.
+- Jenkins via Helm: Deployed with TLS, persistent storage. Avoided Helm upgrade issues.
+- DNS & TLS: Automated Route 53 + cert-manager. No manual SSL configs.
+
+Solved Helm immutable errors → Implemented templated Deployments for zero-downtime releases  
+Cut Kaniko build times ~40% → Optimized Docker layers for faster feature delivery and reduced cloud costs  
+Fixed OIDC cluster lockouts → Refined IAM roles to secure access and maintain deployment reliability  
+Unblocked Jenkins volumes on EKS → Adjusted SecurityContext for stable builds  
+Prevented Terraform drift → Added pipeline checks to maintain infra consistency
+
+---
+
+## Infrastructure Diagrams: Key Components
+
+1. Terraform Provisioning: All infra as code — EKS, IAM, Helm, VPCs
+2. Jenkins Helm Deployment: With persistent storage and TLS ingress
+3. Kaniko Build Agent: IRSA-secured builds to ECR, no static creds
+4. Nginx + Vite: Multi-stage Docker setup, fast static delivery
+5. Helm Ingress: TLS termination and traffic routing into Jenkins
+
+---
+
+## Final Infrastructure Pipeline
+
+Highlights:
+- GitHub → Jenkins → EKS deployments via Kaniko
+- Live updates with `kubectl rollout restart`
+- Automated TLS with cert-manager
+- Ingress routing via NGINX IngressController
+
+Challenges:
+- IRSA integration failed due to Helm chart static roles — solved by parameterized Terraform injection
+- Kaniko adds ~30s per build but improves security
+- Helm required patches for IAM templating
+- Jenkins PodTemplates tuned for scale
+- Automated cert provisioning replaces manual Let's Encrypt configs
+
+---
+
+## Jenkinsfile Summary
+
+- Declarative syntax
+- Kaniko containerized builds
+- kubectl rollouts
+- IRSA-enabled role access
+- ECR pushes
+- Staged CI/CD logic in YAML
+
+Benefits:
+- Secure builds without Docker-in-Docker
+- Dynamic IRSA role assumption
+- Fast, isolated image builds
+- Reproducible deployments
+
+---
+
+## Technical Tradeoffs
+
+- Helm vs kubectl: templating wins
+- EKS vs ECS: more control, more complexity
+- IRSA scoped with least privilege
+- Kaniko vs DinD: slower but far safer
+- Declarative vs scripted pipelines: chose readability
+
+---
+
+## Troubleshooting & Lessons Learned
+
+- IRSA integration failed due to hardcoded roles → forked Helm charts and parameterized
+- Terraform success =/= resource readiness → added `depends_on`
+- Cert-manager required public DNS → fixed with temp A record
+- Jenkins failed due to fsGroup → fixed volume permissions
+
+---
+
+## Results
+
+- Cut deploy time from 45 min → <1 min
+- Automated HTTPS → 100% uptime
+- Traceable CI logs
+- Hardened security with IRSA
+
+---
+
+## What’s Next
+
+- Monitoring, Logging, Alerting
+- Secrets Management (Vault / AWS Secrets Manager)
+- Blue/Green Deployments
+- IaC Security Compliance
+- Multi-region resiliency
+
+---
+
+## Reflections
+
+This project pushed me to troubleshoot real-world DevOps problems independently. It’s not a mock setup—it’s an end-to-end infrastructure pipeline I built from scratch.
+
+I'm excited to bring these skills into enterprise-grade teams.

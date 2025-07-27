@@ -34,3 +34,8 @@ html {
   animation: fadeInUp 0.8s ease-out forwards;
   opacity: 0;
 }
+/* index.css or App.css */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100%;
+}

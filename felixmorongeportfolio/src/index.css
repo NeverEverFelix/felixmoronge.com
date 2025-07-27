@@ -35,4 +35,8 @@ section {
       @apply text-base;
     }
   }
-  
+  /* index.css or App.css */
+.no-scroll {
+  overflow: hidden !important;
+  height: 100%;
+}

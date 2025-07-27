@@ -36,3 +36,25 @@ resource "aws_ecr_repository" "portfolio" {
 
   force_delete = true
 }
+
+resource "aws_ecr_repository" "rag_api_go" {
+  name                 = "felixmoronge-rag-api-go"
+  image_tag_mutability = "MUTABLE"
+
+  encryption_configuration {
+    encryption_type = "AES256"
+  }
+
+  force_delete = true
+}
+
+resource "aws_ecr_repository" "rag_embed_py" {
+  name                 = "felixmoronge-rag-embed-py"
+  image_tag_mutability = "MUTABLE"
+
+  encryption_configuration {
+    encryption_type = "AES256"
+  }
+
+  force_delete = true
+}

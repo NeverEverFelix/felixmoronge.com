@@ -150,11 +150,14 @@ padding: 0vh 5vw;
   }
   
   .section-title {
+    display: flex;
     color: #CC00EB !important;
     font-size: clamp(1.2rem, 3vw, 40px) !important;
     font-weight: 500 !important;
     margin-top: -1rem !important;
     text-align: left !important;
+    gap: 0.75rem;
+    align-items: center;
   }
   
   .section-subtext {
@@ -541,3 +544,15 @@ padding: 0vh 5vw;
     flex-direction: column;
     gap: 2vh;
   }
+
+  .QnAButton-pill{
+    background-color: #444;
+    color: white;
+    padding: 0.2rem 0.8rem;   /* ⬅️ reduce vertical padding */
+    border-radius: 9999px;     /* full pill shape */
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.2;          /* tighter height */
+    display: inline-block;
+}
