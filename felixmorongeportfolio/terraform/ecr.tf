@@ -25,6 +25,38 @@ resource "aws_iam_user_policy" "terraform_admin_ecr_inline" {
     ]
   })
 }
+resource "aws_iam_user" "github_actions_embed_api" {
+  name = "github-actions-embed-api"
+}
+
+resource "aws_iam_access_key" "embed_api_key" {
+  user = aws_iam_user.github_actions_embed_api.name
+}
+
+resource "aws_iam_user_policy" "embed_api_ecr_push" {
+  name = "ecr-push-policy"
+  user = aws_iam_user.github_actions_embed_api.name
+
+  policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [
+      {
+        Effect = "Allow",
+        Action = [
+          "ecr:GetAuthorizationToken",
+          "ecr:BatchCheckLayerAvailability",
+          "ecr:PutImage",
+          "ecr:InitiateLayerUpload",
+          "ecr:UploadLayerPart",
+          "ecr:CompleteLayerUpload",
+          "ecr:CreateRepository"
+        ],
+        Resource = "*"
+      }
+    ]
+  })
+}
+
 
 resource "aws_ecr_repository" "portfolio" {
   name                 = "felixmoronge-portfolio"
