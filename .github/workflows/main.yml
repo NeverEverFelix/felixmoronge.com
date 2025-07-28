@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: rag-embed-py
+        working-directory: felixmorongeportfolio/rag-embed-py
 
     env:
       AWS_REGION: us-east-1
