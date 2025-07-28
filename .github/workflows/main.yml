@@ -1,7 +1,7 @@
 name: Build & Deploy embed-api
 
 on:
-  workflow_dispatch:  # manual trigger via GitHub UI
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -36,12 +36,26 @@ jobs:
         docker build -t $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$IMAGE_NAME:$IMAGE_TAG
 
-    - name: Decode kubeconfig
+    - name: Install AWS CLI & kubectl plugin
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+
+        curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+        chmod +x kubectl
+        sudo mv kubectl /usr/local/bin/
+
+    - name: Decode kubeconfig & verify cluster access
       run: |
         echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
         mkdir -p ~/.kube && mv kubeconfig ~/.kube/config
 
+        echo "🔐 Verifying cluster access..."
+        kubectl get nodes
+
     - name: Restart embed-api deployment
       run: |
+        echo "♻️ Restarting embed-api..."
         kubectl rollout restart deployment embed-api -n default
         kubectl rollout status deployment embed-api -n default
