@@ -1,25 +1,40 @@
-# Node.js (Vite + React)
+# --- Node.js (Vite + React) ---
 node_modules/
 dist/
-.env
 .vite/
-
-# macOS
-.DS_Store
-
-# Docker
 *.log
-docker-compose.override.yml
-docker-compose.local.yml
 
-# Kubernetes
+# --- Env files (secrets) ---
+.env
+rag-embed-py/.env
+rag-api-go/.env
+
+# --- Terraform ---
+terraform/
+.terraform/
+*.tfstate
+*.tfstate.backup
+.terraform.lock.hcl
+crash.log
+terraform.tfvars
+
+# --- Kubernetes ---
 *.yaml~
 *.backup
 kubeconfig
 .kube/
 *.kubeconfig
 
-# Jenkins
+# --- Docker ---
+docker-compose.override.yml
+docker-compose.local.yml
+*.tar
+*.tgz
+*.img
+*.iso
+*.zip
+
+# --- Jenkins ---
 secrets/
 var/jenkins_home/
 jenkins_home/
@@ -28,36 +43,24 @@ jenkins_home/
 config.xml
 credentials.xml
 
-# Terraform (if used)
-.terraform/
-*.tfstate
-*.tfstate.backup
-.terraform.lock.hcl
-crash.log
-terraform.tfvars
-
-# VS Code
+# --- VS Code ---
 .vscode/
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+# --- macOS ---
+.DS_Store
 
-# Certbot / SSL
+# --- System junk ---
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# --- Certbot / SSL ---
 /etc/letsencrypt/
 certbot-auto
 *.pem
 *.key
 
-# System junk
-Thumbs.db
-ehthumbs.db
-desktop.ini
-
-# Optional: prevent pushing large artifacts or Docker images
-*.tar
-*.tgz
-*.img
-*.iso
-*.zip
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
