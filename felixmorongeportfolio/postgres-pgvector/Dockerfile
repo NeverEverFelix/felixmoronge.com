@@ -12,4 +12,8 @@ RUN git clone --branch v0.5.1 https://github.com/pgvector/pgvector.git \
   && make install \
   && cd .. && rm -rf pgvector
 
+# Copy SQL init script to auto-enable pgvector at container startup
+COPY pgvector-init.sql /docker-entrypoint-initdb.d/
+
+# Revert to non-root user
 USER 1001

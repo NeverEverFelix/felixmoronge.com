@@ -179,11 +179,7 @@ export default function Projects() {
           </FadeInOnScroll>
           <div className="metadata-block">
           <FadeInOnScroll>
-            <h2 className="section-title">Old Infrastack 
-            <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
-           </h2>
+       
             <p className="section-subtext">
             Before the Overhaul: Slow Deployments, Manual Errors, and Hidden Costs
             </p>
