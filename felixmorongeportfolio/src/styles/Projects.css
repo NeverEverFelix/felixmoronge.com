@@ -545,7 +545,7 @@ padding: 0vh 5vw;
     gap: 2vh;
   }
 
-  .QnAButton-pill{
+  .QnAButton-pilll{
     background-color: #444;
     color: white;
     padding: 0.2rem 0.8rem;   /* ⬅️ reduce vertical padding */
@@ -555,4 +555,17 @@ padding: 0vh 5vw;
     letter-spacing: 0.05em;
     line-height: 1.2;          /* tighter height */
     display: inline-block;
+}
+.QnAButton-pill{
+  visibility: hidden;
+  display: none;
+  background-color: #444;
+  color: white;
+  padding: 0.2rem 0.8rem;   /* ⬅️ reduce vertical padding */
+  border-radius: 9999px;     /* full pill shape */
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;          /* tighter height */
+  display: inline-block;
 }
