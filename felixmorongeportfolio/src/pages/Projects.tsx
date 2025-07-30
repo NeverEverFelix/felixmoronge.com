@@ -209,9 +209,6 @@ export default function Projects() {
         <div className="architecture-whiteboard">
         <FadeInOnScroll>
           <h2 className="section-title">Architecture Whiteboard
-          <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
           </h2>
           <p className="section-subtext">Implementation Challenges & Resolutions</p>
           <div className="results-pill-container" style={{ marginTop: '2rem' }}>
@@ -342,9 +339,6 @@ export default function Projects() {
       <div className="infra-diagrams">
   <FadeInOnScroll>
     <h2 className="section-title">Infrastructure Diagrams
-    <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
     </h2>
     <p className="section-subtext">
       Terraform builds, Kubernetes architecture, Jenkins pipeline design
@@ -604,9 +598,7 @@ spec:
   </div>
   <div className="battle-story-section">
     <h2 className="section-title"> Technical Decisions & Trade-Offs
-    <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
+    
     </h2>
     <p className = "overview-subtext">
     I used Helm instead of raw kubectl YAML because Helm templates allowed parameterized, reusable deployments across multiple environments. While Helm’s templating introduced some complexity, it ultimately made the pipeline more maintainable and reduced human error in managing Kubernetes resources
@@ -627,9 +619,6 @@ spec:
   </div>
   <div className="battle-story-section">
   <h2 className="section-title">Troubleshooting & Lessons Learned
-  <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
   </h2>
   <p className="overview-subtext">
   This project wasn’t flawless. I faced several challenges that forced me to dig deeper and learn. Overall, it took me 8 tries and 4 Terraform Destorys to get this site up and running
@@ -693,9 +682,7 @@ spec:
         <div className="results-section">
         <FadeInOnScroll>
           <h2 className="section-title">Results
-          <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
+       
           </h2>
           <p className="overview-subtext">
         At Wavform, I collaborated with the founding engineer to tackle 45-minute manual deployments that caused environment drift and security risks from static secrets. To replicate and solve these challenges, I built this portfolio pipeline using Terraform, Helm, Kaniko, and IRSA. I navigated complex hurdles like integrating IRSA into Helm charts for dynamic AWS credentials, ultimately cutting deploys to under 1 minute, eliminating manual errors, and hardening security—mirroring enterprise-scale systems.
@@ -725,9 +712,7 @@ spec:
     padding: '4vh 5vw'}}>
 <div className="whats-next-section" style={{ textAlign: "left" }}>
   <h2 className="section-title">What's Next
-  <button className="QnAButton-pill" onClick={() => setShowChatModal(true)} >Learn More</button> {showChatModal && (
-        <ChatModal onClose={() => setShowChatModal(false)} />
-      )}
+  
   </h2>
   <p className="section-subtext">
     To elevate this pipeline to full enterprise-grade maturity, I’d expand into these areas, each critical not just for technical excellence—but for delivering tangible business value in scalability, security, and reliability:
