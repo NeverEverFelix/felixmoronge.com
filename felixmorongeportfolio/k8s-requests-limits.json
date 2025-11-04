@@ -1,0 +1,417 @@
+[
+  {
+    "ns": "cert-manager",
+    "name": "cert-manager-cainjector-698464d9bb-9xhxn",
+    "containers": [
+      {
+        "cname": "cert-manager-cainjector",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "cert-manager",
+    "name": "cert-manager-d7db49bf4-jjsfg",
+    "containers": [
+      {
+        "cname": "cert-manager-controller",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "cert-manager",
+    "name": "cert-manager-webhook-f6c9958d-47r6c",
+    "containers": [
+      {
+        "cname": "cert-manager-webhook",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "default",
+    "name": "embed-api-5cd6c9ccf4-ztkdq",
+    "containers": [
+      {
+        "cname": "embed-api",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "default",
+    "name": "felix-portfolio-78478f775d-xckck",
+    "containers": [
+      {
+        "cname": "felix-portfolio",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "default",
+    "name": "go-api-9dbcf9bb9-r2sgg",
+    "containers": [
+      {
+        "cname": "go-api",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "default",
+    "name": "postgres-7c8ffdb7d4-lv2tm",
+    "containers": [
+      {
+        "cname": "postgres",
+        "reqs": {
+          "cpu": "250m",
+          "memory": "256Mi"
+        },
+        "lims": {
+          "cpu": "500m",
+          "memory": "512Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "ingress-nginx",
+    "name": "nginx-ingress-ingress-nginx-controller-76c8b6dd46-wpdst",
+    "containers": [
+      {
+        "cname": "controller",
+        "reqs": {
+          "cpu": "100m",
+          "memory": "90Mi"
+        },
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "jenkins",
+    "name": "jenkins-0",
+    "containers": [
+      {
+        "cname": "jenkins",
+        "reqs": {
+          "cpu": "50m",
+          "memory": "256Mi"
+        },
+        "lims": {
+          "cpu": "2",
+          "memory": "4Gi"
+        }
+      },
+      {
+        "cname": "config-reload",
+        "reqs": null,
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "aws-node-qgm5n",
+    "containers": [
+      {
+        "cname": "aws-node",
+        "reqs": {
+          "cpu": "25m"
+        },
+        "lims": null
+      },
+      {
+        "cname": "aws-eks-nodeagent",
+        "reqs": {
+          "cpu": "25m"
+        },
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "aws-node-w5jd4",
+    "containers": [
+      {
+        "cname": "aws-node",
+        "reqs": {
+          "cpu": "25m"
+        },
+        "lims": null
+      },
+      {
+        "cname": "aws-eks-nodeagent",
+        "reqs": {
+          "cpu": "25m"
+        },
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "coredns-54d6f577c6-2ncgs",
+    "containers": [
+      {
+        "cname": "coredns",
+        "reqs": {
+          "cpu": "100m",
+          "memory": "70Mi"
+        },
+        "lims": {
+          "memory": "170Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "coredns-54d6f577c6-ntfnf",
+    "containers": [
+      {
+        "cname": "coredns",
+        "reqs": {
+          "cpu": "100m",
+          "memory": "70Mi"
+        },
+        "lims": {
+          "memory": "170Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "ebs-csi-controller-5bfdbf66c7-wxjcz",
+    "containers": [
+      {
+        "cname": "ebs-plugin",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "csi-provisioner",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "csi-attacher",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "csi-resizer",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "liveness-probe",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "ebs-csi-controller-5bfdbf66c7-z48k2",
+    "containers": [
+      {
+        "cname": "ebs-plugin",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "csi-provisioner",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "csi-attacher",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "csi-resizer",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "liveness-probe",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "ebs-csi-node-rbssr",
+    "containers": [
+      {
+        "cname": "ebs-plugin",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "node-driver-registrar",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "liveness-probe",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "ebs-csi-node-s9sql",
+    "containers": [
+      {
+        "cname": "ebs-plugin",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "node-driver-registrar",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      },
+      {
+        "cname": "liveness-probe",
+        "reqs": {
+          "cpu": "10m",
+          "memory": "40Mi"
+        },
+        "lims": {
+          "memory": "256Mi"
+        }
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "kube-proxy-cxx92",
+    "containers": [
+      {
+        "cname": "kube-proxy",
+        "reqs": {
+          "cpu": "100m"
+        },
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "kube-system",
+    "name": "kube-proxy-np4g9",
+    "containers": [
+      {
+        "cname": "kube-proxy",
+        "reqs": {
+          "cpu": "100m"
+        },
+        "lims": null
+      }
+    ]
+  },
+  {
+    "ns": "vector-db",
+    "name": "pgvector-postgresql-0",
+    "containers": [
+      {
+        "cname": "postgresql",
+        "reqs": {
+          "cpu": "250m",
+          "memory": "256Mi"
+        },
+        "lims": null
+      }
+    ]
+  }
+]

@@ -51,7 +51,7 @@ jobs:
         echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > kubeconfig
         mkdir -p ~/.kube && mv kubeconfig ~/.kube/config
 
-        echo "🔐 Verifying cluster access..."
+        echo " Verifying cluster access..."
         kubectl get nodes
 
     - name: Restart embed-api deployment

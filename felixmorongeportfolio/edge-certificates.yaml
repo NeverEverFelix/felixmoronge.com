@@ -1,0 +1,79 @@
+apiVersion: v1
+items:
+- apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"cert-manager.io/v1","kind":"Certificate","metadata":{"annotations":{},"name":"portfolio-cert","namespace":"default"},"spec":{"commonName":"www.felixmoronge.com","dnsNames":["www.felixmoronge.com"],"issuerRef":{"kind":"ClusterIssuer","name":"letsencrypt-prod"},"secretName":"portfolio-tls","usages":["digital signature","key encipherment"]}}
+    creationTimestamp: "2025-06-05T16:47:32Z"
+    generation: 2
+    name: portfolio-cert
+    namespace: default
+    resourceVersion: "20183151"
+    uid: c8348dd5-d48d-4e99-a4e9-9b53638878b0
+  spec:
+    commonName: www.felixmoronge.com
+    dnsNames:
+    - www.felixmoronge.com
+    issuerRef:
+      kind: ClusterIssuer
+      name: letsencrypt-prod
+    secretName: portfolio-tls
+    usages:
+    - digital signature
+    - key encipherment
+  status:
+    conditions:
+    - lastTransitionTime: "2025-06-05T17:07:57Z"
+      message: Certificate is up to date and has not expired
+      observedGeneration: 2
+      reason: Ready
+      status: "True"
+      type: Ready
+    notAfter: "2025-11-02T15:11:16Z"
+    notBefore: "2025-08-04T15:11:17Z"
+    renewalTime: "2025-10-03T15:11:16Z"
+    revision: 2
+- apiVersion: cert-manager.io/v1
+  kind: Certificate
+  metadata:
+    creationTimestamp: "2025-06-05T17:13:00Z"
+    generation: 1
+    name: portfolio-tls
+    namespace: default
+    ownerReferences:
+    - apiVersion: networking.k8s.io/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: Ingress
+      name: portfolio-ingress
+      uid: 96c773a1-ff9d-4e43-a8a1-a93cb8cf62cf
+    resourceVersion: "20183147"
+    uid: 38a0f503-d38b-4448-9d5f-9ce6c262884f
+  spec:
+    dnsNames:
+    - www.felixmoronge.com
+    issuerRef:
+      group: cert-manager.io
+      kind: ClusterIssuer
+      name: letsencrypt-prod
+    secretName: portfolio-tls
+    usages:
+    - digital signature
+    - key encipherment
+  status:
+    conditions:
+    - lastTransitionTime: "2025-06-05T17:13:00Z"
+      message: Secret was issued for "portfolio-cert". If this message is not transient,
+        you might have two conflicting Certificates pointing to the same secret.
+      observedGeneration: 1
+      reason: IncorrectCertificate
+      status: "False"
+      type: Ready
+    notAfter: "2025-11-02T15:11:16Z"
+    notBefore: "2025-08-04T15:11:17Z"
+    renewalTime: "2025-10-03T15:11:16Z"
+kind: List
+metadata:
+  resourceVersion: ""
