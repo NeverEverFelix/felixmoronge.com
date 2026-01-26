@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   // GitHub Pages project site base path:
   // https://nevereverfelix.github.io/felixmoronge.com/
-  base: '/felixmoronge.com/',
+  base: '/',
   css: {
     postcss: './postcss.config.cjs',
   },
