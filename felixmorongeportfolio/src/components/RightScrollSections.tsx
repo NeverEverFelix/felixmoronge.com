@@ -142,8 +142,8 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                         <WorkModal
                           logo="/wavformLogo.png"
                           company="Wavform, LLC"
-                          role="DevOps Engineer Intern"
-                          description="Sole DevOps Engineer responsible for the end-to-end design and implementation of Wavform’s cloud infrastructure. Built a hybrid CI/CD pipeline using GitHub Actions and Jenkins, cutting deployment time by 40%. Deployed services to Kubernetes clusters using blue-green deployment strategies, service mesh, and auto-scaling. Provisioned AWS EC2, ALB, and EKS via Terraform and Helm, establishing repeatable IaC patterns. Integrated PostHog-based telemetry into deployment gates for analytics-driven rollbacks and phased releases. Secured infrastructure with AWS Secrets Manager, and authored full onboarding docs—reducing infra ramp-up time by 60%."
+                          role="Software Engineer"
+                          description="Built and supported a production web application end to end, including feature development, deployment, and ongoing maintenance. Automated testing and release workflows to improve reliability, investigated and fixed issues in live environments, and documented system behavior and setup to support future development and handoff."
                           onClose={closeModal}
                         />
                       )}

@@ -18,14 +18,12 @@ export default function HeroSection({ activeSection, onSectionClick }: Props) {
         </h1>
         
         <h2 className="fade-in-up" style={{ animationDelay: '0.6s' , opacity: 0,fontWeight: 400,'--final-opacity': '0.7' } as React.CSSProperties}>
-          DevOps Engineer
+          Software Engineer
         </h2>
         
         <p className="fade-in-up"  style={{ animationDelay: '0.8s' }}>
-          I design and automate scalable infrastructure using AWS, Docker, Kubernetes, and Terraform. 
-          From building CI/CD pipelines to deploying cloud-native apps, I’ve delivered production-grade 
-          systems for startups and AI-driven platforms. Whether it’s zero-downtime deploys, real-time 
-          observability, or seamless automation—I ship fast, reliable code that powers real users.
+        I build, test, and maintain software systems with a focus on reliability, clarity, and real-world use.
+        I’ve worked across the full development lifecycle—implementing features, debugging issues, automating repeatable tasks, and deploying applications in cloud environments. My experience emphasizes writing clear, maintainable code, validating functionality through testing, and supporting production systems used by real users.
         </p>
       </div>
 

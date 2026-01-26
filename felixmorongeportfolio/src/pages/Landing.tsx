@@ -10,7 +10,7 @@ export default function Landing() {
   const sectionRefs = useRef<Record<string, HTMLElement | null>>({});
   useEffect(() => {
     // Set <title>
-    document.title = "Felix Moronge | DevOps Engineer Portfolio";
+    document.title = "Felix Moronge | Software Engineer Portfolio";
 
     // Canonical link
     const canonical = document.createElement('link');
@@ -36,7 +36,7 @@ export default function Landing() {
         "@type": "Organization",
         "name": "Independent Portfolio"
       },
-      "description": "DevOps engineer portfolio for Felix Moronge, showcasing infrastructure design, CI/CD pipelines, Kubernetes deployments, and scalable project architectures."
+      "description": "Software engineer portfolio for Felix Moronge, showcasing infrastructure design, CI/CD pipelines, Kubernetes deployments, and scalable project architectures."
     });
 
     document.head.appendChild(script);
