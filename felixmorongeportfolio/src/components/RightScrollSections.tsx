@@ -82,7 +82,7 @@ export default function RightScrollSections({ setActiveSection, sectionRefs }: P
                   </a>
                 </div> */}
                 <div className="fade-in-up" style={{ animationDelay: '0.4s' }}>
-                  <a href="/Enterprise-Grade CI/CD Case Study" style={{ textDecoration: 'none', width: '100%' }}>
+                  <a href="/case-studies/cicd" style={{ textDecoration: 'none', width: '100%' }}>
                     <ContentCard variant="plain">
                       <img
                         src="/DevOpsPortfolioSite.png"
